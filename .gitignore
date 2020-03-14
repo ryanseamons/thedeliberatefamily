@@ -1,6 +1,0 @@
-node_modules/
-dist/
-.publish/
-.DS_Store
-.tmp
-src/.tmp/
