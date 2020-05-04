@@ -5,586 +5,314 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,400i,600,700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Lora:300,400,400i,600,700&display=swap" rel="stylesheet">
-    <link rel="icon" type="image/png" sizes="32x32" href="assets/img/deliberate-family-favicon.png">
-
     <!-- Libs CSS -->
-    <link rel="stylesheet" href="./assets/fonts/Feather/feather.css">
+    <link rel="stylesheet" href="./assets/libs/@fancyapps/fancybox/dist/jquery.fancybox.min.css">
+    <link rel="stylesheet" href="./assets/libs/aos/dist/aos.css">
+    <link rel="stylesheet" href="./assets/libs/flag-icon-css/css/flag-icon.min.css">
     <link rel="stylesheet" href="./assets/libs/flickity/dist/flickity.min.css">
     <link rel="stylesheet" href="./assets/libs/flickity-fade/flickity-fade.css">
-    <link rel="stylesheet" href="./assets/libs/aos/dist/aos.css">
-    <link rel="stylesheet" href="./assets/libs/jarallax/dist/jarallax.css">
     <link rel="stylesheet" href="./assets/libs/highlightjs/styles/vs2015.css">
-    <link rel="stylesheet" href="./assets/libs/@fancyapps/fancybox/dist/jquery.fancybox.min.css">
+    <link rel="stylesheet" href="./assets/libs/jarallax/dist/jarallax.css">
+    <link rel="stylesheet" href="./assets/fonts/feather/feather.css">
 
-    <!-- Map -->
-    <link href='https://api.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.css' rel='stylesheet' />
+    <!-- 
+      Theme Sans Serif CSS
+      Remove the "disabled" attribute if you want to enable Sans Serif for headings.
+    -->
+    <link rel="stylesheet" href="./assets/css/theme-sans-serif.min.css" id="themeSansSerif" disabled>
+
+    <!--
+      Demo JS
+      Remove the code below on a production website.
+    -->
+    <script src="./assets/js/demo.min.js"></script>
 
     <!-- Theme CSS -->
     <link rel="stylesheet" href="./assets/css/theme.min.css">
 
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.9.0/css/all.css" integrity="sha384-i1LQnF23gykqWXg6jxC2ZbCbUMxyw5gLZY6UiUS98LYV5unm8GWmfkIS6jqJfb4E" crossorigin="anonymous">
+    <title>Goodkit</title>
 
-    <!-- Google Analytics Script -->
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-5246170-12"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-
-      gtag('config', 'UA-5246170-12');
-    </script>
-    <!-- Fullstory Script -->
-    <script>
-    window['_fs_debug'] = false;
-    window['_fs_host'] = 'fullstory.com';
-    window['_fs_org'] = 'N9EAF';
-    window['_fs_namespace'] = 'FS';
-    (function(m,n,e,t,l,o,g,y){
-        if (e in m) {if(m.console && m.console.log) { m.console.log('FullStory namespace conflict. Please set window["_fs_namespace"].');} return;}
-        g=m[e]=function(a,b,s){g.q?g.q.push([a,b,s]):g._api(a,b,s);};g.q=[];
-        o=n.createElement(t);o.async=1;o.crossOrigin='anonymous';o.src='https://'+_fs_host+'/s/fs.js';
-        y=n.getElementsByTagName(t)[0];y.parentNode.insertBefore(o,y);
-        g.identify=function(i,v,s){g(l,{uid:i},s);if(v)g(l,v,s)};g.setUserVars=function(v,s){g(l,v,s)};g.event=function(i,v,s){g('event',{n:i,p:v},s)};
-        g.shutdown=function(){g("rec",!1)};g.restart=function(){g("rec",!0)};
-        g.log = function(a,b) { g("log", [a,b]) };
-        g.consent=function(a){g("consent",!arguments.length||a)};
-        g.identifyAccount=function(i,v){o='account';v=v||{};v.acctId=i;g(o,v)};
-        g.clearUserCookie=function(){};
-    })(window,document,window['_fs_namespace'],'script','user');
-    </script>
-
-    <title>Landkit</title>
   </head>
-  <body class="pt-10 bg-light">
+  <body>
 
-    <!-- MODALS
-    ================================================== -->
-    <!-- Example -->
-    <div class="modal fade" id="modalExitIntent" tabindex="-1" role="dialog" aria-labelledby="modalExampleTitle" aria-hidden="true">
-      <div class="modal-dialog" role="document">
+    <!-- MODALS -->
+    <!-- Sign in -->
+    <div class="modal fade" id="modalSignIn" tabindex="-1" role="dialog" aria-labelledby="modalSignInHeading" aria-hidden="true">
+      <div class="modal-dialog modal-sm modal-dialog-centered" role="document">
         <div class="modal-content">
-          <div class="modal-body">
+          <div class="modal-body text-center">
 
             <!-- Close -->
-            <button type="button" id="modalExitIntentClose" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">×</span>
+            <button class="modal-close close" data-dismiss="modal" type="button" aria-label="Close">
+              <span aria-hidden="true">
+                <i class="fe fe-x"></i>
+              </span>
             </button>
 
-            <!-- Image -->
-            <div class="text-center">
-              <img src="../assets/img/illustrations/illustration-1.png" alt="..." class="img-fluid mb-3" style="width: 200px;">
-            </div>
-
             <!-- Heading -->
-            <h2 class="font-weight-bold text-center mb-1" id="modalExampleTitle">
-              Schedule a demo with us
-            </h2>
+            <h1 class="mb-4" id="modalSignInHeading">
+              Sign In
+            </h1>
 
             <!-- Text -->
-            <p class="font-size-lg text-center text-muted mb-6 mb-md-8">
-              We can help you solve company communication.
+            <p>
+              Don’t have an account? <a href="sign-up.html">Sign up</a>
             </p>
 
             <!-- Form -->
-            <form>
-              <div class="row">
-                <div class="col-12 col-md-6">
+            <form class="mb-6">
 
-                  <!-- First name -->
-                  <div class="form-label-group">
-                    <input type="text" class="form-control form-control-flush" id="registrationFirstNameModal" placeholder="First name">
-                    <label for="registrationFirstNameModal">First name</label>
+              <!-- Email -->
+              <div class="form-group">
+                <label class="sr-only" for="signInEmail">
+                  Your email
+                </label>
+                <input class="form-control" id="signInEmail" type="email" placeholder="Your email">
+              </div>
+
+              <!-- Password -->
+              <div class="form-group">
+                <div class="input-group inpit-group-merge">
+                  <input class="form-control" id="signInPassword" placeholder="Your password" type="password" aria-label="Your password" aria-describedby="signInPasswordCaption">
+                  <div class="input-group-append">
+                    <a class="input-group-text text-decoration-none text-gray-500" id="signInPasswordCaption" data-toggle="password" href="#signInPassword">
+                      <i class="fe fe-eye"></i>
+                    </a>
                   </div>
-
-                </div>
-                <div class="col-12 col-md-6">
-
-                  <!-- Last name -->
-                  <div class="form-label-group">
-                    <input type="text" class="form-control form-control-flush" id="registrationLastNameModal" placeholder="Last name">
-                    <label for="registrationLastNameModal">Last name</label>
-                  </div>
-
                 </div>
               </div>
-              <div class="row">
-                <div class="col-12 col-md-6">
 
-                  <!-- Email -->
-                  <div class="form-label-group">
-                    <input type="email" class="form-control form-control-flush" id="registrationEmailModal" placeholder="Email">
-                    <label for="registrationEmailModal">Email</label>
-                  </div>
+              <!-- Button -->
+              <button class="btn btn-block btn-primary">
+                Sign in
+              </button>
 
-                </div>
-                <div class="col-12 col-md-6">
-
-                  <!-- Password -->
-                  <div class="form-label-group">
-                    <input type="password" class="form-control form-control-flush" id="registrationPasswordModal" placeholder="Password">
-                    <label for="registrationPasswordModal">Password</label>
-                  </div>
-
-                </div>
-              </div>
-              <div class="row">
-                <div class="col-12">
-              
-                  <!-- Submit -->
-                  <button class="btn btn-block btn-primary mt-3 lift">
-                    Request a demo
-                  </button>
-
-                </div>
-              </div>
             </form>
-      
+
+            <!-- Link -->
+            <a class="font-size-sm" href="password-reset.html">
+              Forgot your password?
+            </a>
+
           </div>
         </div>
       </div>
     </div>
 
-
-
-
-    <!-- Example -->
-    <div class="modal fade" id="modalExample" tabindex="-1" role="dialog" aria-labelledby="modalExampleTitle" aria-hidden="true">
-      <div class="modal-dialog" role="document">
+    <!-- Sign up -->
+    <div class="modal fade" id="modalSignUp" tabindex="-1" role="dialog" aria-labelledby="modalSignUpHeading" aria-hidden="true">
+      <div class="modal-dialog modal-sm modal-dialog-centered" role="document">
         <div class="modal-content">
-          <div class="modal-body">
+          <div class="modal-body text-center">
 
             <!-- Close -->
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">×</span>
+            <button class="modal-close close" data-dismiss="modal" type="button" aria-label="Close">
+              <span aria-hidden="true">
+                <i class="fe fe-x"></i>
+              </span>
             </button>
 
-            <!-- Image -->
-            <div class="text-center">
-              <img src="../assets/img/illustrations/illustration-1.png" alt="..." class="img-fluid mb-3" style="width: 200px;">
-            </div>
-
             <!-- Heading -->
-            <h2 class="font-weight-bold text-center mb-1" id="modalExampleTitle">
-              Schedule a demo with us
-            </h2>
+            <h1 class="mb-4" id="modalSignUpHeading">
+              Sign Up
+            </h1>
 
             <!-- Text -->
-            <p class="font-size-lg text-center text-muted mb-6 mb-md-8">
-              We can help you solve company communication.
+            <p>
+              Create beautiful marketing websites in hours instead of weeks.
             </p>
 
             <!-- Form -->
-            <form>
-              <div class="row">
-                <div class="col-12 col-md-6">
+            <form class="mb-6">
 
-                  <!-- First name -->
-                  <div class="form-label-group">
-                    <input type="text" class="form-control form-control-flush" id="registrationFirstNameModal" placeholder="First name">
-                    <label for="registrationFirstNameModal">First name</label>
+              <!-- Email -->
+              <div class="form-group">
+                <label class="sr-only" for="signUpEmail">
+                  Your email
+                </label>
+                <input class="form-control" id="signUpEmail" type="email" placeholder="Your email">
+              </div>
+
+              <!-- Password -->
+              <div class="form-group">
+                <div class="input-group inpit-group-merge">
+                  <input class="form-control" id="signUpPassword" placeholder="Your password" type="password" aria-label="Your password" aria-describedby="signUpPasswordCaption">
+                  <div class="input-group-append">
+                    <a class="input-group-text text-decoration-none text-gray-500" id="signUpPasswordCaption" data-toggle="password" href="#signUpPassword">
+                      <i class="fe fe-eye"></i>
+                    </a>
                   </div>
-
-                </div>
-                <div class="col-12 col-md-6">
-
-                  <!-- Last name -->
-                  <div class="form-label-group">
-                    <input type="text" class="form-control form-control-flush" id="registrationLastNameModal" placeholder="Last name">
-                    <label for="registrationLastNameModal">Last name</label>
-                  </div>
-
                 </div>
               </div>
-              <div class="row">
-                <div class="col-12 col-md-6">
 
-                  <!-- Email -->
-                  <div class="form-label-group">
-                    <input type="email" class="form-control form-control-flush" id="registrationEmailModal" placeholder="Email">
-                    <label for="registrationEmailModal">Email</label>
-                  </div>
+              <!-- Button -->
+              <button class="btn btn-block btn-primary">
+                Sign up
+              </button>
 
-                </div>
-                <div class="col-12 col-md-6">
-
-                  <!-- Password -->
-                  <div class="form-label-group">
-                    <input type="password" class="form-control form-control-flush" id="registrationPasswordModal" placeholder="Password">
-                    <label for="registrationPasswordModal">Password</label>
-                  </div>
-
-                </div>
-              </div>
-              <div class="row">
-                <div class="col-12">
-              
-                  <!-- Submit -->
-                  <button class="btn btn-block btn-primary mt-3 lift">
-                    Request a demo
-                  </button>
-
-                </div>
-              </div>
             </form>
-      
+
+            <!-- Link -->
+            <small class="text-muted">
+              Already have an account? <a href="sign-in.html">Login</a>
+            </small>
+
           </div>
         </div>
       </div>
     </div>
 
-    <!-- Signup: Horizontal  -->
-    <div class="modal fade" id="modalSignupHorizontal" tabindex="-1" role="dialog" aria-labelledby="modalSignupHorizontalTitle" aria-hidden="true">
-      <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+    <!-- Password reset -->
+    <div class="modal fade" id="modalPasswordReset" tabindex="-1" role="dialog" aria-labelledby="modalPasswordResetHeading" aria-hidden="true">
+      <div class="modal-dialog modal-sm modal-dialog-centered" role="document">
         <div class="modal-content">
-          <div class="card card-row">
-            <div class="row no-gutters">
-              <div class="col-12 col-md-6 bg-cover card-img-left" style="background-image: url(./assets/img/photos/photo-8.jpg);">
-
-                <!-- Image (placeholder) -->
-                <img src="./assets/img/photos/photo-8.jpg" alt="..." class="img-fluid d-md-none invisible">
-
-                <!-- Shape -->
-                <div class="shape shape-right shape-fluid-y svg-shim text-white d-none d-md-block">
-                  <svg viewBox="0 0 112 690" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M116 0H51V172C76 384 0 517 0 517V690H116V0Z" fill="currentColor"/>
-                  </svg>
-                </div>
-
-              </div>
-              <div class="col-12 col-md-6">
-                <div class="card-body">
-
-                  <!-- Close -->
-                  <button type="button" class="modal-close close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">×</span>
-                  </button>
-              
-                  <!-- Heading -->
-                  <h2 class="mb-0 font-weight-bold text-center" id="modalSignupHorizontalTitle">
-                    Sign Up
-                  </h2>
-
-                  <!-- Text -->
-                  <p class="mb-6 text-center text-muted">
-                    Simplify your workflow in minutes.
-                  </p>
-
-                  <!-- Form -->
-                  <form class="mb-6">
-
-                    <!-- Email -->
-                    <div class="form-group">
-                      <label class="sr-only" for="modalSignupHorizontalEmail">
-                        Your email
-                      </label>
-                      <input type="email" class="form-control" id="modalSignupHorizontalEmail" placeholder="Your email">
-                    </div>
-
-                    <!-- Password -->
-                    <div class="form-group mb-5">
-                      <label class="sr-only" for="modalSignupHorizontalPassword">
-                        Create a password
-                      </label>
-                      <input type="password" class="form-control" id="modalSignupHorizontalPassword" placeholder="Create a password">
-                    </div>
-
-                    <!-- Submit -->
-                    <button class="btn btn-block btn-primary" type="submit">
-                      Sign up
-                    </button>
-
-                  </form>
-
-                  <!-- Text -->
-                  <p class="mb-0 font-size-sm text-center text-muted">
-                    Already have an account? <a href="./signin-illustration.html">Log in</a>.
-                  </p>
-
-                </div>
-              </div>
-
-            </div> <!-- / .row -->
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Signup: Vertical  -->
-    <div class="modal fade" id="modalSignupVertical" tabindex="-1" role="dialog" aria-labelledby="modalSignupVerticalTitle" aria-hidden="true">
-      <div class="modal-dialog modal-dialog-centered" role="document">
-        <div class="modal-content">
-          <div class="card">
+          <div class="modal-body text-center">
 
             <!-- Close -->
-            <button type="button" class="modal-close close text-white" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">×</span>
+            <button class="modal-close close" data-dismiss="modal" type="button" aria-label="Close">
+              <span aria-hidden="true">
+                <i class="fe fe-x"></i>
+              </span>
+            </button>
+
+            <!-- Heading -->
+            <h1 class="display-4 mb-4" id="modalPasswordResetHeading">
+              Password reset
+            </h1>
+
+            <!-- Text -->
+            <p class="text-muted">
+              Enter your email to reset your password.
+            </p>
+
+            <!-- Form -->
+            <form class="mb-6">
+
+              <!-- Email -->
+              <div class="form-group">
+                <label class="sr-only" for="passwordResetEmail">
+                  Your email
+                </label>
+                <input class="form-control" id="passwordResetEmail" type="email" placeholder="Your email">
+              </div>
+
+              <!-- Button -->
+              <button class="btn btn-block btn-primary">
+                Reset password
+              </button>
+
+            </form>
+
+            <!-- Text -->
+            <small class="text-muted">
+              Remember your password? <a href="sign-in.html">Log in</a>.
+            </small>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Sale -->
+    <div class="modal fade" id="modalSale" tabindex="-1" role="dialog" aria-labelledby="modalSaleHeading" aria-hidden="true">
+      <div class="modal-dialog modal-sm modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-body text-center">
+
+            <!-- Close -->
+            <button class="modal-close close" data-dismiss="modal" type="button" aria-label="Close">
+              <span aria-hidden="true">
+                <i class="fe fe-x"></i>
+              </span>
             </button>
 
             <!-- Image -->
-            <img src="./assets/img/photos/photo-7.jpg" alt="..." class="card-img-top">
+            <img class="img-fluid mb-4 mt-n11" src="./assets/img/illustrations/illustration-4.png" alt="...">
 
-            <!-- Shape -->
-            <div class="position-relative">
-              <div class="shape shape-bottom shape-fluid-x svg-shim text-white">
-                <svg viewBox="0 0 2880 480" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path fill-rule="evenodd" clip-rule="evenodd" d="M2160 0C1440 240 720 240 720 240H0V480H2880V0H2160Z" fill="currentColor"/>
-                </svg>
+            <!-- Heading -->
+            <h1 class="mb-4" id="modalSaleHeading">
+              30 Day Free Trial
+            </h1>
+
+            <!-- Text -->
+            <p class="text-muted">
+              We’ll help you get started by getting you guides and all the basic informaiton.
+            </p>
+
+            <!-- Form -->
+            <form class="mb-6">
+
+              <!-- Email -->
+              <div class="form-group">
+                <label class="sr-only" for="saleModalEmail">
+                  Your email
+                </label>
+                <input class="form-control" id="saleModalEmail" type="email" placeholder="Your email">
               </div>
-            </div>
 
-            <!-- Body -->
-            <div class="card-body">
+              <!-- Button -->
+              <button class="btn btn-block btn-primary">
+                Start Trial
+              </button>
 
-              <!-- Heading -->
-              <h2 class="mb-0 font-weight-bold text-center" id="modalSignupVerticalTitle">
-                Sign Up
-              </h2>
+            </form>
 
-              <!-- Text -->
-              <p class="mb-6 text-center text-muted">
-                Simplify your workflow in minutes.
-              </p>
-
-              <!-- Form -->
-              <form class="mb-6">
-
-                <!-- Email -->
-                <div class="form-group">
-                  <label class="sr-only" for="modalSignupVerticalEmail">
-                    Your email
-                  </label>
-                  <input type="email" class="form-control" id="modalSignupVerticalEmail" placeholder="Your email">
-                </div>
-
-                <!-- Password -->
-                <div class="form-group mb-5">
-                  <label class="sr-only" for="modalSignupVerticalPassword">
-                    Create a password
-                  </label>
-                  <input type="password" class="form-control" id="modalSignupVerticalPassword" placeholder="Create a password">
-                </div>
-
-                <!-- Submit -->
-                <button class="btn btn-block btn-primary" type="submit">
-                  Sign up
-                </button>
-
-              </form>
-
-              <!-- Text -->
-              <p class="mb-0 font-size-sm text-center text-muted">
-                Already have an account? <a href="./signin-illustration.html">Log in</a>.
-              </p>
-
-            </div>
+            <!-- Text -->
+            <small class="text-muted">
+              <a class="text-reset" data-dismiss="modal" href="#!">No thanks, I hate free stuff.</a>
+            </small>
 
           </div>
         </div>
       </div>
     </div>
 
-    <!-- Signin: Horizontal  -->
-    <div class="modal fade" id="modalSigninHorizontal" tabindex="-1" role="dialog" aria-labelledby="modalSigninHorizontalTitle" aria-hidden="true">
-      <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
-        <div class="modal-content">
-          <div class="card card-row">
-            <div class="row no-gutters">
-              <div class="col-12 col-md-6 bg-cover card-img-left" style="background-image: url(./assets/img/photos/photo-1.jpg);">
 
-                <!-- Image (placeholder) -->
-                <img src="./assets/img/photos/photo-1.jpg" alt="..." class="img-fluid d-md-none invisible">
-
-                <!-- Shape -->
-                <div class="shape shape-right shape-fluid-y svg-shim text-white d-none d-md-block">
-                  <svg viewBox="0 0 112 690" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M116 0H51V172C76 384 0 517 0 517V690H116V0Z" fill="currentColor"/>
-                  </svg>
-                </div>
-
-              </div>
-              <div class="col-12 col-md-6">
-                <div class="card-body">
-
-                  <!-- Close -->
-                  <button type="button" class="modal-close close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">×</span>
-                  </button>
-              
-                  <!-- Heading -->
-                  <h2 class="mb-0 font-weight-bold text-center" id="modalSigninHorizontalTitle">
-                    Sign In
-                  </h2>
-
-                  <!-- Text -->
-                  <p class="mb-6 text-center text-muted">
-                    Simplify your workflow in minutes.
-                  </p>
-
-                  <!-- Form -->
-                  <form class="mb-6">
-
-                    <!-- Email -->
-                    <div class="form-group">
-                      <label class="sr-only" for="modalSigninHorizontalEmail">
-                        Your email
-                      </label>
-                      <input type="email" class="form-control" id="modalSigninHorizontalEmail" placeholder="Your email">
-                    </div>
-
-                    <!-- Password -->
-                    <div class="form-group mb-5">
-                      <label class="sr-only" for="modalSigninHorizontalPassword">
-                        Create a password
-                      </label>
-                      <input type="password" class="form-control" id="modalSigninHorizontalPassword" placeholder="Create a password">
-                    </div>
-
-                    <!-- Submit -->
-                    <button class="btn btn-block btn-primary" type="submit">
-                      Sign in
-                    </button>
-
-                  </form>
-
-                  <!-- Text -->
-                  <p class="mb-0 font-size-sm text-center text-muted">
-                    Don't have an account yet? <a href="./signin-illustration.html">Sign up</a>.
-                  </p>
-
-                </div>
-              </div>
-
-            </div> <!-- / .row -->
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Signup: Vertical  -->
-    <div class="modal fade" id="modalSigninVertical" tabindex="-1" role="dialog" aria-labelledby="modalSigninVerticalTitle" aria-hidden="true">
-      <div class="modal-dialog modal-dialog-centered" role="document">
-        <div class="modal-content">
-          <div class="card">
-
-            <!-- Close -->
-            <button type="button" class="modal-close close text-white" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">×</span>
-            </button>
-
-            <!-- Image -->
-            <img src="./assets/img/photos/photo-21.jpg" alt="..." class="card-img-top">
-
-            <!-- Shape -->
-            <div class="position-relative">
-              <div class="shape shape-bottom shape-fluid-x svg-shim text-white">
-                <svg viewBox="0 0 2880 480" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path fill-rule="evenodd" clip-rule="evenodd" d="M2160 0C1440 240 720 240 720 240H0V480H2880V0H2160Z" fill="currentColor"/>
-                </svg>
-              </div>
-            </div>
-
-            <!-- Body -->
-            <div class="card-body">
-
-              <!-- Heading -->
-              <h2 class="mb-0 font-weight-bold text-center" id="modalSigninVerticalTitle">
-                Sign In
-              </h2>
-
-              <!-- Text -->
-              <p class="mb-6 text-center text-muted">
-                Simplify your workflow in minutes.
-              </p>
-
-              <!-- Form -->
-              <form class="mb-6">
-
-                <!-- Email -->
-                <div class="form-group">
-                  <label class="sr-only" for="modalSigninVerticalEmail">
-                    Your email
-                  </label>
-                  <input type="email" class="form-control" id="modalSigninVerticalEmail" placeholder="Your email">
-                </div>
-
-                <!-- Password -->
-                <div class="form-group mb-5">
-                  <label class="sr-only" for="modalSigninVerticalPassword">
-                    Create a password
-                  </label>
-                  <input type="password" class="form-control" id="modalSigninVerticalPassword" placeholder="Create a password">
-                </div>
-
-                <!-- Submit -->
-                <button class="btn btn-block btn-primary" type="submit">
-                  Sign in
-                </button>
-
-              </form>
-
-              <!-- Text -->
-              <p class="mb-0 font-size-sm text-center text-muted">
-                Don't have an account yet? <a href="./signin-illustration.html">Sign up</a>.
-              </p>
-
-            </div>
-
-          </div>
-        </div>
-      </div>
-    </div>
-    
-    <!-- NAVBAR
-    ================================================== -->
-    <nav class="navbar navbar-expand-lg navbar-light fixed-top bg-white border-bottom">
-      <div class="container-fluid">
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <div class="container-lg">
 
         <!-- Brand -->
-        <a class="navbar-brand text-uppercase" href="./">
-          <!-- Ryan Seamons -->
-          <!-- <img src="./assets/img/full-signature.svg" class="navbar-brand-img signature-color" alt="..."> -->
-          Deliberate Family
-        </a>
+        <a class="navbar-brand d-lg-none" href="./">Deliberate Family</a>
 
         <!-- Toggler -->
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
 
         <!-- Collapse -->
-        <div class="collapse navbar-collapse" id="navbarCollapse">
-
-          <!-- Toggler -->
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-            <i class="fe fe-x"></i>
-          </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
 
           <!-- Navigation -->
-          <ul class="navbar-nav ml-auto text-uppercase">
+          <ul class="navbar-nav justify-content-end w-100">
             <li class="nav-item">
-              <a class="nav-link" id="navbarLandings" href="articles">
-                blog
+              <a class="nav-link" href="articles" role="button" aria-haspopup="true" aria-expanded="false">
+                Blog
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" id="navbarLandings" href="homeschool-resources">
-                Homeschool Tips
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" id="navbarLandings" href="sprinkle-pixie-dust">
-                Sprinkle Pixie Dust
+              <a class="nav-link" href="homeschool-resources" role="button" aria-haspopup="true" aria-expanded="false">
+                Homeschooling
               </a>
             </li>
           </ul>
 
-          <!-- Button -->
-          <a class="ml-auto text-uppercase" href="https://www.instagram.com/deliberatefamily/" target="_blank">
-            Follow Us On Instagram →
-          </a>
+          <!-- Brand -->
+          <a class="navbar-brand d-none d-lg-block px-lg-6" href="./">Deliberate Family</a>
+
+          <!-- Navigation -->
+          <ul class="navbar-nav justify-content-start w-100">
+            <li class="nav-item">
+              <a class="nav-link" href="articles#disney" role="button" aria-haspopup="true" aria-expanded="false">
+                Pixie Dust
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="https://www.instagram.com/deliberatefamily/" role="button" aria-haspopup="true" aria-expanded="false">
+                <span class="fe fe-instagram" data-toggle="tooltip" data-placement="top" title="instagram"></span> Instagram
+              </a>
+            </li>
+          </ul>
 
         </div>
 
@@ -592,742 +320,756 @@
     </nav>
 
 
-    <!-- WELCOME
-    ================================================== -->
-    <section class="pt-8 pt-md-11 pb-10 pb-md-15 bg-primary">
-
-      <!-- Shape -->
-      <div class="shape shape-blur-3 svg-shim text-white">
-        <svg viewBox="0 0 1738 487" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M0 0H1420.92C1420.92 0 2134.35 457.505 1420.92 485.868C707.502 514.231 0 0 0 0Z" fill="url(#paint0_linear)"/>
-          <defs>
-            <linearGradient id="paint0_linear" x1="0" y1="0" x2="1049.98" y2="912.68" gradientUnits="userSpaceOnUse">
-            <stop stop-color="currentColor" stop-opacity="0.075"/>
-            <stop offset="1" stop-color="currentColor" stop-opacity="0"/>
-          </linearGradient>
-          </defs>
-        </svg>
-      </div>
-
-      <!-- Content -->
-      <div class="container">
+    <!-- WELCOME -->
+    <section class="pt-6 pt-md-11 bg-dark">
+      <div class="container-lg">
         <div class="row justify-content-center">
-          <div class="col-12 col-md-10 col-lg-8 text-center">
-            
+          <div class="col-md-10 col-lg-8 text-center text-white">
+
+            <!-- Preheading -->
+            <h6 class="text-uppercase text-warning mb-5">
+              Keep it simple
+            </h6>
+
             <!-- Heading -->
-            <h1 class="display-2 text-white">
+            <h2 class="display-3 mb-4">
               Simple, fair pricing.
-            </h1>
+            </h2>
 
             <!-- Text -->
-            <p class="lead text-white-80 mb-6 mb-md-8">
-              All types of businesses need access to development resources, so we give you the option to decide how much you need to use.
+            <p class="font-size-lg">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. In urna lectus, mattis non accumsan in, tempor dictum neque.
             </p>
 
             <!-- Form -->
-            <form class="d-flex align-items-center justify-content-center mb-7 mb-md-9">
-                  
-              <!-- Label -->
-              <span class="text-white-80">
-                Annual
-              </span>
-              
-              <!-- Switch -->
-              <div class="custom-control custom-switch custom-switch-dark mx-3">
-                <input type="checkbox" class="custom-control-input" id="billingSwitch" data-toggle="price" data-target=".price">
-                <label class="custom-control-label" for="billingSwitch"></label>
-              </div>
-              
-              <!-- Label -->
-              <span class="text-white-80">
+            <form class="d-flex align-items-center justify-content-center text-white">
+
+              <!-- Heading -->
+              <h6 class="text-uppercase mr-5 mb-0">
                 Monthly
-              </span>
+              </h6>
+
+              <!-- Switch -->
+              <div class="custom-control custom-control-dark custom-switch">
+                <input type="checkbox" class="custom-control-input" id="customSwitch1" data-toggle="prices" data-target=".price">
+                <label class="custom-control-label" for="customSwitch1"></label>
+              </div>
+
+              <!-- Heading -->
+              <h6 class="text-uppercase ml-4 mb-0">
+                Annual
+              </h6>
 
             </form>
 
           </div>
-        </div> <!-- / .row -->
-      </div> <!-- / .container -->
-
+        </div>
+      </div>
     </section>
 
-    <!-- SHAPE
-    ================================================== -->
+    <!-- SHAPE -->
     <div class="position-relative">
-      <div class="shape shape-bottom shape-fluid-x svg-shim text-light">
-        <svg viewBox="0 0 2880 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M0 48H1437.5H2880V0H2160C1442.5 52 720 0 720 0H0V48Z" fill="currentColor"/>
-        </svg>
+      <div class="shape shape-fluid-x shape-bottom text-dark pb-14 pb-md-18">
+        <div class="shape-img pb-8 pb-md-11">
+          <svg viewBox="0 0 100 50" preserveAspectRatio="none"><path d="M0 0h100v25H75L25 50H0z" fill="currentColor"/></svg>
+        </div>
       </div>
     </div>
 
-    <!-- PRICING
-    ================================================== -->
-    <section class="mt-n8 mt-md-n14">
-      <div class="container">
-        <div class="form-row">
-          <div class="col-12 col-md-4">
+    <!-- PRICING -->
+    <section class="pt-10 pt-md-12">
+      <div class="container-lg">
+        <div class="row mt-n6">
+          <div class="col-lg-4 mt-6">
 
             <!-- Card -->
-            <div class="card shadow-lg mb-6 mb-md-0">
+            <div class="card rounded-top-left-lg rounded-bottom-right-lg mt-6">
               <div class="card-body">
 
                 <!-- Preheading -->
-                <div class="text-center mb-3">
-                  <span class="badge badge-pill badge-primary-soft">
-                    <span class="h6 text-uppercase">Basic</span>
-                  </span>
-                </div>
+                <h6 class="text-center text-uppercase text-warning">
+                  Starter
+                </h6>
 
                 <!-- Price -->
-                <div class="d-flex justify-content-center">
-                  <span class="h2 mb-0 mt-2">$</span>
-                  <span class="price display-2 mb-0" data-annual="0" data-monthly="0">0</span>
-                  <span class="h2 align-self-end mb-1">/mo</span>
-                </div>
-
-                <!-- Text -->
-                <p class="text-center text-muted mb-5">
-                  per seat
+                <p class="display-4 font-weight-bold text-center">
+                  <span class="font-size-h3 align-middle">$</span>
+                  <span class="price mx-n2" data-min-value="19" data-max-value="29">19</span>
+                  <span class="font-size-h2 align-middle">/mo </span>
                 </p>
 
                 <!-- List -->
-                <div class="d-flex">
-                  
-                  <!-- Badge -->
-                  <div class="badge badge-rounded-circle badge-success-soft mt-1 mr-4">
-                    <i class="fe fe-check"></i>
-                  </div>
-
-                  <!-- Text -->
-                  <p>
-                    Rich landing pages
-                  </p>
-                  
-                </div>
-                <div class="d-flex">
-                  
-                  <!-- Badge -->
-                  <div class="badge badge-rounded-circle badge-success-soft mt-1 mr-4">
-                    <i class="fe fe-check"></i>
-                  </div>
-
-                  <!-- Text -->
-                  <p class="mb-5">
-                    100+ components
-                  </p>
-                  
-                </div>
+                <ul class="list-checked list-checked-warning">
+                  <li class="mb-3">
+                    20 automations
+                  </li>
+                  <li class="mb-3">
+                    3 seats
+                  </li>
+                  <li>
+                    API access
+                  </li>
+                </ul>
 
                 <!-- Button -->
-                <a href="#!" class="btn btn-block btn-primary-soft">
-                  Start for free <i class="fe fe-arrow-right ml-3"></i>
+                <a class="btn btn-block btn-gray-300 shadow-none lift" href="#!">
+                  Get Started
                 </a>
-                
+
               </div>
             </div>
 
           </div>
-          <div class="col-12 col-md-4">
-            
+          <div class="col-lg-4 mt-6">
+
             <!-- Card -->
-            <div class="card shadow-lg mb-6 mb-md-0">
+            <div class="card rounded-top-left-lg rounded-bottom-right-lg mt-6">
               <div class="card-body">
 
                 <!-- Preheading -->
-                <div class="text-center mb-3">
-                  <span class="badge badge-pill badge-primary-soft">
-                    <span class="h6 text-uppercase">Standard</span>
-                  </span>
-                </div>
+                <h6 class="text-center text-uppercase text-warning">
+                  Standard
+                </h6>
 
                 <!-- Price -->
-                <div class="d-flex justify-content-center">
-                  <span class="h2 mb-0 mt-2">$</span>
-                  <span class="price display-2 mb-0" data-annual="29" data-monthly="49">29</span>
-                  <span class="h2 align-self-end mb-1">/mo</span>
-                </div>
-
-                <!-- Text -->
-                <p class="text-center text-muted mb-5">
-                  per seat
+                <p class="display-4 font-weight-bold text-center">
+                  <span class="font-size-h3 align-middle">$</span>
+                  <span class="price mx-n2" data-min-value="49" data-max-value="59">49</span>
+                  <span class="font-size-h2 align-middle">/mo </span>
                 </p>
 
                 <!-- List -->
-                <div class="d-flex">
-                  
-                  <!-- Badge -->
-                  <div class="badge badge-rounded-circle badge-success-soft mt-1 mr-4">
-                    <i class="fe fe-check"></i>
-                  </div>
-
-                  <!-- Text -->
-                  <p>
-                    Rich landing pages
-                  </p>
-                  
-                </div>
-                <div class="d-flex">
-                  
-                  <!-- Badge -->
-                  <div class="badge badge-rounded-circle badge-success-soft mt-1 mr-4">
-                    <i class="fe fe-check"></i>
-                  </div>
-
-                  <!-- Text -->
-                  <p>
-                    100+ components
-                  </p>
-                  
-                </div>
-                <div class="d-flex">
-                  
-                  <!-- Badge -->
-                  <div class="badge badge-rounded-circle badge-success-soft mt-1 mr-4">
-                    <i class="fe fe-check"></i>
-                  </div>
-
-                  <!-- Text -->
-                  <p>
-                    Flexible licensing
-                  </p>
-                  
-                </div>
-                <div class="d-flex">
-                  
-                  <!-- Badge -->
-                  <div class="badge badge-rounded-circle badge-success-soft mt-1 mr-4">
-                    <i class="fe fe-check"></i>
-                  </div>
-
-                  <!-- Text -->
-                  <p>
-                    Speedy build tooling
-                  </p>
-                  
-                </div>
-                <div class="d-flex">
-                  
-                  <!-- Badge -->
-                  <div class="badge badge-rounded-circle badge-success-soft mt-1 mr-4">
-                    <i class="fe fe-check"></i>
-                  </div>
-
-                  <!-- Text -->
-                  <p class="mb-5">
-                    6 months free support
-                  </p>
-                  
-                </div>
+                <ul class="list-checked list-checked-warning">
+                  <li class="mb-3">
+                    100 automations
+                  </li>
+                  <li class="mb-3">
+                    10 seats
+                  </li>
+                  <li class="mb-3">
+                    API access
+                  </li>
+                  <li>
+                    Integration support
+                  </li>
+                </ul>
 
                 <!-- Button -->
-                <a href="#!" class="btn btn-block btn-primary">
-                  Start with Standard <i class="fe fe-arrow-right ml-3"></i>
+                <a class="btn btn-block btn-primary lift" href="#!">
+                  Get Started
                 </a>
-                
+
               </div>
             </div>
 
           </div>
-          <div class="col-12 col-md-4">
-            
+          <div class="col-lg-4 mt-6">
+
+            <!-- Decoration -->
+            <div class="position-absolute top-right text-primary-light mt-n8 mr-n6">
+              <svg width="185" height="186" viewBox="0 0 185 186" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="2" cy="2" r="2" fill="currentColor"/><circle cx="22" cy="2" r="2" fill="currentColor"/><circle cx="42" cy="2" r="2" fill="currentColor"/><circle cx="62" cy="2" r="2" fill="currentColor"/><circle cx="82" cy="2" r="2" fill="currentColor"/><circle cx="102" cy="2" r="2" fill="currentColor"/><circle cx="122" cy="2" r="2" fill="currentColor"/><circle cx="142" cy="2" r="2" fill="currentColor"/><circle cx="162" cy="2" r="2" fill="currentColor"/><circle cx="182" cy="2" r="2" fill="currentColor"/><circle cx="2" cy="22" r="2" fill="currentColor"/><circle cx="22" cy="22" r="2" fill="currentColor"/><circle cx="42" cy="22" r="2" fill="currentColor"/><circle cx="62" cy="22" r="2" fill="currentColor"/><circle cx="82" cy="22" r="2" fill="currentColor"/><circle cx="102" cy="22" r="2" fill="currentColor"/><circle cx="122" cy="22" r="2" fill="currentColor"/><circle cx="142" cy="22" r="2" fill="currentColor"/><circle cx="162" cy="22" r="2" fill="currentColor"/><circle cx="182" cy="22" r="2" fill="currentColor"/><circle cx="2" cy="42" r="2" fill="currentColor"/><circle cx="22" cy="42" r="2" fill="currentColor"/><circle cx="42" cy="42" r="2" fill="currentColor"/><circle cx="62" cy="42" r="2" fill="currentColor"/><circle cx="82" cy="42" r="2" fill="currentColor"/><circle cx="102" cy="42" r="2" fill="currentColor"/><circle cx="122" cy="42" r="2" fill="currentColor"/><circle cx="142" cy="42" r="2" fill="currentColor"/><circle cx="162" cy="42" r="2" fill="currentColor"/><circle cx="182" cy="42" r="2" fill="currentColor"/><circle cx="2" cy="62" r="2" fill="currentColor"/><circle cx="22" cy="62" r="2" fill="currentColor"/><circle cx="42" cy="62" r="2" fill="currentColor"/><circle cx="62" cy="62" r="2" fill="currentColor"/><circle cx="82" cy="62" r="2" fill="currentColor"/><circle cx="102" cy="62" r="2" fill="currentColor"/><circle cx="122" cy="62" r="2" fill="currentColor"/><circle cx="142" cy="62" r="2" fill="currentColor"/><circle cx="162" cy="62" r="2" fill="currentColor"/><circle cx="182" cy="62" r="2" fill="currentColor"/><circle cx="2" cy="82" r="2" fill="currentColor"/><circle cx="22" cy="82" r="2" fill="currentColor"/><circle cx="42" cy="82" r="2" fill="currentColor"/><circle cx="62" cy="82" r="2" fill="currentColor"/><circle cx="82" cy="82" r="2" fill="currentColor"/><circle cx="102" cy="82" r="2" fill="currentColor"/><circle cx="122" cy="82" r="2" fill="currentColor"/><circle cx="142" cy="82" r="2" fill="currentColor"/><circle cx="162" cy="82" r="2" fill="currentColor"/><circle cx="182" cy="82" r="2" fill="currentColor"/><circle cx="2" cy="102" r="2" fill="currentColor"/><circle cx="22" cy="102" r="2" fill="currentColor"/><circle cx="42" cy="102" r="2" fill="currentColor"/><circle cx="62" cy="102" r="2" fill="currentColor"/><circle cx="82" cy="102" r="2" fill="currentColor"/><circle cx="102" cy="102" r="2" fill="currentColor"/><circle cx="122" cy="102" r="2" fill="currentColor"/><circle cx="142" cy="102" r="2" fill="currentColor"/><circle cx="162" cy="102" r="2" fill="currentColor"/><circle cx="182" cy="102" r="2" fill="currentColor"/><circle cx="2" cy="122" r="2" fill="currentColor"/><circle cx="22" cy="122" r="2" fill="currentColor"/><circle cx="42" cy="122" r="2" fill="currentColor"/><circle cx="62" cy="122" r="2" fill="currentColor"/><circle cx="82" cy="122" r="2" fill="currentColor"/><circle cx="102" cy="122" r="2" fill="currentColor"/><circle cx="122" cy="122" r="2" fill="currentColor"/><circle cx="142" cy="122" r="2" fill="currentColor"/><circle cx="162" cy="122" r="2" fill="currentColor"/><circle cx="182" cy="122" r="2" fill="currentColor"/><circle cx="2" cy="142" r="2" fill="currentColor"/><circle cx="22" cy="142" r="2" fill="currentColor"/><circle cx="42" cy="142" r="2" fill="currentColor"/><circle cx="62" cy="142" r="2" fill="currentColor"/><circle cx="82" cy="142" r="2" fill="currentColor"/><circle cx="102" cy="142" r="2" fill="currentColor"/><circle cx="122" cy="142" r="2" fill="currentColor"/><circle cx="142" cy="142" r="2" fill="currentColor"/><circle cx="162" cy="142" r="2" fill="currentColor"/><circle cx="182" cy="142" r="2" fill="currentColor"/><circle cx="2" cy="162" r="2" fill="currentColor"/><circle cx="22" cy="162" r="2" fill="currentColor"/><circle cx="42" cy="162" r="2" fill="currentColor"/><circle cx="62" cy="162" r="2" fill="currentColor"/><circle cx="82" cy="162" r="2" fill="currentColor"/><circle cx="102" cy="162" r="2" fill="currentColor"/><circle cx="122" cy="162" r="2" fill="currentColor"/><circle cx="142" cy="162" r="2" fill="currentColor"/><circle cx="162" cy="162" r="2" fill="currentColor"/><circle cx="182" cy="162" r="2" fill="currentColor"/><circle cx="2" cy="182" r="2" fill="currentColor"/><circle cx="22" cy="182" r="2" fill="currentColor"/><circle cx="42" cy="182" r="2" fill="currentColor"/><circle cx="62" cy="182" r="2" fill="currentColor"/><circle cx="82" cy="182" r="2" fill="currentColor"/><circle cx="102" cy="182" r="2" fill="currentColor"/><circle cx="122" cy="182" r="2" fill="currentColor"/><circle cx="142" cy="182" r="2" fill="currentColor"/><circle cx="162" cy="182" r="2" fill="currentColor"/><circle cx="182" cy="182" r="2" fill="currentColor"/></svg>
+            </div>
+
             <!-- Card -->
-            <div class="card shadow-lg mb-md-0">
+            <div class="card rounded-top-left-lg rounded-bottom-right-lg mt-6">
               <div class="card-body">
 
                 <!-- Preheading -->
-                <div class="text-center mb-3">
-                  <span class="badge badge-pill badge-primary-soft">
-                    <span class="h6 text-uppercase">Premium</span>
-                  </span>
-                </div>
+                <h6 class="text-center text-uppercase text-warning">
+                  Starter
+                </h6>
 
                 <!-- Price -->
-                <div class="d-flex justify-content-center">
-                  <span class="h2 mb-0 mt-2">$</span>
-                  <span class="price display-2 mb-0" data-annual="49" data-monthly="69">49</span>
-                  <span class="h2 align-self-end mb-1">/mo</span>
-                </div>
-
-                <!-- Text -->
-                <p class="text-center text-muted mb-5">
-                  per seat
+                <p class="display-4 font-weight-bold text-center">
+                  <span class="font-size-h3 align-middle">$</span>
+                  <span class="price mx-n2" data-min-value="99" data-max-value="109">99</span>
+                  <span class="font-size-h2 align-middle">/mo </span>
                 </p>
 
                 <!-- List -->
-                <div class="d-flex">
-                  
-                  <!-- Badge -->
-                  <div class="badge badge-rounded-circle badge-success-soft mt-1 mr-4">
-                    <i class="fe fe-check"></i>
-                  </div>
-
-                  <!-- Text -->
-                  <p>
-                    Rich landing pages
-                  </p>
-                  
-                </div>
-                <div class="d-flex">
-                  
-                  <!-- Badge -->
-                  <div class="badge badge-rounded-circle badge-success-soft mt-1 mr-4">
-                    <i class="fe fe-check"></i>
-                  </div>
-
-                  <!-- Text -->
-                  <p>
-                    100+ components
-                  </p>
-                  
-                </div>
-                <div class="d-flex">
-                  
-                  <!-- Badge -->
-                  <div class="badge badge-rounded-circle badge-success-soft mt-1 mr-4">
-                    <i class="fe fe-check"></i>
-                  </div>
-
-                  <!-- Text -->
-                  <p>
-                    Flexible licensing
-                  </p>
-                  
-                </div>
-                <div class="d-flex">
-                  
-                  <!-- Badge -->
-                  <div class="badge badge-rounded-circle badge-success-soft mt-1 mr-4">
-                    <i class="fe fe-check"></i>
-                  </div>
-
-                  <!-- Text -->
-                  <p>
-                    Speedy build tooling
-                  </p>
-                  
-                </div>
-                <div class="d-flex">
-                  
-                  <!-- Badge -->
-                  <div class="badge badge-rounded-circle badge-success-soft mt-1 mr-4">
-                    <i class="fe fe-check"></i>
-                  </div>
-
-                  <!-- Text -->
-                  <p>
-                    6 months free support
-                  </p>
-                  
-                </div>
-                <div class="d-flex">
-                  
-                  <!-- Badge -->
-                  <div class="badge badge-rounded-circle badge-success-soft mt-1 mr-4">
-                    <i class="fe fe-check"></i>
-                  </div>
-
-                  <!-- Text -->
-                  <p>
-                    256-bit encryption
-                  </p>
-                  
-                </div>
-                <div class="d-flex">
-                  
-                  <!-- Badge -->
-                  <div class="badge badge-rounded-circle badge-success-soft mt-1 mr-4">
-                    <i class="fe fe-check"></i>
-                  </div>
-
-                  <!-- Text -->
-                  <p>
-                    Guaranteed 100% uptime
-                  </p>
-                  
-                </div>
-                <div class="d-flex">
-                  
-                  <!-- Badge -->
-                  <div class="badge badge-rounded-circle badge-success-soft mt-1 mr-4">
-                    <i class="fe fe-check"></i>
-                  </div>
-
-                  <!-- Text -->
-                  <p class="mb-5">
-                    Unlimited users
-                  </p>
-                  
-                </div>
+                <ul class="list-checked list-checked-warning">
+                  <li class="mb-3">
+                    100 automations
+                  </li>
+                  <li class="mb-3">
+                    10 seats
+                  </li>
+                  <li class="mb-3">
+                    API access
+                  </li>
+                  <li class="mb-3">
+                    Integration support
+                  </li>
+                  <li>
+                    Success concierge
+                  </li>
+                </ul>
 
                 <!-- Button -->
-                <a href="#!" class="btn btn-block btn-primary-soft">
-                  Start with Premium <i class="fe fe-arrow-right ml-3"></i>
+                <a class="btn btn-block btn-gray-300 shadow-none lift" href="#!">
+                  Get Started
                 </a>
-                
+
               </div>
             </div>
 
           </div>
-        </div> <!-- / .row -->
-      </div> <!-- / .container -->
+        </div>
+      </div>
     </section>
 
-    <!-- ENTERPRISE
-    ================================================== -->
-    <section class="py-8 py-md-11">
-      <div class="container">
+    <!-- CLIENTS -->
+    <section class="pt-10 pt-md-11">
+      <div class="container-lg">
+        <div class="row mt-n5">
+          <div class="col-4 col-md-2 mt-5">
+
+            <!-- Image -->
+            <div class="img-fluid svg-shim text-coinbase mx-auto" style="max-width: 112px;">
+              <svg viewBox="0 0 96 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M6.20801 20.9198C3.0708 20.9198 0 18.6546 0 13.5412C0 8.41122 3.0708 6.17933 6.20801 6.17933C7.75171 6.17933 8.96343 6.57907 9.82658 7.14537L8.88044 9.22736C8.29947 8.81096 7.43633 8.54447 6.57318 8.54447C4.6809 8.54447 2.95461 10.0435 2.95461 13.5079C2.95461 16.9723 4.7307 18.5047 6.57318 18.5047C7.43633 18.5047 8.29947 18.2382 8.88044 17.8218L9.82658 19.9538C8.93023 20.5534 7.75171 20.9198 6.20801 20.9198ZM17.0139 20.9198C13.0136 20.9198 10.8059 17.7385 10.8059 13.5412C10.8059 9.34395 12.997 6.17933 17.0139 6.17933C21.0143 6.17933 23.2219 9.3273 23.2219 13.5412C23.2219 17.7385 21.0143 20.9198 17.0139 20.9198ZM17.0139 8.46119C14.7897 8.46119 13.6941 10.4599 13.6941 13.5079C13.6941 16.556 14.7897 18.5713 17.0139 18.5713C19.2382 18.5713 20.3337 16.556 20.3337 13.5079C20.3337 10.4599 19.2382 8.46119 17.0139 8.46119ZM27.0729 3.89748C26.1267 3.89748 25.3632 3.16462 25.3632 2.2652C25.3632 1.36578 26.1267 0.632924 27.0729 0.632924C28.019 0.632924 28.7826 1.36578 28.7826 2.2652C28.7826 3.16462 28.0024 3.89748 27.0729 3.89748ZM25.6288 6.46248H28.517V20.62H25.6288V6.46248ZM39.8375 20.62V11.1761C39.8375 9.52717 38.8415 8.4945 36.8829 8.4945C35.8371 8.4945 34.8744 8.67772 34.2934 8.9109V20.6366H31.4384V7.17869C32.8493 6.59573 34.6586 6.17933 36.8663 6.17933C40.8168 6.17933 42.7257 7.91155 42.7257 10.9096V20.6366H39.8375V20.62ZM50.3114 20.9198C48.4855 20.9198 46.6762 20.4701 45.5641 19.9204V0H48.4191V6.82891C49.0997 6.51245 50.1952 6.24596 51.1745 6.24596C54.8097 6.24596 57.283 8.87759 57.283 13.2081C57.283 18.5547 54.5275 20.9198 50.3114 20.9198ZM50.6766 8.4945C49.8964 8.4945 48.9669 8.67772 48.4191 8.96087V18.2549C48.8341 18.4381 49.6474 18.6213 50.4608 18.6213C52.7348 18.6213 54.4113 17.039 54.4113 13.4246C54.4279 10.3266 52.9672 8.4945 50.6766 8.4945ZM65.0513 20.9198C61.0011 20.9198 58.9429 19.2709 58.9429 16.4727C58.9429 12.5252 63.1258 11.8257 67.3917 11.5925V10.6931C67.3917 8.9109 66.2132 8.27798 64.4039 8.27798C63.076 8.27798 61.4493 8.69437 60.5032 9.14408L59.7728 7.17869C60.9015 6.67901 62.8104 6.17933 64.7027 6.17933C68.0723 6.17933 70.1305 7.49515 70.1305 10.9929V19.9204C69.118 20.4701 67.0431 20.9198 65.0513 20.9198ZM67.4083 13.5079C64.5201 13.6578 61.6485 13.9077 61.6485 16.4227C61.6485 17.9217 62.7938 18.8378 64.9683 18.8378C65.8812 18.8378 66.9601 18.6879 67.4083 18.4714V13.5079ZM76.5709 20.9198C74.9276 20.9198 73.2013 20.4701 72.1722 19.9204L73.135 17.7219C73.8653 18.1716 75.409 18.6379 76.4879 18.6379C78.0316 18.6379 79.0608 17.8718 79.0608 16.6892C79.0608 15.4067 77.9818 14.907 76.5543 14.374C74.6621 13.6578 72.554 12.7917 72.554 10.1434C72.554 7.81161 74.3633 6.17933 77.5005 6.17933C79.2102 6.17933 80.6211 6.59573 81.617 7.17869L80.7207 9.17739C80.0899 8.77765 78.8284 8.3446 77.8159 8.3446C76.322 8.3446 75.492 9.12743 75.492 10.1601C75.492 11.4426 76.5377 11.8923 77.9321 12.4253C79.8907 13.1581 82.0652 13.9743 82.0652 16.7392C82.0486 19.2542 80.1065 20.9198 76.5709 20.9198ZM95.9751 13.4746L86.5967 14.7904C86.8789 17.3388 88.5388 18.6213 90.9124 18.6213C92.3233 18.6213 93.8504 18.2715 94.8132 17.7552L95.6431 19.9038C94.5476 20.4867 92.6553 20.9031 90.7132 20.9031C86.2647 20.9031 83.7749 18.0383 83.7749 13.5246C83.7749 9.19405 86.1817 6.16268 90.1323 6.16268C93.8006 6.16268 95.9751 8.57778 95.9751 12.392C96.0083 12.7418 96.0083 13.1082 95.9751 13.4746ZM90.1157 8.27798C87.9246 8.27798 86.4805 9.96022 86.4307 12.9083L93.2695 11.9589C93.2363 9.49385 91.9914 8.27798 90.1157 8.27798Z" fill="currentColor"/>
+              </svg>
+
+            </div>
+
+          </div>
+          <div class="col-4 col-md-2 mt-5">
+
+            <!-- Image -->
+            <div class="img-fluid svg-shim text-dribbble mx-auto" style="max-width: 112px;">
+              <svg viewBox="0 0 105 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M32.1266 10.6427C33.3231 10.6427 34.293 9.67108 34.293 8.47267C34.293 7.27407 33.3231 6.30263 32.1266 6.30263C30.9301 6.30263 29.9602 7.27407 29.9602 8.47267C29.9602 9.67108 30.9301 10.6427 32.1266 10.6427ZM103.623 18.057C103.293 17.825 103.039 17.7865 102.828 18.2372C99.1894 26.1289 93.0578 22.1908 93.6669 22.5374C95.027 21.9144 98.604 19.0416 98.0633 15.0748C97.735 12.6506 95.6573 11.5753 93.4519 11.9603C89.6022 12.6324 88.186 16.7905 88.907 20.4718C89.0332 21.1041 89.2586 21.6255 89.4838 22.1362C85.1335 25.6789 83.4059 18.9649 83.2099 18.1625C83.2021 18.1196 86.5689 15.3094 87.5053 8.61274C88.4868 1.59428 86.251 0.316338 83.9648 0.35621C79.7341 0.430024 78.5909 9.28176 80.1268 16.6591C79.9981 16.6926 79.3995 17.0247 78.4376 17.0619C77.7454 14.8808 74.7878 12.969 74.0137 13.7057C72.0765 15.5486 74.4836 19.1516 76.1773 19.4341C75.1598 25.7096 68.7969 24.1554 69.9814 16.2933C72.0534 12.44 73.6293 6.71055 73.3481 3.25172C73.2485 2.02714 72.3444 0.386472 70.2997 0.467851C66.3669 0.623658 65.9394 9.47785 66.4004 15.7621C66.3775 15.6073 66.1586 16.5255 64.547 16.9821C64.1658 14.8632 60.7589 12.7363 59.9568 13.7589C58.4555 15.6727 61.0574 19.0851 62.2898 19.3231C61.2724 25.5983 54.9096 24.0441 56.0941 16.182C58.1661 12.329 59.7418 6.59952 59.4607 3.14069C59.361 1.91591 58.4571 0.27524 56.4122 0.356414C52.4795 0.512426 52.0519 9.36662 52.513 15.6508C52.4899 15.4936 52.2659 16.4421 50.5885 16.8911C50.5324 14.142 47.1129 12.8815 46.2915 13.7587C44.8275 15.3222 46.6268 18.5304 48.2913 19.3231C47.2738 25.5983 40.9111 24.0441 42.0956 16.182C44.1676 12.329 45.7435 6.59952 45.4621 3.14069C45.3627 1.91591 44.4586 0.27524 42.4137 0.356414C38.4811 0.512426 38.1647 9.81175 38.6257 16.0958C37.3304 21.6535 32.9864 28.594 33.5508 14.6906C33.6065 13.7153 33.6673 13.345 33.1818 12.9798C32.8179 12.696 31.9906 12.8326 31.5383 12.8438C30.9887 12.8659 30.8509 13.188 30.7294 13.6748C30.4464 14.9319 30.3955 16.1505 30.3551 17.8133C30.3286 18.5911 30.2663 18.954 29.9672 20.0146C29.6684 21.075 27.9641 23.0132 27.031 22.6891C25.7365 22.2434 26.1612 18.5837 26.4038 16.0694C26.6059 14.0823 25.9586 13.19 24.3003 12.8655C23.3294 12.6629 22.7395 12.694 21.7284 12.3748C20.7722 12.073 20.556 10.2618 18.5166 10.8654C17.4012 11.1958 18.1183 13.5626 17.8502 15.3167C16.5322 23.9456 13.7898 24.1826 12.5175 19.9909C18.2475 5.93744 14.1751 0.397104 11.7913 0.397104C9.30841 0.397104 6.47027 2.10975 7.67209 13.0677C7.08772 12.897 6.90804 12.805 6.26834 12.805C2.65043 12.805 0.185547 15.7338 0.185547 19.3468C0.185547 22.9598 2.65064 25.8889 6.26854 25.8889C8.40429 25.8889 9.9038 24.9162 11.0395 23.4115C11.7804 24.4741 12.6827 25.9052 14.3327 25.8408C19.2509 25.649 20.6812 15.5463 20.85 14.9828C21.3758 15.064 21.8732 15.2175 22.3587 15.2987C23.1677 15.4204 23.2265 15.741 23.2081 16.5558C22.9937 23.4268 24.2599 25.8326 27.1319 25.8326C28.7321 25.8326 30.1583 24.2582 31.1408 23.1324C31.8746 24.6492 33.044 25.7862 34.6127 25.8324C38.414 25.9271 39.8694 19.8599 39.7367 20.6583C39.6325 21.2848 40.9699 25.7983 44.8833 25.8147C49.7308 25.8351 50.6318 20.4968 50.7392 19.6026C50.7527 19.4247 50.7586 19.4431 50.7392 19.6026L50.7355 19.6568C52.2745 19.3701 53.0685 18.5439 53.0685 18.5439C53.0685 18.5439 54.3042 25.8977 58.8816 25.8149C63.635 25.7286 64.5313 20.9031 64.6489 19.9621C64.6644 19.7388 64.6736 19.765 64.6489 19.9621C64.6483 19.9713 64.6477 19.9805 64.6471 19.9897C66.4751 19.3237 66.956 18.6553 66.956 18.6553C66.956 18.6553 67.9381 25.8629 72.769 25.9259C77.074 25.9823 78.6695 21.5676 78.6789 19.7198C79.405 19.7276 80.7481 19.2884 80.7166 19.2634C80.7166 19.2634 82.2935 25.5652 86.6971 25.8889C88.7647 26.0408 90.3157 24.7238 91.1998 24.1231C93.2775 25.8081 100.196 27.9604 104.565 20.5432C105.182 19.4787 103.856 18.2212 103.623 18.057ZM6.09397 23.4422C3.98313 23.4422 2.62961 21.4876 2.62961 19.3802C2.62961 17.2729 3.87206 15.3184 5.98289 15.3184C6.93275 15.3184 7.46117 15.423 8.20092 16.0673C8.33507 16.5967 8.71526 17.8178 8.90025 18.3723C9.14812 19.1144 9.44296 19.746 9.74025 20.4334C9.31555 22.1965 7.92323 23.4422 6.09397 23.4422ZM11.2377 16.1293C11.1499 15.9892 11.1683 16.0753 11.0701 15.943C10.6832 14.889 9.93749 12.5363 9.85112 9.8641C9.75352 6.8412 10.2566 3.29793 11.7398 3.29793C12.7448 3.29793 13.8129 10.4789 11.2375 16.1293H11.2377ZM40.9587 12.9796C40.7206 11.1858 40.7082 3.18895 42.6252 3.40916C43.6837 3.83855 41.9541 11.3845 40.9587 12.9796ZM54.9572 12.9796C54.7191 11.1858 54.7067 3.18895 56.6238 3.40916C57.6822 3.83855 55.9526 11.3845 54.9572 12.9796ZM68.8447 13.0911C68.6064 11.297 68.5941 3.30018 70.511 3.52039C71.5695 3.94978 69.8399 11.496 68.8447 13.0911ZM84.1763 2.94113C85.929 2.75915 85.8567 10.4239 82.3387 15.2629C81.885 13.5139 81.1893 3.54166 84.1763 2.94092V2.94113ZM91.5432 19.4341C90.9803 16.5865 92.4349 14.7162 93.9344 14.5111C94.4585 14.4273 95.2181 14.7673 95.3696 15.403C95.6187 16.601 95.3334 18.3781 91.9773 20.6328C91.9822 20.652 91.6688 20.0684 91.5434 19.4341H91.5432Z" fill="currentColor"/>
+              </svg>
+
+            </div>
+
+          </div>
+          <div class="col-4 col-md-2 mt-5">
+
+            <!-- Image -->
+            <div class="img-fluid svg-shim text-stripe mx-auto" style="max-width: 85px;">
+              <svg viewBox="0 0 65 27" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M4.56803 10.5801C4.56803 9.87724 5.14579 9.60679 6.10289 9.60679C7.475 9.60679 9.20829 10.0215 10.5805 10.7604V6.52467C9.08197 5.92992 7.60145 5.69559 6.10289 5.69559C2.4375 5.69559 0 7.6062 0 10.7966C0 15.771 6.86105 14.9781 6.86105 17.123C6.86105 17.952 6.13895 18.2224 5.12776 18.2224C3.62921 18.2224 1.71526 17.6095 0.198555 16.7805V21.0702C1.87776 21.7912 3.575 22.0975 5.12776 22.0975C8.88329 22.0975 11.4653 20.2411 11.4653 17.0148C11.4472 11.6436 4.56803 12.5988 4.56803 10.5801ZM16.7736 2.09082L12.368 3.02801L12.35 17.4653C12.35 20.133 14.3542 22.0975 17.0264 22.0975C18.507 22.0975 19.5903 21.8272 20.1861 21.5027V17.8439C19.6084 18.0782 16.7555 18.9073 16.7555 16.2397V9.84112H20.1861V6.00203H16.7555L16.7736 2.09082ZM25.8014 7.33576L25.5125 6.00203H21.6125V21.7731H26.1264V11.0849C27.1916 9.69703 28.9972 9.94935 29.557 10.1476V6.00203C28.9792 5.7857 26.8667 5.38915 25.8014 7.33576ZM30.6583 6.00203H35.1903V21.7731H30.6583V6.00203ZM30.6583 4.63218L35.1903 3.65888V0L30.6583 0.955306V4.63205V4.63218ZM44.6153 5.69559C42.8458 5.69559 41.7083 6.52467 41.0764 7.10155L40.8416 5.98403H36.8695V27L41.3833 26.0448L41.4014 20.944C42.0514 21.4126 43.0083 22.0795 44.5972 22.0795C47.8292 22.0795 50.7722 19.484 50.7722 13.7704C50.7542 8.54338 47.775 5.69559 44.6153 5.69559ZM43.532 18.1142C42.4667 18.1142 41.8346 17.7358 41.4014 17.2671L41.3833 10.5801C41.8528 10.0575 42.5028 9.69703 43.532 9.69703C45.175 9.69703 46.3125 11.5354 46.3125 13.8965C46.3125 16.3118 45.193 18.1142 43.532 18.1142ZM65 13.9507C65 9.33647 62.7611 5.69559 58.482 5.69559C54.1846 5.69559 51.5846 9.3366 51.5846 13.9147C51.5846 19.3398 54.6542 22.0795 59.0596 22.0795C61.2083 22.0795 62.8333 21.5929 64.0611 20.908V17.3031C62.8334 17.916 61.425 18.2945 59.6375 18.2945C57.8861 18.2945 56.3333 17.6816 56.1347 15.5548H64.9639C64.9639 15.3204 65 14.3832 65 13.9507ZM56.0805 12.2384C56.0805 10.2017 57.3264 9.35447 58.4639 9.35447C59.5653 9.35447 60.7389 10.2017 60.7389 12.2384H56.0805Z" fill="currentColor"/>
+              </svg>
+
+            </div>
+
+          </div>
+          <div class="col-4 col-md-2 mt-5">
+
+            <!-- Image -->
+            <div class="img-fluid svg-shim text-pinterest mx-auto" style="max-width: 112px;">
+              <svg viewBox="0 0 119 31" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M27.7945 11.3191C29.0692 11.3191 30.2921 10.2476 30.5048 8.92569C30.7562 7.63902 29.8922 6.56752 28.6185 6.56752C27.3444 6.56752 26.1213 7.63902 25.9054 8.92569C25.6568 10.2476 26.4853 11.3191 27.7945 11.3191ZM114.293 15.1435H117.145C117.536 15.1435 117.764 14.9833 117.852 14.6151C117.989 14.0449 118.129 13.4756 118.273 12.9073C118.358 12.5759 118.167 12.3247 117.803 12.3247H114.989C115.192 11.5105 115.981 8.86711 115.981 7.14376C115.981 3.70203 113.087 0.774522 108.98 0.774522C104.342 0.774522 101.324 3.91741 101.324 8.33988C101.324 9.62981 101.801 11.1334 102.392 12.0661C102.137 12.0514 101.883 12.0441 101.628 12.0443C98.1038 12.0443 95.884 13.9746 95.884 16.7834C95.884 19.4195 97.9421 20.4439 99.8798 21.1256C101.601 21.7314 103.186 22.0132 103.186 23.3709C103.186 24.2863 102.314 24.8235 100.607 24.8235C98.582 24.8235 97.469 23.8606 97.1861 23.4953C97.378 23.3431 97.6634 22.9807 97.6634 22.3769C97.6634 21.5323 97.0758 20.8429 95.9845 20.8429C95.0611 20.8429 94.2805 21.6033 94.0845 22.6036C92.6015 23.8286 90.9829 24.6225 88.6872 24.6225C86.4268 24.6225 85.2536 23.4354 85.2536 20.9093C85.7835 21.0722 87.1634 21.2679 88.0754 21.2679C91.9028 21.2679 94.5113 19.512 94.5113 15.9956C94.5113 14.1047 92.8673 12.1189 89.6149 12.1189H89.6075C85.3298 12.1189 82.9337 14.855 81.8875 17.8644C81.5943 17.7931 81.3007 17.7239 81.0066 17.6569C81.2405 16.9894 81.4085 16.2158 81.4085 15.3581C81.4085 13.8718 80.4969 12.1189 78.0576 12.1189C76.3584 12.1189 74.7466 13.2427 73.6295 14.927C73.9075 13.8283 74.0917 13.0966 74.1037 13.0476C74.1765 12.7602 74.058 12.4402 73.6142 12.4402H71.1105C70.7537 12.4402 70.5019 12.5675 70.4005 12.9777C70.3324 13.2513 69.4722 16.6593 68.6347 19.9778C68.1073 22.0469 65.3786 24.6225 61.9489 24.6225C59.6882 24.6225 58.5159 23.3573 58.5159 20.8302C59.1074 21.068 60.4255 21.2677 61.3371 21.2677C65.3202 21.2677 67.773 19.5118 67.773 15.9954C67.773 14.1045 66.1292 12.1187 62.8764 12.1187H62.8694C58.0525 12.1187 55.1018 15.8964 54.6018 20.1797C54.3938 21.9603 52.9055 24.4054 51.292 24.4054C50.5059 24.4054 50.0676 23.9069 50.0676 23.0605C50.0676 22.3296 50.5772 20.5423 51.1358 18.3025C51.3229 17.5532 51.6069 16.4101 51.9218 15.1435H54.5406C54.9304 15.1435 55.159 14.9833 55.2476 14.6151C55.3729 14.085 55.6029 13.1602 55.6681 12.9073C55.7525 12.5759 55.5625 12.3247 55.1975 12.3247H52.6224C52.6224 12.3247 53.808 7.54827 53.8362 7.42556C53.9503 6.93987 53.5478 6.6596 53.1267 6.74901C53.1267 6.74901 51.1363 7.14242 50.7672 7.22014C50.3961 7.29595 50.1081 7.50175 49.9741 8.04181L48.9199 12.3247H46.8522C46.4624 12.3247 46.2331 12.4853 46.1457 12.8527C46.0084 13.4228 45.8682 13.9922 45.7252 14.5609C45.6397 14.8923 45.8306 15.1435 46.1952 15.1435H48.223C48.2086 15.2021 47.4905 17.96 46.9098 20.4298C46.6364 21.6175 45.7208 24.3966 44.2215 24.3966C43.3258 24.3966 42.9474 23.9404 42.9474 22.9619C42.9474 21.421 44.4496 17.5637 44.4496 15.8133C44.4496 13.4753 43.2073 12.1206 40.6624 12.1206C39.0582 12.1206 37.3948 13.1665 36.6899 14.0844C36.6899 14.0844 36.9038 13.333 36.9769 13.0442C37.0551 12.739 36.893 12.4392 36.4961 12.4392H34.0078C33.4783 12.4392 33.3319 12.725 33.2542 13.0394C33.2231 13.1655 32.3265 16.7206 31.4657 20.1334C30.877 22.4703 29.4465 24.423 27.917 24.423C27.1305 24.423 26.7803 23.9247 26.7803 23.0783C26.7803 22.347 27.2483 20.5425 27.8066 18.3028C28.486 15.5762 29.0853 13.3307 29.1494 13.0685C29.233 12.7323 29.0842 12.4394 28.6551 12.4394H26.1518C25.6983 12.4394 25.5364 12.6797 25.4408 13.0135C25.4408 13.0135 24.7363 15.7065 23.9902 18.7045C23.4484 20.8802 22.85 23.0963 22.85 24.1376C22.85 25.9957 23.6762 27.3963 25.9478 27.3963C27.701 27.3963 29.0885 26.4986 30.148 25.3548C29.9923 25.9739 29.893 26.3658 29.8829 26.4058C29.7915 26.7597 29.9023 27.0726 30.3152 27.0726H32.8769C33.3228 27.0726 33.4942 26.8915 33.5873 26.4988C33.677 26.1242 35.5902 18.5257 35.5902 18.5257C36.0959 16.4845 37.3467 15.133 39.1063 15.133C39.9407 15.133 40.6629 15.6908 40.5793 16.775C40.4864 17.9676 39.062 22.2523 39.062 24.1328C39.062 25.5562 39.5847 27.3976 42.2383 27.3976C44.0471 27.3976 45.3786 26.522 46.3469 25.3919C46.7014 26.5913 47.6407 27.3976 49.3636 27.3976C52.2269 27.3976 53.9528 25.6829 54.9668 23.9605C55.8082 25.9616 57.7789 27.3967 60.6688 27.3967C63.6142 27.3967 65.8935 26.1429 67.5089 24.4385L67.0051 26.4337C66.9136 26.7931 67.0685 27.0756 67.4863 27.0756H70.0216C70.3688 27.0756 70.6158 26.8974 70.7059 26.5292C70.7505 26.3485 71.1168 24.919 71.6342 22.8879C72.6237 19.001 74.214 14.9685 76.6037 14.9685C77.4465 14.9685 77.7921 15.4443 77.7921 16.1937C77.7921 16.5471 77.6905 16.8525 77.6027 17.0162C76.4445 16.7838 75.5126 17.3611 75.5126 18.6099C75.5126 19.4235 76.3605 20.1631 77.5049 20.1631C78.3793 20.1631 79.1023 19.9466 79.6788 19.5547C80.2463 19.6729 80.8126 19.7972 81.3774 19.9276C81.2906 20.4912 81.2461 21.0607 81.2445 21.631C81.2445 24.7508 83.4507 27.3965 87.4051 27.3965C90.5039 27.3965 92.6305 26.2519 94.4662 24.7845C95.3485 26.2423 97.5765 27.4204 100.5 27.4204C104.506 27.4204 106.778 25.317 106.778 22.5368C106.778 20.0203 104.732 19.0941 102.622 18.3229C100.907 17.6973 99.4765 17.3571 99.4765 16.1332C99.4765 15.1301 100.259 14.6712 101.599 14.6712C102.469 14.6712 103.122 14.8604 103.47 14.9591C103.816 15.8331 104.532 16.8008 105.753 16.8008C106.787 16.8008 107.251 15.9753 107.251 15.2151C107.251 13.051 103.681 12.8242 103.681 8.18309C103.681 5.29712 105.298 2.91636 108.648 2.91636C110.975 2.91636 112.495 4.40654 112.495 6.81161C112.495 8.79455 111.304 12.3245 111.304 12.3245H109.279C108.89 12.3245 108.661 12.4851 108.573 12.8525C108.436 13.4228 108.295 13.9922 108.151 14.5608C108.066 14.8921 108.257 15.1433 108.622 15.1433H110.599C110.599 15.1433 108.555 22.7531 108.555 24.137C108.555 25.9951 109.592 27.3953 111.865 27.3953C115.079 27.3953 117.088 25.2862 117.961 22.2193C118.029 21.9821 117.896 21.789 117.658 21.789H116.431C116.187 21.789 116.045 21.9299 115.983 22.1715C115.706 23.2602 115.019 24.4056 113.668 24.4056C112.881 24.4056 112.443 23.9071 112.443 23.0609C112.443 22.3298 112.923 20.6181 113.512 18.3028C113.793 17.2003 114.293 15.1435 114.293 15.1435ZM88.949 15.0135C90.0857 15.0135 90.6257 15.777 90.6257 16.6869C90.6257 18.2259 89.4435 19.1643 87.5946 19.1643C86.9329 19.1643 86.0078 19.006 85.4616 18.8222C85.6912 17.4069 86.7057 15.0135 88.949 15.0135ZM62.211 15.0135C63.4551 15.0135 63.887 15.777 63.887 16.6869C63.887 18.2259 62.7054 19.1643 60.8567 19.1643C60.1948 19.1643 59.2697 19.006 58.7237 18.8222C58.952 17.4069 59.8516 15.0135 62.211 15.0135ZM13.0223 0.741211C4.91171 0.741211 0.822266 6.6127 0.822266 11.509C0.822266 14.4736 1.93388 17.1111 4.31808 18.0938C4.70903 18.2554 5.05922 18.0993 5.1726 17.6623C5.25147 17.3598 5.43803 16.5969 5.52127 16.2789C5.63579 15.8467 5.59123 15.695 5.27574 15.3183C4.58826 14.4995 4.14896 13.4395 4.14896 11.938C4.14896 7.58197 7.37668 3.68232 12.5538 3.68232C17.1383 3.68232 19.6568 6.51066 19.6568 10.288C19.6568 15.258 17.4787 19.4526 14.2447 19.4526C12.4589 19.4526 11.122 17.9613 11.5505 16.1323C12.0635 13.9487 13.0574 11.5921 13.0574 10.0159C13.0574 8.60503 12.3074 7.42824 10.7551 7.42824C8.92949 7.42824 7.46294 9.33518 7.46294 11.8898C7.46294 13.5168 8.00747 14.6172 8.00747 14.6172C8.00747 14.6172 6.13917 22.6101 5.81173 24.0099C5.15951 26.7976 5.71352 30.2151 5.76035 30.5602C5.78803 30.7647 6.04835 30.8133 6.16628 30.659C6.33464 30.4371 8.50877 27.7267 9.2482 25.0182C9.45733 24.2513 10.4489 20.2804 10.4489 20.2804C11.042 21.4228 12.7755 22.429 14.619 22.429C20.1065 22.429 23.8298 17.3774 23.8298 10.6157C23.8298 5.50292 19.5409 0.741211 13.0223 0.741211Z" fill="currentColor"/>
+              </svg>
+
+            </div>
+
+          </div>
+          <div class="col-4 col-md-2 mt-5">
+
+            <!-- Image -->
+            <div class="img-fluid svg-shim text-netflix mx-auto" style="max-width: 102px;">
+              <svg viewBox="0 0 86 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M73.4135 22.4746C74.6112 22.594 75.8083 22.7223 77.0026 22.855L79.6394 16.1576L82.1457 23.4727C83.4317 23.6385 84.7171 23.8125 85.9986 23.9941L81.6045 11.1664L86 0.000884651H82.2773L82.2386 0.055733L79.8641 6.08758L77.7794 0.0017693H74.1038L77.8984 11.0791L73.4137 22.4746H73.4135ZM70.6336 22.2121V0.000884651H66.9594V21.9004C68.1849 21.9977 69.4109 22.1021 70.6336 22.2118V22.2121ZM43.033 20.9701C44.0248 20.9701 45.0156 20.9777 46.0046 20.986V12.826H50.4185V9.35106H46.0049V3.47992H51.0884V0.000884651H42.3163V20.973C42.5545 20.973 42.7939 20.9692 43.033 20.9701ZM31.6252 21.1824C32.8493 21.1376 34.0745 21.0998 35.3015 21.0691V3.48051H38.7358V0.0017693H28.1909V3.48051H31.6258V21.1824H31.6252ZM3.52461 23.5244V10.2914L7.87512 22.99C9.21302 22.8355 10.5529 22.6901 11.8965 22.5527V0.00117954H8.37107V13.7083L3.67655 0.00117954H0V24H0.0220736C1.18682 23.8343 2.35557 23.6768 3.52461 23.5244ZM24.6479 3.47963V0.00117954H15.875V22.1767C18.7938 21.9175 21.716 21.7002 24.6408 21.5247V18.0431C22.9448 18.1445 21.2523 18.2613 19.5638 18.3913V12.8274H23.9777V9.35047H19.5638V3.47963H24.6479ZM58.3701 17.8767V0H54.6798V21.1951C57.6153 21.3059 60.5394 21.4605 63.4537 21.6551V18.1713C61.7623 18.059 60.0681 17.9614 58.3701 17.8764V17.8767Z" fill="currentColor"/>
+              </svg>
+
+            </div>
+
+          </div>
+          <div class="col-4 col-md-2 mt-5">
+
+            <!-- Image -->
+            <div class="img-fluid svg-shim text-instagram mx-auto" style="max-width: 112px;">
+              <svg viewBox="0 0 119 34" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M6.93232 0C5.85082 0 4.44875 1.15027 3.62165 1.91597C1.80324 3.53488 0.15625 6.51171 0.15625 8.90107C0.15625 12.2962 3.03508 13.5778 3.76323 13.5778C4.0033 13.5778 4.20797 13.4536 4.20797 13.1268C4.20797 12.8707 4.04603 12.6576 3.88492 12.4387C3.21822 11.4164 3.00407 10.4408 3.00407 9.12488C3.00407 6.38135 4.26562 3.86661 5.31208 2.71587C5.50504 2.50761 5.94103 2.05774 6.07148 2.05774C6.20099 2.05774 6.23307 2.16353 6.23307 2.49051L6.11149 20.4476C6.11149 23.2548 5.30392 24.3699 5.30392 25.0309C5.30392 25.3213 5.42928 25.3967 5.66864 25.3967C6.80199 25.3967 7.93143 24.0112 8.25141 23.5059C9.24365 21.7869 9.48704 20.445 9.48704 16.5743V1.48498C9.48704 1.07654 9.3728 0.899985 8.98595 0.648156C8.42022 0.287805 7.77198 0 6.93232 0ZM39.3375 0.0501047C38.8044 0.0501047 38.5765 0.329599 38.5513 1.19444L38.4331 4.77538L35.3106 4.66686C35.1212 4.66199 35.0356 4.72207 34.9527 4.88901C34.6876 5.38768 34.548 5.77843 34.548 6.42908C34.548 6.95886 34.7875 7.01537 35.001 7.01537L38.2498 7.10893L38.2399 13.9504C38.2399 15.4014 37.3269 17.2838 35.7071 18.8493C35.7071 18.8493 35.8464 18.3767 35.8385 17.8807C35.8385 16.477 34.9377 15.2049 33.7369 14.3047L30.806 12.0932C31.4203 11.3803 32.4612 9.96645 32.4612 8.7726C32.4612 7.84697 31.881 7.45812 30.7992 7.45812C29.2725 7.45812 27.5019 8.86058 27.5019 10.9406C27.5019 11.6989 27.8382 12.3813 28.3495 12.9033C27.6436 14.2466 26.6449 16.014 25.9032 17.2727C25.3431 18.2365 24.3954 19.713 23.8348 19.713C23.4214 19.713 23.2304 19.0607 23.2304 16.5545C23.2304 14.4723 23.3779 12.2085 23.4519 10.0354C23.4519 9.53735 23.3704 9.07786 22.7257 8.62739C22.1326 8.24626 21.4002 7.71399 20.6458 7.71399C18.9686 7.71399 17.8261 9.26189 17.0423 10.7755C16.2312 12.3442 15.7926 13.6661 15.1738 15.5841L15.2421 8.98323C15.2632 8.51258 15.1447 8.32985 14.7692 8.16968C14.2821 7.96249 13.565 7.72361 12.929 7.72361C12.3975 7.72361 12.3328 7.95347 12.3328 8.51365L12.2613 16.4341L12.2532 19.489C12.2532 22.2432 12.5971 22.7024 14.2265 22.7024C15.1287 22.7024 15.4177 22.5962 15.4355 21.844C15.4603 21.3465 15.6975 20.1413 16.0184 18.9326C16.957 15.3649 18.0692 12.5432 19.9868 10.3925C20.1868 10.1837 20.3414 10.2584 20.3099 10.5544C20.3099 10.5544 20.0067 15.3826 20.0067 17.3575C20.0067 20.8698 20.5456 22.7025 22.288 22.7025C23.9981 22.7025 25.6776 20.4988 26.5944 19.0111L29.5355 14.0771C31.4413 15.7058 32.7712 16.9686 32.7712 18.5049C32.7712 19.4597 32.1705 20.3939 31.2556 20.3939C30.1122 20.3939 29.3816 19.1845 28.6093 19.1845C27.9683 19.1845 27.1456 20.4257 27.1456 21.1305C27.1456 21.7959 28.5932 22.7372 31.1907 22.7372C35.0251 22.7372 37.082 20.0979 38.3165 17.1752C38.5527 20.6441 39.9308 22.6704 42.0801 22.6704C43.4898 22.6704 45.1192 20.8839 45.8603 18.7018C45.8603 18.7018 45.9335 19.2682 46.4964 20.4288C47.2712 21.9444 48.449 22.6403 49.9121 22.6403C51.7318 22.6403 53.2882 21.5339 54.2384 19.6773C54.3825 21.0841 55.5602 22.6334 57.4542 22.6334C58.643 22.6334 59.7269 21.7198 60.4384 20.2149C60.4384 20.2149 61.3599 22.7004 64.0254 22.7004C65.5226 22.7004 67.2954 21.3093 67.7191 20.2986L67.7657 21.7685L63.8108 25.4265C62.6624 26.5446 61.4409 28.151 61.4409 29.9296C61.4409 32.1917 63.5703 33.4924 65.4442 33.4924C67.3921 33.4924 68.6846 32.2546 69.3926 31.2175C70.2836 29.8755 70.6599 27.3461 70.6599 24.8737L70.5716 21.1558C73.2371 18.2171 75.3233 14.1552 76.252 11.2812L78.2753 11.2277C78.6673 11.2013 78.6477 11.3561 78.5935 11.5852C78.2379 13.0924 77.9274 14.7993 77.9274 16.4992C77.9274 19.3075 78.5723 20.5296 79.4993 21.5284C80.3054 22.3652 81.1069 22.6475 81.9506 22.6475C83.6005 22.6475 84.6363 21.2809 84.9648 20.4193C85.7396 21.9349 86.881 22.6408 88.3437 22.6408C90.1635 22.6408 91.72 21.5343 92.6703 19.6777C92.8144 21.0846 93.9919 22.6339 95.8859 22.6339C97.3009 22.6339 98.1216 21.815 98.767 20.2721C98.78 20.7684 98.7991 21.2975 98.8137 21.7935C98.8307 22.0502 99.0352 22.2127 99.2184 22.2796C99.8199 22.5079 100.348 22.6222 100.822 22.6222C102.059 22.6222 102.327 22.3674 102.327 21.5564C102.327 20.2189 102.367 18.1056 102.745 16.4088C103.148 14.7195 103.755 12.8071 104.592 11.4765C104.668 11.339 104.853 11.3751 104.861 11.5417C104.981 14.3887 105.171 19.2083 105.916 20.4559C106.284 21.051 106.853 21.4847 107.705 21.4847C108.104 21.4847 108.594 21.314 108.719 21.2075C108.846 21.1082 108.91 20.9979 108.902 20.7933C108.902 17.1537 110.034 13.6301 111.167 11.2611C111.198 11.1908 111.286 11.1853 111.283 11.2778L111.22 13.9003C111.22 18.2074 111.53 20.9285 113.675 22.2366C114.097 22.4733 114.572 22.597 115.055 22.5956C116.153 22.5956 117.148 21.9808 117.64 20.9921C118.041 20.2238 118.416 18.745 118.416 17.9073C118.416 17.5831 118.42 17.0553 117.89 17.0553C117.599 17.0553 117.425 17.2702 117.355 17.5948C117.186 18.2984 117.048 18.9018 116.785 19.5975C116.535 20.2615 116.161 20.6482 115.718 20.6482C115.197 20.6482 114.933 20.2373 114.782 19.9834C114.118 18.967 114.064 16.6323 114.064 14.6835L114.224 9.66772C114.224 9.25275 114.052 8.7561 113.413 8.38993C112.985 8.14249 111.901 7.67671 111.237 7.67671C110.621 7.67671 110.323 8.02649 110.101 8.54001C109.684 9.46231 108.291 13.0799 107.918 16.0212C107.904 16.0987 107.808 16.1151 107.801 16.0162C107.607 13.9362 107.508 11.4302 107.51 9.73943C107.51 9.22829 107.385 8.49762 106.304 8.02412C105.779 7.80553 105.344 7.67172 104.813 7.67172C104.155 7.67172 104.013 7.99491 103.778 8.42317C103.032 9.80545 102.516 11.608 101.743 13.8817L101.755 8.67892C101.755 8.43564 101.606 8.11673 101.18 8.03088C100.124 7.78748 99.6346 7.67695 99.2183 7.67695C98.9151 7.67695 98.7485 7.91928 98.7485 8.18132L98.6918 17.0522C98.4875 18.1381 97.6597 20.7302 96.4853 20.7302C95.5213 20.7302 95.0715 19.7506 95.0715 15.6561L95.2464 9.00151C95.2464 8.58121 94.9713 8.40465 94.5704 8.22667C93.9971 7.99823 93.541 7.90752 92.9583 7.90752C92.227 7.90752 91.976 8.25861 92.124 9.10196C91.3201 8.01106 90.5164 7.40814 89.0966 7.40814C86.246 7.40814 84.0974 10.8472 84.0974 15.8448C84.0694 17.2462 84.4071 18.6391 84.4071 18.6391C84.1491 19.8022 83.5428 20.7502 82.7051 20.7502C81.6484 20.7502 80.9749 19.2517 80.9749 16.6547C80.9749 14.05 81.9641 11.1122 81.9641 10.316C81.9641 9.39024 81.3593 8.80454 80.2888 8.80454C79.7525 8.80454 77.7632 9.25714 76.7434 9.40568C76.7434 9.40568 76.8584 8.91852 76.8499 8.53549C76.8499 7.62269 76.4229 7.05064 75.3629 7.05064C74.0674 7.05064 73.1163 7.9784 73.1163 9.56122C73.1163 10.2713 73.5241 10.9284 74.0639 11.2814C73.3632 14.2126 72.2239 16.3926 70.5451 18.8279L70.6866 8.96649C70.6866 8.64591 70.6015 8.4468 69.9754 8.20304C69.6444 8.05962 69.1049 7.89399 68.4249 7.89399C67.4395 7.89399 67.5047 8.59985 67.5574 9.12832C67.1065 8.32641 66.1193 7.37454 64.5964 7.37454C60.4463 7.37454 59.1722 13.7219 59.797 18.2297C59.797 18.7793 59.2619 20.7302 58.0534 20.7302C57.0894 20.7302 56.6396 19.7506 56.6396 15.6561L56.8162 9.00151C56.8162 8.58109 56.5392 8.40453 56.1383 8.22667C55.565 7.99823 55.1105 7.90752 54.5279 7.90752C53.7964 7.90752 53.5454 8.25861 53.6934 9.10184C52.8895 8.01094 52.0842 7.40802 50.6642 7.40802C47.8137 7.40802 45.6366 10.5532 45.6366 15.5506C45.6366 17.4583 43.999 20.3694 42.8506 20.3694C42.2126 20.3694 41.5334 19.1947 41.5334 16.1937C41.5366 14.1481 41.8148 7.18421 41.8148 7.18421L45.8232 7.11903C46.0145 7.11724 46.1253 6.90757 46.1962 6.77839C46.3802 6.40379 46.4693 6.15433 46.4693 5.70612C46.4693 5.30172 46.3885 5.15402 45.8715 5.12481L41.8763 4.88426L42.0463 1.15134C42.0583 0.915658 41.9165 0.762019 41.6599 0.646968C40.8866 0.343609 39.9381 0.0502235 39.3375 0.0501047ZM51.4691 9.83121C52.5378 9.83121 53.6223 10.8088 53.6223 14.2774C53.6223 18.6445 52.036 20.6764 50.8162 20.6764C49.6727 20.6764 48.8046 19.0575 48.8046 15.8776C48.8046 12.6634 49.6523 9.83121 51.4691 9.83121ZM89.9574 9.83121C91.0262 9.83121 92.1106 10.8088 92.1106 14.2774C92.1106 18.6445 90.5244 20.6764 89.3046 20.6764C88.161 20.6764 87.2929 19.0575 87.2929 15.8776C87.293 12.6634 88.1407 9.83121 89.9574 9.83121ZM65.5459 9.85128C66.9406 9.85128 67.5576 11.2932 67.5576 14.0886C67.5576 18.3032 66.3085 20.7029 64.7915 20.7029C63.823 20.7029 62.7094 19.1079 62.7681 15.9709C62.7681 13.9652 63.4202 9.85128 65.5459 9.85128ZM67.9072 23.9502V25.6103C67.9072 31.1189 66.4437 32.0592 65.2677 32.0592C64.8221 32.0592 63.7307 31.7216 63.7307 30.3588C63.7307 28.4538 65.7165 26.2866 66.3336 25.6169L67.9072 23.9502Z" fill="currentColor"/>
+              </svg>
+
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FEATURES -->
+    <section class="py-10 py-md-12">
+      <div class="container-lg">
         <div class="row justify-content-center">
-          <div class="col-12 col-md-10 col-lg-8 text-center">
-            
-            <!-- Badge -->
-            <span class="badge badge-pill badge-primary-desat-soft mb-3">
-              <span class="h6 text-uppercase">Enterprise</span>
-            </span>
+          <div class="col-md-10 col-lg-8 text-center">
+
+            <!-- Divider -->
+            <hr class="hr-sm border-warning mb-10 mb-md-12">
+
+            <!-- Preheading -->
+            <h6 class="text-uppercase text-primary mb-5">
+              Useful at all Tiers
+            </h6>
 
             <!-- Heading -->
-            <h2>
-              Business grade quality <span class="font-weight-bold text-primary-desat">for all plans</span>.
+            <h2 class="display-4 mb-10">
+              All plans include a full suite of functional features.
             </h2>
 
-            <!-- Text -->
-            <p class="font-size-lg text-muted mb-7 mb-md-9">
-              Build a beautiful, modern website with our flexible Bootstrap components all built from scratch.
-            </p>
-
           </div>
-        </div> <!-- / .row -->
-        <div class="row">
-          <div class="col-12 col-md-4 text-center">
-            
-            <!-- Icon -->
-            <div class="icon text-primary mb-3">
-              <?xml version="1.0" encoding="UTF-8"?>
-              <svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                  <!-- Generator: Sketch 52.2 (67145) - http://www.bohemiancoding.com/sketch -->
-                  <title>Stockholm-icons / General / Settings-1</title>
-                  <desc>Created with Sketch.</desc>
-                  <g id="Stockholm-icons-/-General-/-Settings-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                      <rect id="bound" x="0" y="0" width="24" height="24"></rect>
-                      <path d="M7,3 L17,3 C19.209139,3 21,4.790861 21,7 C21,9.209139 19.209139,11 17,11 L7,11 C4.790861,11 3,9.209139 3,7 C3,4.790861 4.790861,3 7,3 Z M7,9 C8.1045695,9 9,8.1045695 9,7 C9,5.8954305 8.1045695,5 7,5 C5.8954305,5 5,5.8954305 5,7 C5,8.1045695 5.8954305,9 7,9 Z" id="Combined-Shape" fill="#335EEA"></path>
-                      <path d="M7,13 L17,13 C19.209139,13 21,14.790861 21,17 C21,19.209139 19.209139,21 17,21 L7,21 C4.790861,21 3,19.209139 3,17 C3,14.790861 4.790861,13 7,13 Z M17,19 C18.1045695,19 19,18.1045695 19,17 C19,15.8954305 18.1045695,15 17,15 C15.8954305,15 15,15.8954305 15,17 C15,18.1045695 15.8954305,19 17,19 Z" id="Combined-Shape" fill="#335EEA" opacity="0.3"></path>
-                  </g>
-              </svg>
+        </div>
+        <div class="row mt-n8 mt-md-n9">
+          <div class="col-md-6 col-lg-4">
+
+            <!-- Item -->
+            <div class="d-flex mt-8 mt-md-9">
+
+              <!-- Icon -->
+              <div class="icon text-primary-light">
+                <svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd"><path d="M0 0h24v24H0z"/><path d="M4 4l7.631-1.43a2 2 0 01.738 0L20 4v9.283a8.51 8.51 0 01-4 7.217l-3.47 2.169a1 1 0 01-1.06 0L8 20.5a8.51 8.51 0 01-4-7.217V4z" fill="#335EEA" opacity=".3"/><path d="M11.175 14.75a.946.946 0 01-.67-.287l-1.917-1.917a.926.926 0 010-1.342c.383-.383 1.006-.383 1.341 0l1.246 1.246 3.163-3.162a.926.926 0 011.341 0 .926.926 0 010 1.341l-3.833 3.834a.946.946 0 01-.671.287z" fill="#335EEA"/></g></svg>
+              </div>
+
+              <!-- Body -->
+              <div class="ml-5">
+
+                <!-- Title -->
+                <p class="font-size-lg font-weight-bold mb-1">
+                  Secure
+                </p>
+
+                <!-- Text -->
+                <p class="font-size-sm text-muted mb-0">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. In urna lectus, mattis non accumsan in, tempor dictum neque. In hac habitasse platea dictumst.
+                </p>
+
+              </div>
+
             </div>
 
-            <!-- Heading -->
-            <h3>
-              Built for developers
-            </h3>
-
-            <!-- Text -->
-            <p class="text-muted mb-6 mb-md-0">
-              Landkit is built to make your life easier. Variables, build tooling, documentation, and reusable components.
-            </p>
-
           </div>
-          <div class="col-12 col-md-4 text-center">
+          <div class="col-md-6 col-lg-4">
 
-            <!-- Icon -->
-            <div class="icon text-primary mb-3">
-              <?xml version="1.0" encoding="UTF-8"?>
-              <svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                  <!-- Generator: Sketch 52.2 (67145) - http://www.bohemiancoding.com/sketch -->
-                  <title>Stockholm-icons / Layout / Layout-arrange</title>
-                  <desc>Created with Sketch.</desc>
-                  <g id="Stockholm-icons-/-Layout-/-Layout-arrange" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                      <rect id="bound" x="0" y="0" width="24" height="24"></rect>
-                      <path d="M5.5,4 L9.5,4 C10.3284271,4 11,4.67157288 11,5.5 L11,6.5 C11,7.32842712 10.3284271,8 9.5,8 L5.5,8 C4.67157288,8 4,7.32842712 4,6.5 L4,5.5 C4,4.67157288 4.67157288,4 5.5,4 Z M14.5,16 L18.5,16 C19.3284271,16 20,16.6715729 20,17.5 L20,18.5 C20,19.3284271 19.3284271,20 18.5,20 L14.5,20 C13.6715729,20 13,19.3284271 13,18.5 L13,17.5 C13,16.6715729 13.6715729,16 14.5,16 Z" id="Combined-Shape" fill="#335EEA"></path>
-                      <path d="M5.5,10 L9.5,10 C10.3284271,10 11,10.6715729 11,11.5 L11,18.5 C11,19.3284271 10.3284271,20 9.5,20 L5.5,20 C4.67157288,20 4,19.3284271 4,18.5 L4,11.5 C4,10.6715729 4.67157288,10 5.5,10 Z M14.5,4 L18.5,4 C19.3284271,4 20,4.67157288 20,5.5 L20,12.5 C20,13.3284271 19.3284271,14 18.5,14 L14.5,14 C13.6715729,14 13,13.3284271 13,12.5 L13,5.5 C13,4.67157288 13.6715729,4 14.5,4 Z" id="Combined-Shape" fill="#335EEA" opacity="0.3"></path>
-                  </g>
-              </svg>
+            <!-- Item -->
+            <div class="d-flex mt-8 mt-md-9">
+
+              <!-- Icon -->
+              <div class="icon text-primary-light">
+                <svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd"><path d="M0 0h24v24H0z"/><path d="M22 15.01l.025-.01v4.586a1 1 0 01-1.707.707L18.025 18H5a3 3 0 01-3-3V6a3 3 0 013-3h14a3 3 0 013 3v9.01zM6.168 10.555C7.678 12.819 9.646 14 12 14c2.354 0 4.322-1.18 5.832-3.445a1 1 0 10-1.664-1.11C15.01 11.181 13.646 12 12 12c-1.646 0-3.01-.82-4.168-2.555a1 1 0 00-1.664 1.11z" fill="#335EEA"/></g></svg>
+              </div>
+
+              <!-- Body -->
+              <div class="ml-5">
+
+                <!-- Title -->
+                <p class="font-size-lg font-weight-bold mb-1">
+                  Cross-platform
+                </p>
+
+                <!-- Text -->
+                <p class="font-size-sm text-muted mb-0">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. In urna lectus, mattis non accumsan in, tempor dictum neque. In hac habitasse platea dictumst.
+                </p>
+
+              </div>
+
             </div>
 
-            <!-- Heading -->
-            <h3>
-              Designed to be modern
-            </h3>
-
-            <!-- Text -->
-            <p class="text-muted mb-6 mb-md-0">
-              Designed with the latest design trends in mind. Landkit feels modern, minimal, and beautiful.
-            </p>
-
           </div>
-          <div class="col-12 col-md-4 text-center">
-              
-            <!-- Icon -->
-            <div class="icon text-primary mb-3">
-              <?xml version="1.0" encoding="UTF-8"?>
-              <svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                  <!-- Generator: Sketch 52.2 (67145) - http://www.bohemiancoding.com/sketch -->
-                  <title>Stockholm-icons / Code / Code</title>
-                  <desc>Created with Sketch.</desc>
-                  <g id="Stockholm-icons-/-Code-/-Code" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                      <rect id="bound" x="0" y="0" width="24" height="24"></rect>
-                      <path d="M17.2718029,8.68536757 C16.8932864,8.28319382 16.9124644,7.65031935 17.3146382,7.27180288 C17.7168119,6.89328641 18.3496864,6.91246442 18.7282029,7.31463817 L22.7282029,11.5646382 C23.0906029,11.9496882 23.0906029,12.5503176 22.7282029,12.9353676 L18.7282029,17.1853676 C18.3496864,17.5875413 17.7168119,17.6067193 17.3146382,17.2282029 C16.9124644,16.8496864 16.8932864,16.2168119 17.2718029,15.8146382 L20.6267538,12.2500029 L17.2718029,8.68536757 Z M6.72819712,8.6853647 L3.37324625,12.25 L6.72819712,15.8146353 C7.10671359,16.2168091 7.08753558,16.8496835 6.68536183,17.2282 C6.28318808,17.6067165 5.65031361,17.5875384 5.27179713,17.1853647 L1.27179713,12.9353647 C0.909397125,12.5503147 0.909397125,11.9496853 1.27179713,11.5646353 L5.27179713,7.3146353 C5.65031361,6.91246155 6.28318808,6.89328354 6.68536183,7.27180001 C7.08753558,7.65031648 7.10671359,8.28319095 6.72819712,8.6853647 Z" id="Combined-Shape" fill="#335EEA"></path>
-                      <rect id="Rectangle-28" fill="#335EEA" opacity="0.3" transform="translate(12.000000, 12.000000) rotate(-345.000000) translate(-12.000000, -12.000000) " x="11" y="4" width="2" height="16" rx="1"></rect>
-                  </g>
-              </svg>
+          <div class="col-md-6 col-lg-4">
+
+            <!-- Item -->
+            <div class="d-flex mt-9">
+
+              <!-- Icon -->
+              <div class="icon text-primary-light">
+                <svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd"><path d="M0 0h24v24H0z"/><path d="M14.293 16.707a1 1 0 011.414-1.414l4 4a1 1 0 01-1.414 1.414l-4-4z" fill="#335EEA" opacity=".3"/><path d="M11 16a5 5 0 100-10 5 5 0 000 10zm0 2a7 7 0 110-14 7 7 0 010 14z" fill="#335EEA"/></g></svg>
+              </div>
+
+              <!-- Body -->
+              <div class="ml-5">
+
+                <!-- Title -->
+                <p class="font-size-lg font-weight-bold mb-1">
+                  Searchable
+                </p>
+
+                <!-- Text -->
+                <p class="font-size-sm text-muted mb-0">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. In urna lectus, mattis non accumsan in, tempor dictum neque. In hac habitasse platea dictumst.
+                </p>
+
+              </div>
+
             </div>
 
-            <!-- Heading -->
-            <h3>
-              Documentation for everything
-            </h3>
+          </div>
+          <div class="col-md-6 col-lg-4">
 
-            <!-- Text -->
-            <p class="text-muted mb-0">
-              We've written extensive documentation for components and tools, so you never have to reverse engineer anything.
-            </p>
+            <!-- Item -->
+            <div class="d-flex mt-8 mt-md-9">
+
+              <!-- Icon -->
+              <div class="icon text-primary-light">
+                <svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd"><path d="M0 0h24v24H0z"/><path d="M7 11h8a2 2 0 002-2V8h2v1a4 4 0 01-4 4H7v2a1 1 0 01-2 0V9a1 1 0 112 0v2z" fill="#335EEA" opacity=".3"/><path d="M6 21a2 2 0 100-4 2 2 0 000 4zm0 2a4 4 0 110-8 4 4 0 010 8zM18 7a2 2 0 100-4 2 2 0 000 4zm0 2a4 4 0 110-8 4 4 0 010 8zM6 7a2 2 0 100-4 2 2 0 000 4zm0 2a4 4 0 110-8 4 4 0 010 8z" fill="#335EEA"/></g></svg>
+              </div>
+
+              <!-- Body -->
+              <div class="ml-5">
+
+                <!-- Title -->
+                <p class="font-size-lg font-weight-bold mb-1">
+                  Document History
+                </p>
+
+                <!-- Text -->
+                <p class="font-size-sm text-muted mb-0">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. In urna lectus, mattis non accumsan in, tempor dictum neque. In hac habitasse platea dictumst.
+                </p>
+
+              </div>
+
+            </div>
 
           </div>
-        </div> <!-- / .row -->
-      </div> <!-- / .container -->
+          <div class="col-md-6 col-lg-4">
+
+            <!-- Item -->
+            <div class="d-flex mt-8 mt-md-9">
+
+              <!-- Icon -->
+              <div class="icon text-primary-light">
+                <svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd"><path d="M0 0h24v24H0z"/><path d="M4 4h16a2 2 0 012 2v12a2 2 0 01-2 2H4a2 2 0 01-2-2V6a2 2 0 012-2z" fill="#335EEA" opacity=".3"/><path d="M18.5 11h-13A1.5 1.5 0 004 12.5v.5h4.586a1 1 0 01.707.293l1 1a2.414 2.414 0 003.414 0l1-1a1 1 0 01.707-.293H20v-.5a1.5 1.5 0 00-1.5-1.5zM5.5 6A1.5 1.5 0 004 7.5V8h16v-.5A1.5 1.5 0 0018.5 6h-13z" fill="#335EEA"/></g></svg>
+              </div>
+
+              <!-- Body -->
+              <div class="ml-5">
+
+                <!-- Title -->
+                <p class="font-size-lg font-weight-bold mb-1">
+                  100% Free
+                </p>
+
+                <!-- Text -->
+                <p class="font-size-sm text-muted mb-0">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. In urna lectus, mattis non accumsan in, tempor dictum neque. In hac habitasse platea dictumst.
+                </p>
+
+              </div>
+
+            </div>
+
+          </div>
+          <div class="col-md-6 col-lg-4">
+
+            <!-- Item -->
+            <div class="d-flex mt-8 mt-md-9">
+
+              <!-- Icon -->
+              <div class="icon text-primary-light">
+                <svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd"><path d="M0 0h24v24H0z"/><path d="M16.374 19.939l5.849-8.773A.75.75 0 0021.599 10H17V4.477a.75.75 0 00-1.374-.416l-5.849 8.773A.75.75 0 0010.401 14H15v5.523a.75.75 0 001.374.416z" fill="#335EEA"/><path d="M4.5 5h5a1.5 1.5 0 010 3h-5a1.5 1.5 0 010-3zm0 12h5a1.5 1.5 0 010 3h-5a1.5 1.5 0 010-3zm-2-6h4a1.5 1.5 0 010 3h-4a1.5 1.5 0 010-3z" fill="#335EEA" opacity=".3"/></g></svg>
+              </div>
+
+              <!-- Body -->
+              <div class="ml-5">
+
+                <!-- Title -->
+                <p class="font-size-lg font-weight-bold mb-1">
+                  Group Sync
+                </p>
+
+                <!-- Text -->
+                <p class="font-size-sm text-muted mb-0">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. In urna lectus, mattis non accumsan in, tempor dictum neque. In hac habitasse platea dictumst.
+                </p>
+
+              </div>
+
+            </div>
+
+          </div>
+        </div>
+      </div>
     </section>
 
-    <!-- SHAPE
-    ================================================== -->
+    <!-- CTA -->
+    <section>
+      <div class="container-lg position-relative" style="z-index: 1;">
+        <div class="row no-gutters">
+          <div class="col-md-6 bg-cover rounded-top-left-lg rounded-bottom-right-lg mb-6 mb-md-0 d-none d-md-block" style="background-image: url(assets/img/avatars/avatar-jumbo-1.jpg);">
+
+            <!-- Image (placeholder) -->
+            <img class="img-fluid invisible" src="assets/img/avatars/avatar-jumbo-1.jpg" alt="...">
+
+          </div>
+          <div class="col-md-6 py-md-6">
+
+            <!-- Card -->
+            <div class="card h-100 rounded-bottom-right-lg border-top border-top-4 border-primary">
+              <div class="card-body text-center d-flex flex-column py-10">
+
+                <!-- Preheading -->
+                <h6 class="text-uppercase text-primary mb-5">
+                  Student & non profit
+                </h6>
+
+                <!-- Text -->
+                <p class="lead my-auto">
+                  We provide huge discounts for those we believe are giving back to the larger global community. Our “goodwill” discounts range from 20% - 80% off.
+                </p>
+
+                <!-- Button -->
+                <div class="mt-6">
+                  <a class="btn btn-primary lift" href="#!">
+                    Contact Us
+                  </a>
+                </div>
+
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SHAPE -->
     <div class="position-relative">
-      <div class="shape shape-bottom shape-fluid-x svg-shim text-white">
-        <svg viewBox="0 0 2880 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M0 48H1437.5H2880V0H2160C1442.5 52 720 0 720 0H0V48Z" fill="currentColor"/>
-        </svg>
+      <div class="shape shape-fluid-x shape-top text-dark pb-15">
+        <div class="shape-img pb-8 pb-md-11">
+          <svg viewBox="0 0 100 50" preserveAspectRatio="none"><path d="M0 25h25L75 0h25v50H0z" fill="currentColor"/></svg>
+        </div>
       </div>
     </div>
 
-    <!-- FAQ
-    ================================================== -->
-    <section class="py-8 py-md-11 bg-white border-bottom">
-      <div class="container">
+    <!-- FAQ -->
+    <section class="py-10 py-md-12 bg-dark">
+      <div class="container-lg">
         <div class="row justify-content-center">
-          <div class="col-12 col-md-10 col-md-8 text-center">
-            
-            <!-- Badge -->
-            <span class="badge badge-pill badge-primary-desat-soft mb-3">
-              <span class="h6 text-uppercase">FAQ</span>
-            </span>
+          <div class="col-lg-10 col-xl-7">
 
             <!-- Heading -->
-            <h2>
+            <h2 class="display-4 text-center text-white mb-4">
               Frequently asked questions.
             </h2>
 
             <!-- Text -->
-            <p class="font-size-lg text-muted mb-7 mb-md-9">
-              Let us help answer the most common questions you might have.
+            <p class="text-center text-white-80 mb-9">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. In urna lectus, mattis non accumsan in, tempor dictum neque.
             </p>
 
-          </div>
-        </div> <!-- / .row -->
-        <div class="row">
-          <div class="col-12 col-md-6">
-            
-            <!-- Heading -->
-            <h3>
-              Can I use Landkit for my clients?
-            </h3>
+            <!-- List group -->
+            <div class="list-group list-group-lg list-group-flush my-n7" id="faq">
+              <div class="list-group-item border-gray-900">
 
-            <!-- Text -->
-            <p class="text-gray-800 mb-6 mb-md-8">
-              Absolutely. The Bootstrap Themes license allows you to build a websites for personal use or for a client. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec in nibh nec erat tincidunt porta. Donec ac mauris ullamcorper quam ullamcorper cursus eu in dui. Aliquam cursus accumsan laoreet. 
-            </p>
+                <!-- Heading -->
+                <a class="collapse-toggle font-size-lg font-weight-bold text-decoration-none text-white" data-toggle="collapse" href="#faqOne" role="button" aria-expanded="true" aria-controls="faqOne">
+                  Can I use this theme for any project?
+                </a>
 
-            <!-- Heading -->
-            <h3>
-              Is there a money back guarantee?
-            </h3>
+                <!-- Collapse -->
+                <div class="collapse show" id="faqOne" data-parent="#faq">
+                  <p class="text-white-80 mt-2 mb-0">
+                    Yup! Lorem ipsum dolor sit amet, consectetur adipiscing elit. In urna lectus, mattis non accumsan in, tempor dictum neque. In hac habitasse platea dictumst. Lorem ipsum dolor sit amet.
+                  </p>
+                </div>
 
-            <!-- Text -->
-            <p class="text-gray-800 mb-6 mb-md-8">
-              Yup! Bootstrap Themes come with a satisfaction guarantee. Submit a return and get your money back. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec in nibh nec erat tincidunt porta. Donec ac mauris ullamcorper quam ullamcorper cursus eu in dui. Aliquam cursus accumsan laoreet. 
-            </p>
-
-            <!-- Heading -->
-            <h3>
-              Do I get free updates?
-            </h3>
-
-            <!-- Text -->
-            <p class="text-gray-800 mb-6 mb-md-0">
-              Yes. We update all of our themes with each Bootstrap update, plus are constantly adding new components, pages, and features to our themes. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec in nibh nec erat tincidunt porta. Donec ac mauris ullamcorper.
-            </p>
-
-          </div>
-          <div class="col-12 col-md-6">
-            
-            <!-- Heading -->
-            <h3>
-              Does it work with Rails? React? Laravel?
-            </h3>
-
-            <!-- Text -->
-            <p class="text-gray-800 mb-6 mb-md-8">
-              Yes. Landkit has basic CSS/JS files you can include. If you want to enable deeper customization, you can integrate it into your assets pipeline or build processes. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec in nibh nec erat tincidunt porta. Donec ac mauris ullamcorper.
-            </p>
-
-            <!-- Heading -->
-            <h3>
-              Can I use Landkit for my clients?
-            </h3>
-
-            <!-- Text -->
-            <p class="text-gray-800 mb-6 mb-md-8">
-              Absolutely. The Bootstrap Themes license allows you to build a websites for personal use or for a client. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec in nibh nec erat tincidunt porta. Donec ac mauris ullamcorper quam ullamcorper cursus eu in dui. Aliquam cursus accumsan laoreet. 
-            </p>
-
-            <!-- Heading -->
-            <h3>
-              Is there a money back guarantee?
-            </h3>
-
-            <!-- Text -->
-            <p class="text-gray-800 mb-0">
-              Yup! Bootstrap Themes come with a satisfaction guarantee. Submit a return and get your money back. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec in nibh nec erat tincidunt porta. Donec ac mauris ullamcorper quam ullamcorper cursus eu in dui. Aliquam cursus accumsan laoreet. 
-            </p>
-
-          </div>
-        </div> <!-- / .row -->
-      </div> <!-- / .container -->
-    </section>
-
-    <!-- TESTIMONIALS
-    ================================================== -->
-    <section class="py-8 py-md-11">
-      <div class="container">
-        <div class="row align-items-stretch">
-          <div class="col-12 col-md-5">
-            
-            <!-- Blockquote -->
-            <blockquote class="blockquote text-center">
-
-              <!-- Logo -->
-              <div class="img-fluid mb-5 mb-md-7 svg-shim mx-auto " style="max-width: 120px; color: #FF5A5F;">
-                <svg viewBox="0 0 2761 991" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                  <g id="airbnb" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                    <g transform="translate(130.000000, 105.000000)" fill="currentColor" fill-rule="nonzero" id="Shape">
-                      <path d="M1317.62854,196.830214 C1317.62854,224.94903 1294.97121,247.590764 1266.85239,247.590764 C1238.73357,247.590764 1216.09184,224.94903 1216.09184,196.830214 C1216.09184,168.711397 1237.96116,146.069664 1266.85239,146.069664 C1295.76702,146.849875 1317.62854,169.49941 1317.62854,196.830214 Z M1108.31345,299.147129 L1108.31345,311.646115 C1108.31345,311.646115 1084.11129,280.390848 1032.56273,280.390848 C947.441668,280.390848 881.045683,345.218609 881.045683,435.028737 C881.045683,524.066455 946.661457,589.666625 1032.56273,589.666625 C1084.8915,589.666625 1108.31345,557.646752 1108.31345,557.646752 L1108.31345,570.918146 C1108.31345,577.167639 1113.01032,581.841105 1119.25201,581.841105 L1182.50374,581.841105 L1182.50374,288.177358 L1119.25201,288.177358 C1113.01032,288.200764 1108.31345,293.677848 1108.31345,299.147129 Z M1108.31345,487.357512 C1096.61028,504.545567 1073.17273,519.385187 1045.06171,519.385187 C995.081373,519.385187 956.804204,488.145525 956.804204,435.028737 C956.804204,381.919751 995.081373,350.680088 1045.06171,350.680088 C1072.40032,350.680088 1097.39049,366.299919 1108.31345,382.699962 L1108.31345,487.357512 Z M1229.37104,288.200764 L1304.34155,288.200764 L1304.34155,581.864512 L1229.37104,581.864512 L1229.37104,288.200764 Z M2349.32541,280.383046 C2297.77685,280.383046 2273.55909,311.638313 2273.55909,311.638313 L2273.55909,146.849875 L2198.58858,146.849875 L2198.58858,581.864512 L2261.85592,581.864512 C2268.10541,581.864512 2272.77888,576.39523 2272.77888,570.925949 L2272.77888,557.654554 C2272.77888,557.654554 2296.99664,589.674427 2348.52959,589.674427 C2433.66626,589.674427 2500.04664,524.089862 2500.04664,435.052143 C2500.04664,346.014425 2433.66626,280.383046 2349.32541,280.383046 Z M2336.82642,518.597174 C2307.91959,518.597174 2285.27786,503.773158 2273.55909,486.5773 L2273.55909,381.919751 C2285.27786,366.299919 2310.26803,349.899877 2336.82642,349.899877 C2386.80676,349.899877 2425.07613,381.139539 2425.07613,434.248525 C2425.07613,487.357512 2386.81457,518.597174 2336.82642,518.597174 Z M2159.5468,407.705735 L2159.5468,582.644723 L2084.56069,582.644723 L2084.56069,416.28806 C2084.56069,367.875946 2068.94086,348.339454 2026.79384,348.339454 C2004.15211,348.339454 1980.71456,360.058229 1965.85154,377.246285 L1965.85154,581.872314 L1890.89663,581.872314 L1890.89663,288.208566 L1950.2317,288.208566 C1956.4812,288.208566 1961.17027,293.677848 1961.17027,299.147129 L1961.17027,311.646115 C1983.03959,288.988777 2011.93082,280.390848 2040.82204,280.390848 C2073.62993,280.390848 2100.96854,289.776791 2122.83786,308.517467 C2149.38065,330.386791 2159.5468,358.497806 2159.5468,407.705735 Z M1708.89673,280.383046 C1657.36377,280.383046 1633.14601,311.638313 1633.14601,311.638313 L1633.14601,146.849875 L1558.1755,146.849875 L1558.1755,581.864512 L1621.42724,581.864512 C1627.67673,581.864512 1632.3658,576.39523 1632.3658,570.925949 L1632.3658,557.654554 C1632.3658,557.654554 1656.58356,589.674427 1708.11652,589.674427 C1793.25318,589.674427 1859.63356,524.089862 1859.63356,435.052143 C1860.41377,346.006622 1794.03339,280.383046 1708.89673,280.383046 Z M1696.39775,518.597174 C1667.50652,518.597174 1644.86479,503.773158 1633.14601,486.5773 L1633.14601,381.919751 C1644.86479,366.299919 1669.85496,349.899877 1696.39775,349.899877 C1746.39369,349.899877 1784.65525,381.139539 1784.65525,434.248525 C1784.65525,487.357512 1746.39369,518.597174 1696.39775,518.597174 Z M1493.34774,280.383046 C1515.98948,280.383046 1527.70825,284.299707 1527.70825,284.299707 L1527.70825,353.800934 C1527.70825,353.800934 1465.22893,332.711821 1426.18715,377.238483 L1426.18715,582.636921 L1351.20104,582.636921 L1351.20104,288.200764 L1414.46838,288.200764 C1420.71787,288.200764 1425.39134,293.670046 1425.39134,299.139327 L1425.39134,311.638313 C1439.46635,295.230468 1469.9258,280.383046 1493.34774,280.383046 Z M714.704624,555.306117 C710.803568,545.935779 706.894709,535.78523 702.993652,527.187301 C696.736357,513.135694 690.486864,499.848695 685.033187,487.357512 L684.252976,486.5773 C630.355976,369.420765 572.573524,250.719411 511.64682,133.57848 L509.306186,128.881608 C502.898081,116.729582 496.653228,104.492167 490.573312,92.1726639 C482.755594,78.1054534 474.953481,63.2814378 462.454495,49.2142273 C437.464326,17.9745651 401.535593,0.78650921 363.274029,0.78650921 C324.216649,0.78650921 289.07593,17.9745651 263.313352,47.6460025 C251.594577,61.6976088 242.996648,76.5372286 235.194535,90.6044391 C229.099222,102.916209 222.854469,115.153428 216.46166,127.313383 L214.113224,132.010255 C153.974534,249.151186 95.4040683,367.860342 41.5148708,485.009075 L40.7268574,486.561696 C35.265378,499.076286 29.008083,512.347681 22.7585901,526.391485 C18.8575334,534.989414 14.9564767,544.359752 11.05542,554.510302 C0.897068278,583.401528 -2.23157921,610.740133 1.68508173,638.866752 C10.2752086,697.44502 49.3169843,746.629543 103.213984,768.514471 C123.522885,777.1124 144.611998,781.013457 166.47352,781.013457 C172.723012,781.013457 180.525126,780.233246 186.782421,779.445232 C212.560604,776.324387 239.111196,767.742062 264.889379,752.902442 C296.909252,734.934175 327.368703,709.171597 361.72921,671.682441 C396.089718,709.171597 427.32938,734.934175 458.569042,752.902442 C484.355027,767.742062 510.897817,776.324387 536.668198,779.445232 C542.917691,780.241048 550.735408,781.013457 556.984901,781.013457 C578.854225,781.013457 600.715747,777.1124 620.236635,768.514471 C674.913846,746.629543 713.17541,696.664809 721.773339,638.866752 C727.976019,611.535949 724.855174,584.212948 714.704624,555.306117 Z M362.486015,595.916118 C320.30779,542.807132 292.969185,492.826793 283.606649,450.664172 C279.705592,432.695905 278.917578,417.076074 281.266015,403.016665 C282.818635,390.51768 287.515507,379.579117 293.765,370.208778 C308.60462,349.13527 333.594789,335.848271 362.493818,335.848271 C391.400648,335.848271 417.171029,348.347256 431.230437,370.208778 C437.47993,379.579117 442.161198,390.525482 443.737225,403.016665 C446.070057,417.083876 445.289845,433.476116 441.388789,450.664172 C431.987242,492.046582 404.648637,542.034723 362.486015,595.916118 Z M674.086822,632.625062 C668.625343,673.235062 641.286737,708.391385 603.025173,724.011216 C584.284496,731.81333 563.967793,734.161766 543.674496,731.81333 C524.153608,729.464894 504.617116,723.215401 484.323819,711.512231 C456.205002,695.876795 428.093987,671.682441 395.2861,635.745907 C446.826862,572.494173 478.066524,514.688315 489.785298,463.155356 C495.25458,438.937596 496.042593,417.076074 493.686355,396.75937 C490.573312,377.238483 483.535805,359.270215 472.605045,343.650384 C448.379482,308.494061 407.76168,288.200764 362.478213,288.200764 C317.194747,288.200764 276.576944,309.289877 252.366986,343.650384 C241.436226,359.270215 234.398719,377.238483 231.277874,396.75937 C228.157028,417.076074 228.929438,439.717807 235.178931,463.155356 C246.889903,514.688315 278.909776,573.266583 329.670326,636.526118 C297.650453,672.454851 268.751425,696.672611 240.632608,712.292442 C220.323707,724.011216 200.810621,730.260709 181.289733,732.593541 C160.208423,734.941977 139.891719,731.81333 121.931254,724.791428 C83.6696897,709.171597 56.3310842,674.015273 50.8696048,633.405273 C48.5289708,613.884385 50.0815914,594.363497 57.899309,572.494173 C60.232141,564.676456 64.1488019,556.874342 68.0498586,547.504004 C73.5191401,535.005018 79.7530288,521.718019 86.0103238,508.446624 L86.7983372,506.894004 C140.679733,390.51768 198.469987,271.808524 258.608677,156.228015 L260.949311,151.531143 C267.206606,139.827973 273.456099,127.328987 279.69779,115.610213 C285.947283,103.111227 292.969185,91.3924525 301.567114,81.2341009 C317.967156,62.5090286 339.828678,52.3428748 364.046438,52.3428748 C388.264198,52.3428748 410.12572,62.5090286 426.525763,81.2341009 C435.123692,91.4158589 442.145594,103.134633 448.395087,115.610213 C454.652382,127.328987 460.901874,139.827973 467.135763,151.531143 L469.484199,156.228015 C528.705845,272.288756 585.728672,389.458413 640.52213,507.674215 L640.52213,508.454426 C646.779425,520.969016 652.240904,535.01282 658.490397,547.52741 C662.391454,556.882144 666.300313,564.684258 668.640947,572.501975 C674.874835,592.78747 677.215469,612.323962 674.086822,632.625062 Z"></path>
-                    </g>
-                  </g>
-                </svg>
               </div>
-              
-              <!-- Text -->
-              <p class="mb-5 mb-md-7">
-                "It was incredibly easy to post the unused apartment above my garage for rent and have since been paying my mortgage with the proceeds.”
-              </p>
+              <div class="list-group-item border-gray-900">
 
-              <!-- Footer -->
-              <footer class="blockquote-footer mb-8 mb-md-0">
-                <div class="avatar mr-3">
-                  <img src="assets/img/avatars/avatar-2.jpg" class="avatar-img rounded-circle" alt="...">
-                </div> <span class="h6 text-uppercase">Bill Callan</span>
-              </footer>
+                <!-- Heading -->
+                <a class="collapse-toggle font-size-lg font-weight-bold text-decoration-none text-white" data-toggle="collapse" href="#faqTwo" role="button" aria-expanded="false" aria-controls="faqTwo">
+                  Do you give out student/military discounts?
+                </a>
 
-            </blockquote>
+                <!-- Collapse -->
+                <div class="collapse" id="faqTwo" data-parent="#faq">
+                  <p class="text-white-80 mt-2 mb-0">
+                    Yup! In urna lectus, mattis non accumsan in, tempor dictum neque. In hac habitasse platea dictumst. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                  </p>
+                </div>
 
-          </div>
-          <div class="col-12 col-md-1 border-right my-n8 my-md-n11 d-none d-md-block"></div>
-          <div class="col-12 col-md-5 offset-md-1">
-            
-            <!-- Blockquote -->
-            <blockquote class="blockquote text-center">
-
-              <!-- Logo -->
-              <div class="img-fluid mb-5 mb-md-7 mx-auto svg-shim" style="max-width: 120px; color: #CB2027;">
-                <svg viewBox="0 0 2761 991" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                  <g id="pinterest" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                    <g transform="translate(131.000000, 177.000000)" fill="currentColor" fill-rule="nonzero" id="Shape">
-                      <path d="M574.01881,222.949777 C601.146101,222.949777 627.171838,200.365894 631.699105,172.504233 C637.049513,145.385011 618.662027,122.801128 591.554911,122.801128 C564.439724,122.801128 538.409953,145.385011 533.81409,172.504233 C528.524208,200.365894 546.157149,222.949777 574.01881,222.949777 Z M2414.87365,303.556931 L2475.55598,303.556931 C2483.87211,303.556931 2488.74236,300.179638 2490.61459,292.420337 C2493.51987,280.401339 2496.50718,268.402321 2499.57633,256.42412 C2501.3719,249.439539 2497.30462,244.145621 2489.56146,244.145621 L2429.68209,244.145621 C2433.9955,226.984775 2450.78916,171.269523 2450.78916,134.946472 C2450.78916,62.4052784 2389.19089,0.702089645 2301.7888,0.702089645 C2203.08064,0.702089645 2138.86365,66.9446511 2138.86365,160.157139 C2138.86365,187.344955 2149.00763,219.035829 2161.58069,238.694339 C2156.16991,238.385195 2150.75135,238.231801 2145.33175,238.234349 C2070.32921,238.234349 2023.08745,278.919234 2023.08745,338.120724 C2023.08745,393.682646 2066.88735,415.27392 2108.12503,429.642548 C2144.75474,442.409281 2178.48733,448.348798 2178.48733,476.965004 C2178.48733,496.260364 2159.92634,507.582568 2123.60329,507.582568 C2080.50547,507.582568 2056.82003,487.286528 2050.79982,479.587752 C2054.88324,476.379929 2060.95591,468.741678 2060.95591,456.015294 C2060.95591,438.212883 2048.45145,423.682856 2025.226,423.682856 C2005.57556,423.682856 1988.96347,439.709868 1984.79129,460.792732 C1953.22953,486.612684 1918.78275,503.34582 1869.927,503.34582 C1821.82175,503.34582 1796.85319,478.324798 1796.85319,425.083 C1808.13101,428.516783 1837.49772,432.640551 1856.90606,432.640551 C1938.36056,432.640551 1993.87407,395.63155 1993.87407,321.516707 C1993.87407,281.663032 1958.8866,239.807999 1889.67024,239.807999 L1889.51288,239.807999 C1798.47525,239.807999 1747.48095,297.476189 1725.21583,360.906357 C1718.97784,359.402159 1712.7288,357.94414 1706.46923,356.53242 C1711.44842,342.462382 1715.02343,326.156955 1715.02343,308.080164 C1715.02343,276.75244 1695.62316,239.807999 1643.70887,239.807999 C1607.54722,239.807999 1573.2457,263.493437 1549.4715,298.993349 C1555.3868,275.836495 1559.30882,260.414733 1559.56303,259.381774 C1561.11247,253.325242 1558.59059,246.578725 1549.14466,246.578725 L1495.86251,246.578725 C1488.26865,246.578725 1482.91017,249.261999 1480.75145,257.908999 C1479.30288,263.675012 1460.9961,335.506045 1443.17351,405.4487 C1431.94815,449.058958 1373.87645,503.34582 1300.88738,503.34582 C1252.77406,503.34582 1227.82567,476.678519 1227.82567,423.416546 C1240.41486,428.428013 1268.46617,432.636516 1287.86644,432.636516 C1372.63368,432.636516 1424.83444,395.627515 1424.83444,321.512672 C1424.83444,281.658997 1389.85101,239.803964 1320.62659,239.803964 L1320.47729,239.803964 C1217.96413,239.803964 1155.16746,319.426578 1144.52717,409.705623 C1140.10078,447.235139 1108.42604,498.770133 1074.08821,498.770133 C1057.35911,498.770133 1048.03019,488.262998 1048.03019,470.424272 C1048.03019,455.01865 1058.87627,417.347909 1070.76337,370.138433 C1074.74592,354.345451 1080.79034,330.252478 1087.49247,303.556931 L1143.22387,303.556931 C1151.51982,303.556931 1156.38603,300.179638 1158.27037,292.420337 C1160.93751,281.247428 1165.83196,261.754353 1167.22,256.42412 C1169.01557,249.439539 1164.97251,244.145621 1157.20513,244.145621 L1102.40179,244.145621 C1102.40179,244.145621 1127.63263,143.472422 1128.23385,140.885989 C1130.66292,130.649199 1122.09662,124.741962 1113.13489,126.626306 C1113.13489,126.626306 1070.77548,134.918227 1062.91934,136.556436 C1055.02285,138.154295 1048.89368,142.491918 1046.04094,153.874647 L1023.60635,244.145621 L979.600664,244.145621 C971.304709,244.145621 966.426396,247.530985 964.566262,255.274146 C961.642725,267.290329 958.659479,279.291906 955.616636,291.278433 C953.796852,298.263014 957.860095,303.556931 965.619396,303.556931 L1008.7737,303.556931 C1008.46704,304.791641 993.186502,362.919821 980.827304,414.97533 C975.008837,440.008457 955.523832,498.584523 923.615068,498.584523 C904.553737,498.584523 896.499881,488.969123 896.499881,468.346248 C896.499881,435.868549 928.46917,354.567376 928.46917,317.675389 C928.46917,268.395959 902.031864,239.844314 847.870086,239.844314 C813.729968,239.844314 778.330931,261.887507 763.328809,281.235323 C763.328809,281.235323 767.880286,265.397956 769.437796,259.309144 C771.100215,252.877357 767.650292,246.55855 759.205041,246.55855 L706.249728,246.55855 C694.979978,246.55855 691.86496,252.582802 690.210611,259.208269 C689.548871,261.867332 670.467366,336.797245 652.148475,408.729153 C639.619806,457.984373 609.175747,499.141352 576.625418,499.141352 C559.888247,499.141352 552.435605,488.638253 552.435605,470.799527 C552.435605,455.385835 562.39398,417.351944 574.277049,370.146503 C588.734447,312.676027 601.489076,265.349536 602.852905,259.821589 C604.632339,252.736132 601.464866,246.562585 592.333665,246.562585 L539.059587,246.562585 C529.407872,246.562585 525.961984,251.626508 523.928345,258.663544 C523.928345,258.663544 508.934292,315.42386 493.056576,378.611928 C481.524551,424.46968 468.790098,471.178817 468.790098,493.12517 C468.790098,532.288861 486.374619,561.808906 534.717929,561.808906 C572.029556,561.808906 601.557671,542.8888 624.105239,518.779687 C620.792506,531.828871 618.678167,540.088512 618.464312,540.931826 C616.519443,548.392538 618.875882,554.985724 627.664107,554.985724 L682.180965,554.985724 C691.67128,554.985724 695.318918,551.168616 697.300102,542.892835 C699.208656,534.996344 739.925821,374.84324 739.925821,374.84324 C750.68716,331.822092 777.306042,303.335007 814.754858,303.335007 C832.512884,303.335007 847.882191,315.092991 846.102757,337.943184 C844.125608,363.081221 813.810668,453.388511 813.810668,493.024296 C813.810668,523.024505 824.935158,561.837151 881.408989,561.837151 C919.90287,561.837151 948.24066,543.38107 968.847395,519.562477 C976.392841,544.841739 996.382221,561.837151 1033.04825,561.837151 C1093.98479,561.837151 1130.71537,525.695674 1152.29454,489.392797 C1170.20186,531.570631 1212.14163,561.816976 1273.64307,561.816976 C1336.32676,561.816976 1384.83551,535.391774 1419.21369,499.468187 L1408.4927,541.520936 C1406.5438,549.094627 1409.84039,555.050284 1418.73353,555.050284 L1472.68952,555.050284 C1480.0776,555.050284 1485.3352,551.293701 1487.25183,543.5344 C1488.20005,539.725362 1495.99567,509.596032 1507.00718,466.784704 C1528.06583,384.86214 1561.91139,299.868943 1612.76851,299.868943 C1630.70407,299.868943 1638.05988,309.895913 1638.05988,325.69293 C1638.05988,333.141536 1635.89712,339.577358 1634.02891,343.027281 C1609.37911,338.128794 1589.5471,350.298348 1589.5471,376.618639 C1589.5471,393.767381 1607.59161,409.354578 1631.94685,409.354578 C1650.55626,409.354578 1665.94171,404.790995 1678.21214,396.531354 C1690.28966,399.022486 1702.3402,401.642695 1714.36169,404.39153 C1712.51262,416.270627 1711.56706,428.272844 1711.53315,440.294942 C1711.53315,506.049269 1758.48439,561.812941 1842.64234,561.812941 C1908.59035,561.812941 1953.84689,537.687688 1992.91374,506.759429 C2011.69262,537.485938 2059.10788,562.317315 2121.31544,562.317315 C2206.57495,562.317315 2254.93036,517.984793 2254.93036,459.384518 C2254.93036,406.344469 2211.3887,386.823149 2166.48724,370.570177 C2129.98665,357.383804 2099.54259,350.213613 2099.54259,324.417871 C2099.54259,303.274482 2116.18696,293.602591 2144.71439,293.602591 C2163.22293,293.602591 2177.11946,297.589169 2184.53982,299.671228 C2191.89966,318.090994 2207.12774,338.487909 2233.12524,338.487909 C2255.12404,338.487909 2265.00172,321.088998 2265.00172,305.066021 C2265.00172,259.454404 2189.02271,254.672931 2189.02271,156.852476 C2189.02271,96.0248814 2223.44124,45.8456468 2294.72351,45.8456468 C2344.25311,45.8456468 2376.59766,77.2540709 2376.59766,127.94575 C2376.59766,169.740259 2351.2498,244.141586 2351.2498,244.141586 L2308.16409,244.141586 C2299.88428,244.141586 2294.99789,247.52695 2293.12565,255.270111 C2290.20955,267.289472 2287.2209,279.29112 2284.15989,291.274398 C2282.34818,298.258979 2286.41142,303.552896 2294.17475,303.552896 L2336.24364,303.552896 C2336.24364,303.552896 2292.75443,463.944065 2292.75443,493.113065 C2292.75443,532.276756 2314.82587,561.788731 2363.18936,561.788731 C2431.59468,561.788731 2474.34145,517.335158 2492.92665,452.694491 C2494.37118,447.695128 2491.53861,443.623816 2486.47469,443.623816 L2460.37632,443.623816 C2455.16714,443.623816 2452.14492,446.593574 2450.82951,451.685741 C2444.93438,474.632775 2430.32366,498.774168 2401.55412,498.774168 C2384.82502,498.774168 2375.50014,488.267033 2375.50014,470.432342 C2375.50014,455.022685 2385.70061,418.945768 2398.24946,370.146503 C2404.22932,346.908949 2414.87365,303.556931 2414.87365,303.556931 Z M1875.49933,300.817168 C1899.68914,300.817168 1911.18082,316.90874 1911.18082,336.087085 C1911.18082,368.524434 1886.02261,388.303994 1846.67331,388.303994 C1832.59116,388.303994 1812.90441,384.96705 1801.27958,381.093452 C1806.16596,351.262712 1827.75724,300.817168 1875.49933,300.817168 Z M1306.46374,300.817168 C1332.9414,300.817168 1342.13313,316.90874 1342.13313,336.087085 C1342.13313,368.524434 1316.98702,388.303994 1277.64175,388.303994 C1263.55558,388.303994 1243.86882,384.96705 1232.24803,381.093452 C1237.10616,351.262712 1256.25223,300.817168 1306.46374,300.817168 Z M259.640014,0 C87.030871,0 0,123.753387 0,226.952495 C0,289.438474 23.657193,345.02864 74.3972924,365.740285 C82.7174581,369.145823 90.1700994,365.8573 92.5830282,356.6454 C94.2615873,350.270103 98.2320253,334.190636 100.003389,327.488504 C102.440528,318.377479 101.492304,315.181761 94.778067,307.240885 C80.1471644,289.983198 70.7980742,267.641415 70.7980742,235.994926 C70.7980742,144.182582 139.489879,61.9896736 249.669534,61.9896736 C347.235784,61.9896736 400.832662,121.602733 400.832662,201.217278 C400.832662,305.96986 354.478606,394.3807 285.653645,394.3807 C247.648,394.3807 219.197229,362.948066 228.316324,324.397696 C239.235029,278.374509 260.386488,228.703684 260.386488,195.483546 C260.386488,165.745611 244.424036,140.942479 211.389508,140.942479 C172.536513,140.942479 141.325803,181.135093 141.325803,234.978106 C141.325803,269.271554 152.914318,292.464722 152.914318,292.464722 C152.914318,292.464722 113.153448,460.929922 106.185006,490.433827 C92.3046133,549.191467 104.094877,621.220216 105.091522,628.495317 C105.680632,632.804695 111.220684,633.829584 113.730452,630.577376 C117.313531,625.900813 163.582852,568.773312 179.319344,511.686161 C183.769947,495.521959 204.872986,411.828032 204.872986,411.828032 C217.49446,435.904864 254.386446,457.112814 293.618731,457.112814 C410.403677,457.112814 489.642967,350.641323 489.642967,208.125195 C489.642967,100.362504 398.367278,0 259.640014,0 Z"></path>
-                    </g>
-                  </g>
-                </svg>
               </div>
-              
-              <!-- Text -->
-              <p class="mb-5 mb-md-7">
-                “If you're going on vacation, you might as well get paid while you travel! Share your home with others and return to a nice paycheck when you arrive home.”
-              </p>
+              <div class="list-group-item border-gray-900">
 
-              <!-- Footer -->
-              <footer class="blockquote-footer mb-0">
-                <div class="avatar mr-3">
-                  <img src="assets/img/avatars/avatar-1.jpg" class="avatar-img rounded-circle" alt="...">
-                </div> <span class="h6 text-uppercase">Jacob Thornton</span>
-              </footer>
+                <!-- Heading -->
+                <a class="collapse-toggle font-size-lg font-weight-bold text-decoration-none text-white" data-toggle="collapse" href="#faqThree" role="button" aria-expanded="false" aria-controls="faqThree">
+                  Can I use the illustrations and icons?
+                </a>
 
-            </blockquote>
+                <!-- Collapse -->
+                <div class="collapse" id="faqThree" data-parent="#faq">
+                  <p class="text-white-80 mt-2 mb-0">
+                    Yup! Lorem ipsum dolor sit amet, consectetur adipiscing elit. In urna lectus, mattis non accumsan in, tempor dictum neque. In hac habitasse platea dictumst. Lorem ipsum dolor sit amet.
+                  </p>
+                </div>
+
+              </div>
+              <div class="list-group-item border-gray-900">
+
+                <!-- Heading -->
+                <a class="collapse-toggle font-size-lg font-weight-bold text-decoration-none text-white" data-toggle="collapse" href="#faqFour" role="button" aria-expanded="false" aria-controls="faqFour">
+                  Does this theme have technical support?
+                </a>
+
+                <!-- Collapse -->
+                <div class="collapse" id="faqFour" data-parent="#faq">
+                  <p class="text-white-80 mt-2 mb-0">
+                    Yup! In urna lectus, mattis non accumsan in, tempor dictum neque. In hac habitasse platea dictumst. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                  </p>
+                </div>
+
+              </div>
+            </div>
 
           </div>
-        </div> <!-- / .row -->
-      </div> <!-- / .container -->
-    </section>
-
-    <!-- FOOTER
-    ================================================== -->
-    <!-- SHAPE
-    ================================================== -->
-    <!-- <div class="position-relative">
-      <div class="shape shape-bottom shape-fluid-x svg-shim text-gray-200">
-        <svg viewBox="0 0 2880 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M0 48H1437.5H2880V0H2160C1442.5 52 720 0 720 0H0V48Z" fill="currentColor"/>
-        </svg>
+        </div>
       </div>
-    </div> -->
+    </section>
 
-    <footer class="py-8 py-md-11 bg-dark">
-      <div class="container">
+    <!-- CTA -->
+    <section class="bg-dark">
+      <div class="container-lg">
+        <div class="row align-items-center">
+          <div class="col-12">
+
+            <!-- Divider -->
+            <hr class="border-gray-900 mt-0 mb-8">
+
+          </div>
+          <div class="col-12 col-md">
+
+            <!-- Heading -->
+            <h2 class="h1 text-white mb-0">
+              Let’s build sites <span class="text-primary-light">together</span>
+            </h2>
+
+            <!-- Text -->
+            <p class="text-white-60 mb-4 mb-md-0">
+              Create beautiful websites in hours, not weeks.
+            </p>
+
+          </div>
+          <div class="col-auto">
+
+            <!-- Button -->
+            <a class="btn btn-primary lift" href="#!">
+              Get Started
+            </a>
+
+          </div>
+          <div class="col-12">
+
+            <!-- Divider -->
+            <hr class="border-gray-900 mb-0 mt-8">
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer py-8 py-md-11 bg-dark">
+      <div class="container-lg">
         <div class="row">
-          <div class="col-12 text-center">
-        
-            <!-- Brand -->
-            <!-- <h3 class="text-muted">Ryan Seamons</h3> -->
-            <a href="https://ryanseamons.com"><img src="./assets/img/signature-family.svg" class="" alt="Katrina and Ryan"></a>
+          <div class="col-md-4">
 
-            <!-- <a href="https://ryanseamons.com"><img alt="Ryan Seamons" src="https://miro.medium.com/fit/c/256/256/0*2qyGqNHdt9XBeK_2.jpeg" class="rounded-circle" width="34" height="34"></a> -->
-                        
-            <!-- Social -->
-            <ul class="list-unstyled list-inline list-social mb-6 mb-md-0">
-              <li class="list-inline-item list-social-item mr-3">
-                <a href="https://instagram.com/deliberatefamily" target="_blank"><i class="fab fa-2x fa-instagram"></i></a>
+            <!-- Brand -->
+            <h2 class="font-family-serif text-white mb-1">
+              Deliberate Family
+            </h2>
+
+            <!-- Text -->
+            <p class="text-white-60">
+              Intentional family living.
+            </p>
+
+          </div>
+          <div class="col-6 col-md">
+
+
+          </div>
+          <div class="col-6 col-md">
+
+            <!-- Heading -->
+            <h6 class="text-uppercase text-white mb-3 mb-md-5">
+              Topics
+            </h6>
+
+            <!-- List -->
+            <ul class="list-unstyled">
+              <li class="mb-3">
+                <a class="text-white-60" href="#!">Homeschooling</a>
               </li>
-              <li class="list-inline-item list-social-item mr-3">
-                <a href="https://www.facebook.com/Deliberate-Family-112320823725595/" target="_blank"><i class="fab fa-2x fa-facebook"></i></a>
+              <li class="mb-3">
+                <a class="text-white-60" href="#!">Marriage</a>
               </li>
-              <li class="list-inline-item list-social-item mr-3">
-                <a href="https://deliberatefamily.substack.com" target="_blank"><i class="far fa-2x fa-envelope"></i></a>
+              <li>
+                <a class="text-white-60" href="#!">Parenting</a>
               </li>
             </ul>
 
           </div>
+          <div class="col-6 col-md">
 
-        </div> <!-- / .row -->
-      </div> <!-- / .container -->
+            <!-- Heading -->
+            <h6 class="text-uppercase text-white mb-3 mb-md-5">
+              ...
+            </h6>
+
+            <!-- List -->
+            <ul class="list-unstyled">
+              <li class="mb-3">
+                <a class="text-white-60" href="#!">Disney</a>
+              </li>
+              <li class="mb-3">
+                <a class="text-white-60" href="#!">Travel</a>
+              </li>
+              <li>
+                <a class="text-white-60" href="#!">Faith</a>
+              </li>
+            </ul>
+
+          </div>
+          <div class="col-6 col-md">
+
+            <!-- Heading -->
+            <h6 class="text-uppercase text-white mb-3 mb-md-5">
+              Connect
+            </h6>
+
+            <!-- List -->
+            <ul class="list-unstyled">
+              <li class="mb-3">
+                <a class="text-white-60" href="#!">Instagram</a>
+              </li>
+              <li class="mb-3">
+                <a class="text-white-60" href="#!">Facebook</a>
+              </li>
+              <li class="mb-3">
+                <a class="text-white-60" href="#!">Email</a>
+              </li>
+            </ul>
+
+          </div>
+        </div>
+      </div>
     </footer>
 
-    <!-- JAVASCRIPT
-    ================================================== -->
+
+    <!-- JAVASCRIPT -->
+    <!-- Polyfills -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=Array.prototype.find,Array.prototype.includes,Array.from,Object.entries,Promise,Object.assign"></script>
+
     <!-- Libs JS -->
     <script src="./assets/libs/jquery/dist/jquery.min.js"></script>
+    <script src="./assets/libs/@fancyapps/fancybox/dist/jquery.fancybox.min.js"></script>
+    <script src="./assets/libs/@popperjs/core/dist/umd/popper.min.js"></script>
+    <script src="./assets/libs/aos/dist/aos.js"></script>
     <script src="./assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="./assets/libs/countup.js/dist/countUp.min.js"></script>
     <script src="./assets/libs/flickity/dist/flickity.pkgd.min.js"></script>
     <script src="./assets/libs/flickity-fade/flickity-fade.js"></script>
-    <script src="./assets/libs/aos/dist/aos.js"></script>
-    <script src="./assets/libs/smooth-scroll/dist/smooth-scroll.min.js"></script>
+    <script src="./assets/libs/highlightjs/highlight.pack.min.js"></script>
     <script src="./assets/libs/jarallax/dist/jarallax.min.js"></script>
     <script src="./assets/libs/jarallax/dist/jarallax-video.min.js"></script>
     <script src="./assets/libs/jarallax/dist/jarallax-element.min.js"></script>
+    <script src="./assets/libs/smooth-scroll/dist/smooth-scroll.min.js"></script>
     <script src="./assets/libs/typed.js/lib/typed.min.js"></script>
-    <script src="./assets/libs/countup.js/dist/countUp.min.js"></script>
-    <script src="./assets/libs/highlightjs/highlight.pack.min.js"></script>
-    <script src="./assets/libs/@fancyapps/fancybox/dist/jquery.fancybox.min.js"></script>
-    <script src="./assets/libs/isotope-layout/dist/isotope.pkgd.min.js"></script>
-    <script src="./assets/libs/imagesloaded/imagesloaded.pkgd.min.js"></script>
-    <script src="./assets/libs/airtable/build/airtable.browser.js"></script>
-
-
-    <!-- Map -->
-    <script src='https://api.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.js'></script>
 
     <!-- Theme JS -->
     <script src="./assets/js/theme.min.js"></script>
@@ -1338,6 +1080,30 @@
     	$("a[href^='http://']").attr("target","_blank");
     </script>
 
-      
+
+    <script>
+    	$("#footer_email").submit(function(event){
+
+    		event.preventDefault(); //prevent default action 
+    		// $("#confirm_submission").html("Loading");
+    		var post_url = $(this).attr("action"); //get form action url
+    		var request_method = $(this).attr("method"); //get form GET/POST method
+    		var form_data = $(this).serialize(); //Encode form elements for submission
+		
+    		$.ajax({
+    			url: "https://formsubmit.co/ajax/ryanseamons@gmail.com",
+    			method: "POST",
+    			data: {email: $("#email").val()}
+    		}).done(function(response){ //
+    			$("#email").val("");
+    			$("#email").attr("placeholder", "Thanks for joining!");
+    		});
+    	});
+
+    	$.ajax({
+		
+    	});
+    </script>
+
   </body>
 </html>

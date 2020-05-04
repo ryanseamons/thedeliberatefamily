@@ -5,113 +5,86 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,400i,600,700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Lora:300,400,400i,600,700&display=swap" rel="stylesheet">
-    <link rel="icon" type="image/png" sizes="32x32" href="assets/img/deliberate-family-favicon.png">
-
     <!-- Libs CSS -->
-    <link rel="stylesheet" href="./assets/fonts/Feather/feather.css">
+    <link rel="stylesheet" href="./assets/libs/@fancyapps/fancybox/dist/jquery.fancybox.min.css">
+    <link rel="stylesheet" href="./assets/libs/aos/dist/aos.css">
+    <link rel="stylesheet" href="./assets/libs/flag-icon-css/css/flag-icon.min.css">
     <link rel="stylesheet" href="./assets/libs/flickity/dist/flickity.min.css">
     <link rel="stylesheet" href="./assets/libs/flickity-fade/flickity-fade.css">
-    <link rel="stylesheet" href="./assets/libs/aos/dist/aos.css">
-    <link rel="stylesheet" href="./assets/libs/jarallax/dist/jarallax.css">
     <link rel="stylesheet" href="./assets/libs/highlightjs/styles/vs2015.css">
-    <link rel="stylesheet" href="./assets/libs/@fancyapps/fancybox/dist/jquery.fancybox.min.css">
+    <link rel="stylesheet" href="./assets/libs/jarallax/dist/jarallax.css">
+    <link rel="stylesheet" href="./assets/fonts/feather/feather.css">
 
-    <!-- Map -->
-    <link href='https://api.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.css' rel='stylesheet' />
+    <!-- 
+      Theme Sans Serif CSS
+      Remove the "disabled" attribute if you want to enable Sans Serif for headings.
+    -->
+    <link rel="stylesheet" href="./assets/css/theme-sans-serif.min.css" id="themeSansSerif" disabled>
+
+    <!--
+      Demo JS
+      Remove the code below on a production website.
+    -->
+    <script src="./assets/js/demo.min.js"></script>
 
     <!-- Theme CSS -->
     <link rel="stylesheet" href="./assets/css/theme.min.css">
 
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.9.0/css/all.css" integrity="sha384-i1LQnF23gykqWXg6jxC2ZbCbUMxyw5gLZY6UiUS98LYV5unm8GWmfkIS6jqJfb4E" crossorigin="anonymous">
+    <title>Goodkit</title>
 
-    <!-- Google Analytics Script -->
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-5246170-12"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-
-      gtag('config', 'UA-5246170-12');
-    </script>
-    <!-- Fullstory Script -->
-    <script>
-    window['_fs_debug'] = false;
-    window['_fs_host'] = 'fullstory.com';
-    window['_fs_org'] = 'N9EAF';
-    window['_fs_namespace'] = 'FS';
-    (function(m,n,e,t,l,o,g,y){
-        if (e in m) {if(m.console && m.console.log) { m.console.log('FullStory namespace conflict. Please set window["_fs_namespace"].');} return;}
-        g=m[e]=function(a,b,s){g.q?g.q.push([a,b,s]):g._api(a,b,s);};g.q=[];
-        o=n.createElement(t);o.async=1;o.crossOrigin='anonymous';o.src='https://'+_fs_host+'/s/fs.js';
-        y=n.getElementsByTagName(t)[0];y.parentNode.insertBefore(o,y);
-        g.identify=function(i,v,s){g(l,{uid:i},s);if(v)g(l,v,s)};g.setUserVars=function(v,s){g(l,v,s)};g.event=function(i,v,s){g('event',{n:i,p:v},s)};
-        g.shutdown=function(){g("rec",!1)};g.restart=function(){g("rec",!0)};
-        g.log = function(a,b) { g("log", [a,b]) };
-        g.consent=function(a){g("consent",!arguments.length||a)};
-        g.identifyAccount=function(i,v){o='account';v=v||{};v.acctId=i;g(o,v)};
-        g.clearUserCookie=function(){};
-    })(window,document,window['_fs_namespace'],'script','user');
-    </script>
-
-    <title>Landkit</title>
   </head>
   <body>
-    
-    <!-- CONTENT
-    ================================================== -->
-    <section class="section-border border-primary">
-      <div class="container d-flex flex-column">
-        <div class="row align-items-center justify-content-center no-gutters min-vh-100">
-          <div class="col-12 col-md-5 col-lg-4 py-8 py-md-11">
-            
+
+    <!-- BODY -->
+    <main class="border-multicolor">
+      <div class="container-lg d-flex flex-column">
+        <div class="row align-items-center justify-content-center min-vh-100 py-10 py-md-12 mt-n1">
+          <div class="col-12 col-md-7 col-lg-5 text-center">
+
+            <!-- Preheading -->
+            <h6 class="text-uppercase text-warning mb-5">
+              404
+            </h6>
+
             <!-- Heading -->
-            <h1 class="display-3 font-weight-bold text-center">
-              Uh Oh.
+            <h1 class="display-3 mb-4">
+              Uh oh.
             </h1>
 
             <!-- Text -->
-            <p class="mb-5 text-center text-muted">
-              We ran into an issue, but don’t worry, we’ll take care of it for sure.
+            <p class="text-muted">
+              There’s nothing here, but if you feel this is an error please <a href="#!">let us know</a>.
             </p>
 
-            <!-- Link -->
-            <div class="text-center">
-              <a class="btn btn-primary" href="#!">
-                Back to safety
-              </a>
-            </div>
+            <!-- Button -->
+            <a class="btn btn-primary" href="#!" onclick="goBack()">
+              Go back
+            </a>
 
           </div>
-        </div> <!-- / .row -->
-      </div> <!-- / .container -->
-    </section>
+        </div>
+      </div>
+    </main>
 
-    <!-- JAVASCRIPT
-    ================================================== -->
+    <!-- JAVASCRIPT -->
+    <!-- Polyfills -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=Array.prototype.find,Array.prototype.includes,Array.from,Object.entries,Promise,Object.assign"></script>
+
     <!-- Libs JS -->
     <script src="./assets/libs/jquery/dist/jquery.min.js"></script>
+    <script src="./assets/libs/@fancyapps/fancybox/dist/jquery.fancybox.min.js"></script>
+    <script src="./assets/libs/@popperjs/core/dist/umd/popper.min.js"></script>
+    <script src="./assets/libs/aos/dist/aos.js"></script>
     <script src="./assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="./assets/libs/countup.js/dist/countUp.min.js"></script>
     <script src="./assets/libs/flickity/dist/flickity.pkgd.min.js"></script>
     <script src="./assets/libs/flickity-fade/flickity-fade.js"></script>
-    <script src="./assets/libs/aos/dist/aos.js"></script>
-    <script src="./assets/libs/smooth-scroll/dist/smooth-scroll.min.js"></script>
+    <script src="./assets/libs/highlightjs/highlight.pack.min.js"></script>
     <script src="./assets/libs/jarallax/dist/jarallax.min.js"></script>
     <script src="./assets/libs/jarallax/dist/jarallax-video.min.js"></script>
     <script src="./assets/libs/jarallax/dist/jarallax-element.min.js"></script>
+    <script src="./assets/libs/smooth-scroll/dist/smooth-scroll.min.js"></script>
     <script src="./assets/libs/typed.js/lib/typed.min.js"></script>
-    <script src="./assets/libs/countup.js/dist/countUp.min.js"></script>
-    <script src="./assets/libs/highlightjs/highlight.pack.min.js"></script>
-    <script src="./assets/libs/@fancyapps/fancybox/dist/jquery.fancybox.min.js"></script>
-    <script src="./assets/libs/isotope-layout/dist/isotope.pkgd.min.js"></script>
-    <script src="./assets/libs/imagesloaded/imagesloaded.pkgd.min.js"></script>
-    <script src="./assets/libs/airtable/build/airtable.browser.js"></script>
-
-
-    <!-- Map -->
-    <script src='https://api.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.js'></script>
 
     <!-- Theme JS -->
     <script src="./assets/js/theme.min.js"></script>
@@ -122,6 +95,37 @@
     	$("a[href^='http://']").attr("target","_blank");
     </script>
 
-      
+
+    <script>
+    	$("#footer_email").submit(function(event){
+
+    		event.preventDefault(); //prevent default action 
+    		// $("#confirm_submission").html("Loading");
+    		var post_url = $(this).attr("action"); //get form action url
+    		var request_method = $(this).attr("method"); //get form GET/POST method
+    		var form_data = $(this).serialize(); //Encode form elements for submission
+		
+    		$.ajax({
+    			url: "https://formsubmit.co/ajax/ryanseamons@gmail.com",
+    			method: "POST",
+    			data: {email: $("#email").val()}
+    		}).done(function(response){ //
+    			$("#email").val("");
+    			$("#email").attr("placeholder", "Thanks for joining!");
+    		});
+    	});
+
+    	$.ajax({
+		
+    	});
+    </script>
+
+    <script>
+      function goBack() {
+        window.history.back();
+      }
+
+    </script>
+
   </body>
 </html>

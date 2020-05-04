@@ -5,586 +5,314 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,400i,600,700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Lora:300,400,400i,600,700&display=swap" rel="stylesheet">
-    <link rel="icon" type="image/png" sizes="32x32" href="assets/img/deliberate-family-favicon.png">
-
     <!-- Libs CSS -->
-    <link rel="stylesheet" href="./assets/fonts/Feather/feather.css">
+    <link rel="stylesheet" href="./assets/libs/@fancyapps/fancybox/dist/jquery.fancybox.min.css">
+    <link rel="stylesheet" href="./assets/libs/aos/dist/aos.css">
+    <link rel="stylesheet" href="./assets/libs/flag-icon-css/css/flag-icon.min.css">
     <link rel="stylesheet" href="./assets/libs/flickity/dist/flickity.min.css">
     <link rel="stylesheet" href="./assets/libs/flickity-fade/flickity-fade.css">
-    <link rel="stylesheet" href="./assets/libs/aos/dist/aos.css">
-    <link rel="stylesheet" href="./assets/libs/jarallax/dist/jarallax.css">
     <link rel="stylesheet" href="./assets/libs/highlightjs/styles/vs2015.css">
-    <link rel="stylesheet" href="./assets/libs/@fancyapps/fancybox/dist/jquery.fancybox.min.css">
+    <link rel="stylesheet" href="./assets/libs/jarallax/dist/jarallax.css">
+    <link rel="stylesheet" href="./assets/fonts/feather/feather.css">
 
-    <!-- Map -->
-    <link href='https://api.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.css' rel='stylesheet' />
+    <!-- 
+      Theme Sans Serif CSS
+      Remove the "disabled" attribute if you want to enable Sans Serif for headings.
+    -->
+    <link rel="stylesheet" href="./assets/css/theme-sans-serif.min.css" id="themeSansSerif" disabled>
+
+    <!--
+      Demo JS
+      Remove the code below on a production website.
+    -->
+    <script src="./assets/js/demo.min.js"></script>
 
     <!-- Theme CSS -->
     <link rel="stylesheet" href="./assets/css/theme.min.css">
 
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.9.0/css/all.css" integrity="sha384-i1LQnF23gykqWXg6jxC2ZbCbUMxyw5gLZY6UiUS98LYV5unm8GWmfkIS6jqJfb4E" crossorigin="anonymous">
-
-    <!-- Google Analytics Script -->
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-5246170-12"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-
-      gtag('config', 'UA-5246170-12');
-    </script>
-    <!-- Fullstory Script -->
-    <script>
-    window['_fs_debug'] = false;
-    window['_fs_host'] = 'fullstory.com';
-    window['_fs_org'] = 'N9EAF';
-    window['_fs_namespace'] = 'FS';
-    (function(m,n,e,t,l,o,g,y){
-        if (e in m) {if(m.console && m.console.log) { m.console.log('FullStory namespace conflict. Please set window["_fs_namespace"].');} return;}
-        g=m[e]=function(a,b,s){g.q?g.q.push([a,b,s]):g._api(a,b,s);};g.q=[];
-        o=n.createElement(t);o.async=1;o.crossOrigin='anonymous';o.src='https://'+_fs_host+'/s/fs.js';
-        y=n.getElementsByTagName(t)[0];y.parentNode.insertBefore(o,y);
-        g.identify=function(i,v,s){g(l,{uid:i},s);if(v)g(l,v,s)};g.setUserVars=function(v,s){g(l,v,s)};g.event=function(i,v,s){g('event',{n:i,p:v},s)};
-        g.shutdown=function(){g("rec",!1)};g.restart=function(){g("rec",!0)};
-        g.log = function(a,b) { g("log", [a,b]) };
-        g.consent=function(a){g("consent",!arguments.length||a)};
-        g.identifyAccount=function(i,v){o='account';v=v||{};v.acctId=i;g(o,v)};
-        g.clearUserCookie=function(){};
-    })(window,document,window['_fs_namespace'],'script','user');
-    </script>
-
     <title>Deliberate Family Blog</title>
+
   </head>
-  <body>
+  <body class="bg-light">
 
-    <!-- MODALS
-    ================================================== -->
-    <!-- Example -->
-    <div class="modal fade" id="modalExitIntent" tabindex="-1" role="dialog" aria-labelledby="modalExampleTitle" aria-hidden="true">
-      <div class="modal-dialog" role="document">
+    <!-- MODALS -->
+    <!-- Sign in -->
+    <div class="modal fade" id="modalSignIn" tabindex="-1" role="dialog" aria-labelledby="modalSignInHeading" aria-hidden="true">
+      <div class="modal-dialog modal-sm modal-dialog-centered" role="document">
         <div class="modal-content">
-          <div class="modal-body">
+          <div class="modal-body text-center">
 
             <!-- Close -->
-            <button type="button" id="modalExitIntentClose" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">×</span>
+            <button class="modal-close close" data-dismiss="modal" type="button" aria-label="Close">
+              <span aria-hidden="true">
+                <i class="fe fe-x"></i>
+              </span>
             </button>
 
-            <!-- Image -->
-            <div class="text-center">
-              <img src="../assets/img/illustrations/illustration-1.png" alt="..." class="img-fluid mb-3" style="width: 200px;">
-            </div>
-
             <!-- Heading -->
-            <h2 class="font-weight-bold text-center mb-1" id="modalExampleTitle">
-              Schedule a demo with us
-            </h2>
+            <h1 class="mb-4" id="modalSignInHeading">
+              Sign In
+            </h1>
 
             <!-- Text -->
-            <p class="font-size-lg text-center text-muted mb-6 mb-md-8">
-              We can help you solve company communication.
+            <p>
+              Don’t have an account? <a href="sign-up.html">Sign up</a>
             </p>
 
             <!-- Form -->
-            <form>
-              <div class="row">
-                <div class="col-12 col-md-6">
+            <form class="mb-6">
 
-                  <!-- First name -->
-                  <div class="form-label-group">
-                    <input type="text" class="form-control form-control-flush" id="registrationFirstNameModal" placeholder="First name">
-                    <label for="registrationFirstNameModal">First name</label>
+              <!-- Email -->
+              <div class="form-group">
+                <label class="sr-only" for="signInEmail">
+                  Your email
+                </label>
+                <input class="form-control" id="signInEmail" type="email" placeholder="Your email">
+              </div>
+
+              <!-- Password -->
+              <div class="form-group">
+                <div class="input-group inpit-group-merge">
+                  <input class="form-control" id="signInPassword" placeholder="Your password" type="password" aria-label="Your password" aria-describedby="signInPasswordCaption">
+                  <div class="input-group-append">
+                    <a class="input-group-text text-decoration-none text-gray-500" id="signInPasswordCaption" data-toggle="password" href="#signInPassword">
+                      <i class="fe fe-eye"></i>
+                    </a>
                   </div>
-
-                </div>
-                <div class="col-12 col-md-6">
-
-                  <!-- Last name -->
-                  <div class="form-label-group">
-                    <input type="text" class="form-control form-control-flush" id="registrationLastNameModal" placeholder="Last name">
-                    <label for="registrationLastNameModal">Last name</label>
-                  </div>
-
                 </div>
               </div>
-              <div class="row">
-                <div class="col-12 col-md-6">
 
-                  <!-- Email -->
-                  <div class="form-label-group">
-                    <input type="email" class="form-control form-control-flush" id="registrationEmailModal" placeholder="Email">
-                    <label for="registrationEmailModal">Email</label>
-                  </div>
+              <!-- Button -->
+              <button class="btn btn-block btn-primary">
+                Sign in
+              </button>
 
-                </div>
-                <div class="col-12 col-md-6">
-
-                  <!-- Password -->
-                  <div class="form-label-group">
-                    <input type="password" class="form-control form-control-flush" id="registrationPasswordModal" placeholder="Password">
-                    <label for="registrationPasswordModal">Password</label>
-                  </div>
-
-                </div>
-              </div>
-              <div class="row">
-                <div class="col-12">
-              
-                  <!-- Submit -->
-                  <button class="btn btn-block btn-primary mt-3 lift">
-                    Request a demo
-                  </button>
-
-                </div>
-              </div>
             </form>
-      
+
+            <!-- Link -->
+            <a class="font-size-sm" href="password-reset.html">
+              Forgot your password?
+            </a>
+
           </div>
         </div>
       </div>
     </div>
 
-
-
-
-    <!-- Example -->
-    <div class="modal fade" id="modalExample" tabindex="-1" role="dialog" aria-labelledby="modalExampleTitle" aria-hidden="true">
-      <div class="modal-dialog" role="document">
+    <!-- Sign up -->
+    <div class="modal fade" id="modalSignUp" tabindex="-1" role="dialog" aria-labelledby="modalSignUpHeading" aria-hidden="true">
+      <div class="modal-dialog modal-sm modal-dialog-centered" role="document">
         <div class="modal-content">
-          <div class="modal-body">
+          <div class="modal-body text-center">
 
             <!-- Close -->
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">×</span>
+            <button class="modal-close close" data-dismiss="modal" type="button" aria-label="Close">
+              <span aria-hidden="true">
+                <i class="fe fe-x"></i>
+              </span>
             </button>
 
-            <!-- Image -->
-            <div class="text-center">
-              <img src="../assets/img/illustrations/illustration-1.png" alt="..." class="img-fluid mb-3" style="width: 200px;">
-            </div>
-
             <!-- Heading -->
-            <h2 class="font-weight-bold text-center mb-1" id="modalExampleTitle">
-              Schedule a demo with us
-            </h2>
+            <h1 class="mb-4" id="modalSignUpHeading">
+              Sign Up
+            </h1>
 
             <!-- Text -->
-            <p class="font-size-lg text-center text-muted mb-6 mb-md-8">
-              We can help you solve company communication.
+            <p>
+              Create beautiful marketing websites in hours instead of weeks.
             </p>
 
             <!-- Form -->
-            <form>
-              <div class="row">
-                <div class="col-12 col-md-6">
+            <form class="mb-6">
 
-                  <!-- First name -->
-                  <div class="form-label-group">
-                    <input type="text" class="form-control form-control-flush" id="registrationFirstNameModal" placeholder="First name">
-                    <label for="registrationFirstNameModal">First name</label>
+              <!-- Email -->
+              <div class="form-group">
+                <label class="sr-only" for="signUpEmail">
+                  Your email
+                </label>
+                <input class="form-control" id="signUpEmail" type="email" placeholder="Your email">
+              </div>
+
+              <!-- Password -->
+              <div class="form-group">
+                <div class="input-group inpit-group-merge">
+                  <input class="form-control" id="signUpPassword" placeholder="Your password" type="password" aria-label="Your password" aria-describedby="signUpPasswordCaption">
+                  <div class="input-group-append">
+                    <a class="input-group-text text-decoration-none text-gray-500" id="signUpPasswordCaption" data-toggle="password" href="#signUpPassword">
+                      <i class="fe fe-eye"></i>
+                    </a>
                   </div>
-
-                </div>
-                <div class="col-12 col-md-6">
-
-                  <!-- Last name -->
-                  <div class="form-label-group">
-                    <input type="text" class="form-control form-control-flush" id="registrationLastNameModal" placeholder="Last name">
-                    <label for="registrationLastNameModal">Last name</label>
-                  </div>
-
                 </div>
               </div>
-              <div class="row">
-                <div class="col-12 col-md-6">
 
-                  <!-- Email -->
-                  <div class="form-label-group">
-                    <input type="email" class="form-control form-control-flush" id="registrationEmailModal" placeholder="Email">
-                    <label for="registrationEmailModal">Email</label>
-                  </div>
+              <!-- Button -->
+              <button class="btn btn-block btn-primary">
+                Sign up
+              </button>
 
-                </div>
-                <div class="col-12 col-md-6">
-
-                  <!-- Password -->
-                  <div class="form-label-group">
-                    <input type="password" class="form-control form-control-flush" id="registrationPasswordModal" placeholder="Password">
-                    <label for="registrationPasswordModal">Password</label>
-                  </div>
-
-                </div>
-              </div>
-              <div class="row">
-                <div class="col-12">
-              
-                  <!-- Submit -->
-                  <button class="btn btn-block btn-primary mt-3 lift">
-                    Request a demo
-                  </button>
-
-                </div>
-              </div>
             </form>
-      
+
+            <!-- Link -->
+            <small class="text-muted">
+              Already have an account? <a href="sign-in.html">Login</a>
+            </small>
+
           </div>
         </div>
       </div>
     </div>
 
-    <!-- Signup: Horizontal  -->
-    <div class="modal fade" id="modalSignupHorizontal" tabindex="-1" role="dialog" aria-labelledby="modalSignupHorizontalTitle" aria-hidden="true">
-      <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+    <!-- Password reset -->
+    <div class="modal fade" id="modalPasswordReset" tabindex="-1" role="dialog" aria-labelledby="modalPasswordResetHeading" aria-hidden="true">
+      <div class="modal-dialog modal-sm modal-dialog-centered" role="document">
         <div class="modal-content">
-          <div class="card card-row">
-            <div class="row no-gutters">
-              <div class="col-12 col-md-6 bg-cover card-img-left" style="background-image: url(./assets/img/photos/photo-8.jpg);">
-
-                <!-- Image (placeholder) -->
-                <img src="./assets/img/photos/photo-8.jpg" alt="..." class="img-fluid d-md-none invisible">
-
-                <!-- Shape -->
-                <div class="shape shape-right shape-fluid-y svg-shim text-white d-none d-md-block">
-                  <svg viewBox="0 0 112 690" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M116 0H51V172C76 384 0 517 0 517V690H116V0Z" fill="currentColor"/>
-                  </svg>
-                </div>
-
-              </div>
-              <div class="col-12 col-md-6">
-                <div class="card-body">
-
-                  <!-- Close -->
-                  <button type="button" class="modal-close close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">×</span>
-                  </button>
-              
-                  <!-- Heading -->
-                  <h2 class="mb-0 font-weight-bold text-center" id="modalSignupHorizontalTitle">
-                    Sign Up
-                  </h2>
-
-                  <!-- Text -->
-                  <p class="mb-6 text-center text-muted">
-                    Simplify your workflow in minutes.
-                  </p>
-
-                  <!-- Form -->
-                  <form class="mb-6">
-
-                    <!-- Email -->
-                    <div class="form-group">
-                      <label class="sr-only" for="modalSignupHorizontalEmail">
-                        Your email
-                      </label>
-                      <input type="email" class="form-control" id="modalSignupHorizontalEmail" placeholder="Your email">
-                    </div>
-
-                    <!-- Password -->
-                    <div class="form-group mb-5">
-                      <label class="sr-only" for="modalSignupHorizontalPassword">
-                        Create a password
-                      </label>
-                      <input type="password" class="form-control" id="modalSignupHorizontalPassword" placeholder="Create a password">
-                    </div>
-
-                    <!-- Submit -->
-                    <button class="btn btn-block btn-primary" type="submit">
-                      Sign up
-                    </button>
-
-                  </form>
-
-                  <!-- Text -->
-                  <p class="mb-0 font-size-sm text-center text-muted">
-                    Already have an account? <a href="./signin-illustration.html">Log in</a>.
-                  </p>
-
-                </div>
-              </div>
-
-            </div> <!-- / .row -->
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Signup: Vertical  -->
-    <div class="modal fade" id="modalSignupVertical" tabindex="-1" role="dialog" aria-labelledby="modalSignupVerticalTitle" aria-hidden="true">
-      <div class="modal-dialog modal-dialog-centered" role="document">
-        <div class="modal-content">
-          <div class="card">
+          <div class="modal-body text-center">
 
             <!-- Close -->
-            <button type="button" class="modal-close close text-white" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">×</span>
+            <button class="modal-close close" data-dismiss="modal" type="button" aria-label="Close">
+              <span aria-hidden="true">
+                <i class="fe fe-x"></i>
+              </span>
+            </button>
+
+            <!-- Heading -->
+            <h1 class="display-4 mb-4" id="modalPasswordResetHeading">
+              Password reset
+            </h1>
+
+            <!-- Text -->
+            <p class="text-muted">
+              Enter your email to reset your password.
+            </p>
+
+            <!-- Form -->
+            <form class="mb-6">
+
+              <!-- Email -->
+              <div class="form-group">
+                <label class="sr-only" for="passwordResetEmail">
+                  Your email
+                </label>
+                <input class="form-control" id="passwordResetEmail" type="email" placeholder="Your email">
+              </div>
+
+              <!-- Button -->
+              <button class="btn btn-block btn-primary">
+                Reset password
+              </button>
+
+            </form>
+
+            <!-- Text -->
+            <small class="text-muted">
+              Remember your password? <a href="sign-in.html">Log in</a>.
+            </small>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Sale -->
+    <div class="modal fade" id="modalSale" tabindex="-1" role="dialog" aria-labelledby="modalSaleHeading" aria-hidden="true">
+      <div class="modal-dialog modal-sm modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-body text-center">
+
+            <!-- Close -->
+            <button class="modal-close close" data-dismiss="modal" type="button" aria-label="Close">
+              <span aria-hidden="true">
+                <i class="fe fe-x"></i>
+              </span>
             </button>
 
             <!-- Image -->
-            <img src="./assets/img/photos/photo-7.jpg" alt="..." class="card-img-top">
+            <img class="img-fluid mb-4 mt-n11" src="./assets/img/illustrations/illustration-4.png" alt="...">
 
-            <!-- Shape -->
-            <div class="position-relative">
-              <div class="shape shape-bottom shape-fluid-x svg-shim text-white">
-                <svg viewBox="0 0 2880 480" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path fill-rule="evenodd" clip-rule="evenodd" d="M2160 0C1440 240 720 240 720 240H0V480H2880V0H2160Z" fill="currentColor"/>
-                </svg>
+            <!-- Heading -->
+            <h1 class="mb-4" id="modalSaleHeading">
+              30 Day Free Trial
+            </h1>
+
+            <!-- Text -->
+            <p class="text-muted">
+              We’ll help you get started by getting you guides and all the basic informaiton.
+            </p>
+
+            <!-- Form -->
+            <form class="mb-6">
+
+              <!-- Email -->
+              <div class="form-group">
+                <label class="sr-only" for="saleModalEmail">
+                  Your email
+                </label>
+                <input class="form-control" id="saleModalEmail" type="email" placeholder="Your email">
               </div>
-            </div>
 
-            <!-- Body -->
-            <div class="card-body">
+              <!-- Button -->
+              <button class="btn btn-block btn-primary">
+                Start Trial
+              </button>
 
-              <!-- Heading -->
-              <h2 class="mb-0 font-weight-bold text-center" id="modalSignupVerticalTitle">
-                Sign Up
-              </h2>
+            </form>
 
-              <!-- Text -->
-              <p class="mb-6 text-center text-muted">
-                Simplify your workflow in minutes.
-              </p>
-
-              <!-- Form -->
-              <form class="mb-6">
-
-                <!-- Email -->
-                <div class="form-group">
-                  <label class="sr-only" for="modalSignupVerticalEmail">
-                    Your email
-                  </label>
-                  <input type="email" class="form-control" id="modalSignupVerticalEmail" placeholder="Your email">
-                </div>
-
-                <!-- Password -->
-                <div class="form-group mb-5">
-                  <label class="sr-only" for="modalSignupVerticalPassword">
-                    Create a password
-                  </label>
-                  <input type="password" class="form-control" id="modalSignupVerticalPassword" placeholder="Create a password">
-                </div>
-
-                <!-- Submit -->
-                <button class="btn btn-block btn-primary" type="submit">
-                  Sign up
-                </button>
-
-              </form>
-
-              <!-- Text -->
-              <p class="mb-0 font-size-sm text-center text-muted">
-                Already have an account? <a href="./signin-illustration.html">Log in</a>.
-              </p>
-
-            </div>
+            <!-- Text -->
+            <small class="text-muted">
+              <a class="text-reset" data-dismiss="modal" href="#!">No thanks, I hate free stuff.</a>
+            </small>
 
           </div>
         </div>
       </div>
     </div>
 
-    <!-- Signin: Horizontal  -->
-    <div class="modal fade" id="modalSigninHorizontal" tabindex="-1" role="dialog" aria-labelledby="modalSigninHorizontalTitle" aria-hidden="true">
-      <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
-        <div class="modal-content">
-          <div class="card card-row">
-            <div class="row no-gutters">
-              <div class="col-12 col-md-6 bg-cover card-img-left" style="background-image: url(./assets/img/photos/photo-1.jpg);">
 
-                <!-- Image (placeholder) -->
-                <img src="./assets/img/photos/photo-1.jpg" alt="..." class="img-fluid d-md-none invisible">
-
-                <!-- Shape -->
-                <div class="shape shape-right shape-fluid-y svg-shim text-white d-none d-md-block">
-                  <svg viewBox="0 0 112 690" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M116 0H51V172C76 384 0 517 0 517V690H116V0Z" fill="currentColor"/>
-                  </svg>
-                </div>
-
-              </div>
-              <div class="col-12 col-md-6">
-                <div class="card-body">
-
-                  <!-- Close -->
-                  <button type="button" class="modal-close close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">×</span>
-                  </button>
-              
-                  <!-- Heading -->
-                  <h2 class="mb-0 font-weight-bold text-center" id="modalSigninHorizontalTitle">
-                    Sign In
-                  </h2>
-
-                  <!-- Text -->
-                  <p class="mb-6 text-center text-muted">
-                    Simplify your workflow in minutes.
-                  </p>
-
-                  <!-- Form -->
-                  <form class="mb-6">
-
-                    <!-- Email -->
-                    <div class="form-group">
-                      <label class="sr-only" for="modalSigninHorizontalEmail">
-                        Your email
-                      </label>
-                      <input type="email" class="form-control" id="modalSigninHorizontalEmail" placeholder="Your email">
-                    </div>
-
-                    <!-- Password -->
-                    <div class="form-group mb-5">
-                      <label class="sr-only" for="modalSigninHorizontalPassword">
-                        Create a password
-                      </label>
-                      <input type="password" class="form-control" id="modalSigninHorizontalPassword" placeholder="Create a password">
-                    </div>
-
-                    <!-- Submit -->
-                    <button class="btn btn-block btn-primary" type="submit">
-                      Sign in
-                    </button>
-
-                  </form>
-
-                  <!-- Text -->
-                  <p class="mb-0 font-size-sm text-center text-muted">
-                    Don't have an account yet? <a href="./signin-illustration.html">Sign up</a>.
-                  </p>
-
-                </div>
-              </div>
-
-            </div> <!-- / .row -->
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Signup: Vertical  -->
-    <div class="modal fade" id="modalSigninVertical" tabindex="-1" role="dialog" aria-labelledby="modalSigninVerticalTitle" aria-hidden="true">
-      <div class="modal-dialog modal-dialog-centered" role="document">
-        <div class="modal-content">
-          <div class="card">
-
-            <!-- Close -->
-            <button type="button" class="modal-close close text-white" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">×</span>
-            </button>
-
-            <!-- Image -->
-            <img src="./assets/img/photos/photo-21.jpg" alt="..." class="card-img-top">
-
-            <!-- Shape -->
-            <div class="position-relative">
-              <div class="shape shape-bottom shape-fluid-x svg-shim text-white">
-                <svg viewBox="0 0 2880 480" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path fill-rule="evenodd" clip-rule="evenodd" d="M2160 0C1440 240 720 240 720 240H0V480H2880V0H2160Z" fill="currentColor"/>
-                </svg>
-              </div>
-            </div>
-
-            <!-- Body -->
-            <div class="card-body">
-
-              <!-- Heading -->
-              <h2 class="mb-0 font-weight-bold text-center" id="modalSigninVerticalTitle">
-                Sign In
-              </h2>
-
-              <!-- Text -->
-              <p class="mb-6 text-center text-muted">
-                Simplify your workflow in minutes.
-              </p>
-
-              <!-- Form -->
-              <form class="mb-6">
-
-                <!-- Email -->
-                <div class="form-group">
-                  <label class="sr-only" for="modalSigninVerticalEmail">
-                    Your email
-                  </label>
-                  <input type="email" class="form-control" id="modalSigninVerticalEmail" placeholder="Your email">
-                </div>
-
-                <!-- Password -->
-                <div class="form-group mb-5">
-                  <label class="sr-only" for="modalSigninVerticalPassword">
-                    Create a password
-                  </label>
-                  <input type="password" class="form-control" id="modalSigninVerticalPassword" placeholder="Create a password">
-                </div>
-
-                <!-- Submit -->
-                <button class="btn btn-block btn-primary" type="submit">
-                  Sign in
-                </button>
-
-              </form>
-
-              <!-- Text -->
-              <p class="mb-0 font-size-sm text-center text-muted">
-                Don't have an account yet? <a href="./signin-illustration.html">Sign up</a>.
-              </p>
-
-            </div>
-
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- NAVBAR
-    ================================================== -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-white border-bottom">
-      <div class="container-fluid">
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <div class="container-lg">
 
         <!-- Brand -->
-        <a class="navbar-brand text-uppercase" href="./">
-          <!-- Ryan Seamons -->
-          <!-- <img src="./assets/img/full-signature.svg" class="navbar-brand-img signature-color" alt="..."> -->
-          Deliberate Family
-        </a>
+        <a class="navbar-brand d-lg-none" href="./">Deliberate Family</a>
 
         <!-- Toggler -->
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
 
         <!-- Collapse -->
-        <div class="collapse navbar-collapse" id="navbarCollapse">
-
-          <!-- Toggler -->
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-            <i class="fe fe-x"></i>
-          </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
 
           <!-- Navigation -->
-          <ul class="navbar-nav ml-auto text-uppercase">
+          <ul class="navbar-nav justify-content-end w-100">
             <li class="nav-item">
-              <a class="nav-link" id="navbarLandings" href="articles">
-                blog
+              <a class="nav-link" href="articles" role="button" aria-haspopup="true" aria-expanded="false">
+                Blog
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" id="navbarLandings" href="homeschool-resources">
-                Homeschool Tips
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" id="navbarLandings" href="sprinkle-pixie-dust">
-                Sprinkle Pixie Dust
+              <a class="nav-link" href="homeschool-resources" role="button" aria-haspopup="true" aria-expanded="false">
+                Homeschooling
               </a>
             </li>
           </ul>
 
-          <!-- Button -->
-          <a class="ml-auto text-uppercase" href="https://www.instagram.com/deliberatefamily/" target="_blank">
-            Follow Us On Instagram →
-          </a>
+          <!-- Brand -->
+          <a class="navbar-brand d-none d-lg-block px-lg-6" href="./">Deliberate Family</a>
+
+          <!-- Navigation -->
+          <ul class="navbar-nav justify-content-start w-100">
+            <li class="nav-item">
+              <a class="nav-link" href="articles#disney" role="button" aria-haspopup="true" aria-expanded="false">
+                Pixie Dust
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="https://www.instagram.com/deliberatefamily/" role="button" aria-haspopup="true" aria-expanded="false">
+                <span class="fe fe-instagram" data-toggle="tooltip" data-placement="top" title="instagram"></span> Instagram
+              </a>
+            </li>
+          </ul>
 
         </div>
 
@@ -592,507 +320,685 @@
     </nav>
 
 
+    <!-- WELCOME -->
+    <section class="bg-dark">
+      <div class="container-lg">
+        <div class="row align-items-center justify-content-between">
+          <div class="col-md-6 col-lg-5 order-md-1 position-relative" style="z-index: 1;">
 
-    <!-- WELCOME
-    ================================================== -->
-    <section class="border-bottom">
-      <div class="container">
-        <div class="row align-items-stretch">
-          <div class="col-12 col-md-5 offset-md-1 order-md-2">
-
-            <!-- Slider (mobile) -->
-            <div class="d-md-none img-cover" data-flickity='{"imagesLoaded": true, "wrapAround": true, "prevNextButtons": false, "pageDots": false}'>
-              <div class="w-100">
-                
-                <!-- Image -->
-                <img src="assets/img/venice.jpg" alt="..." class="img-fluid">
-
-              </div>
-            </div>
-
-            <!-- Slider -->
-            <div class="position-relative h-100 vw-50 d-none d-md-block" data-aos="fade-left">
-
-              <!-- Slider -->
-              <div class="flickity-button-bottom flickity-button-white h-100 w-100" data-flickity='{"imagesLoaded": true, "setGallerySize": false, "wrapAround": true, "pageDots": false}'>
-                <div class="w-100 h-100 bg-cover" style="background-image: url(assets/img/venice.jpg);"></div>
-              </div>
-  
-              <!-- Shape -->
-              <div class="shape shape-left shape-fluid-y svg-shim text-white">
-                <svg viewBox="0 0 100 1544" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M0 0H100V386L50 1158V1544H0V0Z" fill="currentColor"/>
-                </svg>
-              </div>
-
-            </div>
+            <!-- Image -->
+            <img class="img-fluid mw-md-125 mb-4 mb-md-0" src="assets/img/custom/venice.jpg" alt="...">
 
           </div>
-          <div class="col-12 col-md-6 py-8 py-md-14 order-md-1" data-aos="fade-right">
-            
+          <div class="col-md-6 order-md-0 pt-6 pt-md-10 pb-12 pb-md-13 text-center text-md-left">
+
+            <h6 class="font-family-sans-serif text-warning mb-5">
+              Blog 
+            </h6>
+
             <!-- Heading -->
-            <h1 class="display-4">
-              Thoughts on <br>
-              <span class="text-primary">Intentional Family Living.</span>
+            <h1 class="display-3 text-white mb-4">
+              Thoughts on <span class="text-warning">Intentional Family Living</span>.
             </h1>
 
             <!-- Text -->
-            <p class="lead text-muted mb-6 mb-md-8">
+            <p class="font-size-lg text-white mb-0">
               Sharing what we learn in our adventures and from the deliberate family community.
             </p>
 
-            <!-- Text -->
-            <p>
-              Subscribe to be the first to know
-            </p>
-
-            <!-- Form -->
-            <form action="https://formspree.io/xoqnorwn" method="POST">
-
-              <div class="form-row">
-                <div class="col-12 col-lg">
-                  
-                  <!-- Search -->
-                  <div class="form-group mb-lg-0">
-                    <input type="email" class="form-control" value="" name="_replyto" placeholder="email">
-                  </div>
-
-                </div>
-                <div class="col-12 col-lg-auto">
-                  
-                  <!-- Button -->
-                  <button type="submit" class="btn btn-block btn-primary shadow lift">
-                    Subscribe
-                  </button>
-
-                </div>
-              </div> <!-- / .form-row -->
-            </form>
-
-            <!-- Badges -->
-            <div class="row align-items-center mt-5">
-              <div class="col-auto">
-                
-                <!-- Heading -->
-                <h6 class="font-weight-bold text-uppercase text-muted mb-0">
-                  Tags:
-                </h6>
-
-              </div>
-              <div class="col ml-n5">
-                
-                <!-- Badges -->
-                <a class="badge badge-pill badge-secondary-soft" href="#">
-                  <span class="h6 text-uppercase">Learning</span>
-                </a>
-                <a class="badge badge-pill badge-secondary-soft" href="#">
-                  <span class="h6 text-uppercase">Homeschooling</span>
-                </a>
-                <a class="badge badge-pill badge-secondary-soft" href="#">
-                  <span class="h6 text-uppercase">Travel</span>
-                </a>
-                <a class="badge badge-pill badge-secondary-soft" href="#">
-                  <span class="h6 text-uppercase">Parenting</span>
-                </a>
-                <a class="badge badge-pill badge-secondary-soft" href="#">
-                  <span class="h6 text-uppercase">Marriage</span>
-                </a>
-                <a class="badge badge-pill badge-secondary-soft" href="#">
-                  <span class="h6 text-uppercase">Faith</span>
-                </a>
-                <a class="badge badge-pill badge-secondary-soft" href="#">
-                  <span class="h6 text-uppercase">Purpose</span>
-                </a>
-
-              </div>
-            </div> <!-- / .row -->
-
           </div>
-
-
-        </div> <!-- / .row -->
-
-      </div> <!-- / .container -->
+        </div>
+      </div>
     </section>
 
-    <!-- ARTICLES
-    ================================================== -->
-    <section class="pt-8 pt-md-11">
-      <div class="container">
+    <!-- SHAPE -->
+    <div class="position-relative">
+      <div class="shape shape-fluid-x shape-bottom text-dark pb-18">
+        <div class="shape-img pb-8 pb-md-11">
+          <svg viewBox="0 0 100 50" preserveAspectRatio="none"><path d="M0 0h100v25H75L25 50H0z" fill="currentColor"/></svg>
+        </div>
+      </div>
+    </div>
 
+    <!-- POSTS -->
+    <section class="pt-10 pt-md-12">
+      <div class="container-lg">
+        <div class="row align-items-center mb-6">
+          <div class="col-md">
 
+            <!-- Heading -->
+            <h1 class="mb-0 text-white">
+              Marriage &amp; Parenting
+            </h1>
 
-                <!-- Featured Article
-        ================================================== -->
-        <div class="row">
-          <div class="col-12">
-            
+            <!-- Text -->
+            <p class="text-gray-300 mb-2 mb-md-0">
+              Purposeful family living
+            </p>
+
+          </div>
+          <div class="col-md-auto">
+
+            <!-- Button -->
+            <!-- <a class="btn btn-sm btn-primary" href="#!">
+              View All
+            </a> -->
+
+          </div>
+        </div>
+        <div class="row mt-n6">
+          <div class="col-md-4">
+
             <!-- Card -->
-            <div class="card card-row shadow-light-lg mb-6 lift lift-lg">
-              <div class="row no-gutters">
-                <div class="col-12">
-                  
-                  <!-- Badge -->
-                  <span class="badge badge-pill badge-light badge-float badge-float-inside">
-                    <span class="h6 text-uppercase">Featured</span>
-                  </span>
+            <div class="card card-sm rounded-top-left rounded-bottom-right lift lift-lg mt-6">
 
+              <!-- Image -->
+              <div class="rounded-top-left crop">
+                <img class="card-img-top" src="https://cdn-images-1.medium.com/max/5252/1*XT_y4vEcpdQS4n4pH_rqxQ.jpeg" alt="...">
+              </div>
+
+              <!-- Shape -->
+              <div class="position-relative">
+                <div class="shape shape-fluid-x shape-top text-white">
+                  <div class="shape-img pb-5">
+                    <svg viewBox="0 0 100 50" preserveAspectRatio="none"><path d="M0 25h25L75 0h25v50H0z" fill="currentColor"/></svg>
+                  </div>
                 </div>
-                <a class="col-12 col-md-6 order-md-2 bg-cover card-img-right" style="background-image: url(https://cdn-images-1.medium.com/max/5252/1*XT_y4vEcpdQS4n4pH_rqxQ.jpeg);" href="/bed">
+              </div>
 
-                  <!-- Image (placeholder) -->
-                  <img src="https://cdn-images-1.medium.com/max/5252/1*XT_y4vEcpdQS4n4pH_rqxQ.jpeg" alt="..." class="img-fluid d-md-none invisible">
+              <!-- Body -->
+              <div class="card-body">
 
-                  <!-- Shape -->
-                  <div class="shape shape-left shape-fluid-y svg-shim text-white d-none d-md-block">
-                    <svg viewBox="0 0 112 690" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <path d="M2.14577e-06 0H62.7586V172C38.6207 384 112 517 112 517V690H2.14577e-06V0Z" fill="currentColor"/>
-                    </svg>
+                <!-- Heading -->
+                <h2 class="mb-2">
+                  Are You a Bed Maker?<br/><br/>
+                </h2>
+
+                <!-- Text -->
+                <p class="font-size-sm mb-4">
+                  I asked him, "What are you doing?! Are you a Bed maker?" I realized we had something to figure out.
+                </p>
+
+                <!-- Footer -->
+                <div class="d-flex align-items-center">
+
+                  <!-- Avatar -->
+                  <div class="avatar avatar-xs">
+                    <img class="avatar-img rounded-circle" src="assets/img/avatars/avatar-katrina.jpg" alt="...">
                   </div>
 
-                </a>
-                <div class="col-12 col-md-6 order-md-1">
-
                   <!-- Body -->
-                  <a class="card-body" href="/bed">
+                  <div class="ml-4 text-left">
 
-                    <!-- Heading -->
-                    <h3>
-                      Are You a Bed Maker?
-                    </h3>
-
-                    <!-- Text -->
-                    <p class="mb-0 text-muted">
-                      Ryan and I were married in June 2007. It was the HOTTEST day of the year that year, but we didn’t care. We were head over heels in love…
-                    </p>
-
-                  </a>
-
-                  <!-- Meta -->
-                  <a class="card-meta" href="/busy-at-home-babies">
-
-                    <!-- Divider -->
-                    <hr class="card-meta-divider">
-
-                    <!-- Avatar -->
-                    <div class="avatar avatar-sm mr-2">
-                      <img src="/assets/img/katrina-avatar.jpg" alt="..." class="avatar-img rounded-circle">
-                    </div>
-                    
-                    <!-- Author -->
-                    <h6 class="text-uppercase text-muted mr-2 mb-0">
+                    <!-- Title -->
+                    <p class="small mb-0">
                       Katrina Seamons
-                    </h6>
-                    
-                    <!-- Date -->
-                    <p class="h6 text-uppercase text-muted mb-0 ml-auto">
-                      <time datetime="2020-04-30">April 30</time>
                     </p>
 
-                  </a>
+                    <!-- Position -->
+                    <p class="small text-muted mt-n1 mb-0">
+                      April 14, 2020
+                    </p>
+
+                  </div>
 
                 </div>
 
-              </div> <!-- / .row -->
+                <!-- Link -->
+                <a class="stretched-link" href="/bed"></a>
+
+              </div>
             </div>
 
           </div>
-        </div> <!-- / .row -->
+          <div class="col-md-4">
 
-                <!-- Featured Article
-        ================================================== -->
-        <div class="row">
-          <div class="col-12">
-            
             <!-- Card -->
-            <div class="card card-row shadow-light-lg mb-6 lift lift-lg">
-              <div class="row no-gutters">
-                <div class="col-12">
-                  
-                  <!-- Badge -->
-                  <span class="badge badge-pill badge-light badge-float badge-float-inside">
-                    <span class="h6 text-uppercase">Featured</span>
-                  </span>
+            <div class="card card-sm rounded-top-left rounded-bottom-right lift lift-lg mt-6">
 
+              <!-- Image -->
+              <div class="rounded-top-left crop">
+                <img class="card-img-top" src="https://miro.medium.com/max/1400/1*gewZkLqAEsSqXovT7d83Wg.jpeg" alt="...">
+              </div>
+
+              <!-- Shape -->
+              <div class="position-relative">
+                <div class="shape shape-fluid-x shape-top text-white">
+                  <div class="shape-img pb-5">
+                    <svg viewBox="0 0 100 50" preserveAspectRatio="none"><path d="M0 25h25L75 0h25v50H0z" fill="currentColor"/></svg>
+                  </div>
                 </div>
-                <a class="col-12 col-md-6 order-md-2 bg-cover card-img-right" style="background-image: url(https://miro.medium.com/max/1400/1*gewZkLqAEsSqXovT7d83Wg.jpeg);" href="/busy-at-home-babies">
+              </div>
 
-                  <!-- Image (placeholder) -->
-                  <img src="https://miro.medium.com/max/1400/1*gewZkLqAEsSqXovT7d83Wg.jpeg" alt="..." class="img-fluid d-md-none invisible">
+              <!-- Body -->
+              <div class="card-body">
 
-                  <!-- Shape -->
-                  <div class="shape shape-left shape-fluid-y svg-shim text-white d-none d-md-block">
-                    <svg viewBox="0 0 112 690" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <path d="M2.14577e-06 0H62.7586V172C38.6207 384 112 517 112 517V690H2.14577e-06V0Z" fill="currentColor"/>
-                    </svg>
+                <!-- Heading -->
+                <h2 class="mb-2">
+                  Busy at Home: Babies (6-18 mos)
+                </h2>
+
+                <!-- Text -->
+                <p class="font-size-sm mb-4">
+                  I have been thinking about those mamas who are stuck at home trying to entertain young ones without ...
+                </p>
+
+                <!-- Footer -->
+                <div class="d-flex align-items-center">
+
+                  <!-- Avatar -->
+                  <div class="avatar avatar-xs">
+                    <img class="avatar-img rounded-circle" src="assets/img/avatars/avatar-katrina.jpg" alt="...">
                   </div>
 
-                </a>
-                <div class="col-12 col-md-6 order-md-1">
-
                   <!-- Body -->
-                  <a class="card-body" href="/busy-at-home-babies">
+                  <div class="ml-4 text-left">
 
-                    <!-- Heading -->
-                    <h3>
-                      Busy at Home: Babies (6–18mos)
-                    </h3>
-
-                    <!-- Text -->
-                    <p class="mb-0 text-muted">
-                      We have been out of the “baby phase” in our home for about a year now. I have been thinking about those mamas who are stuck at home trying to entertain their 6 to 18-month-olds without having friends to lean on or a playground to go to.
-                    </p>
-
-                  </a>
-
-                  <!-- Meta -->
-                  <a class="card-meta" href="/busy-at-home-babies">
-
-                    <!-- Divider -->
-                    <hr class="card-meta-divider">
-
-                    <!-- Avatar -->
-                    <div class="avatar avatar-sm mr-2">
-                      <img src="/assets/img/katrina-avatar.jpg" alt="..." class="avatar-img rounded-circle">
-                    </div>
-                    
-                    <!-- Author -->
-                    <h6 class="text-uppercase text-muted mr-2 mb-0">
+                    <!-- Title -->
+                    <p class="small mb-0">
                       Katrina Seamons
-                    </h6>
-                    
-                    <!-- Date -->
-                    <p class="h6 text-uppercase text-muted mb-0 ml-auto">
-                      <time datetime="2020-04-21">April 21</time>
                     </p>
 
-                  </a>
+                    <!-- Position -->
+                    <p class="small text-muted mt-n1 mb-0">
+                      April 7, 2020
+                    </p>
+
+                  </div>
 
                 </div>
 
-              </div> <!-- / .row -->
+                <!-- Link -->
+                <a class="stretched-link" href="busy-at-home-babies"></a>
+
+              </div>
             </div>
 
           </div>
-        </div> <!-- / .row -->
+          <div class="col-md-4">
 
-        <div class="row">
-          <div class="col-12">
-            
             <!-- Card -->
-            <div class="card card-row shadow-light-lg mb-6 lift lift-lg">
-              <div class="row no-gutters">
-                <div class="col-12">
-                  
-                  <!-- Badge -->
-                  <span class="badge badge-pill badge-light badge-float badge-float-inside">
-                    <span class="h6 text-uppercase">Featured</span>
-                  </span>
+            <div class="card card-sm rounded-top-left rounded-bottom-right lift lift-lg mt-6">
 
+              <!-- Image -->
+              <div class="rounded-top-left crop">
+                <img class="card-img-top" src="assets/img/custom/book-feet.jpg" alt="...">
+              </div>
+
+              <!-- Shape -->
+              <div class="position-relative">
+                <div class="shape shape-fluid-x shape-top text-white">
+                  <div class="shape-img pb-5">
+                    <svg viewBox="0 0 100 50" preserveAspectRatio="none"><path d="M0 25h25L75 0h25v50H0z" fill="currentColor"/></svg>
+                  </div>
                 </div>
-                <a class="col-12 col-md-6 order-md-2 bg-cover card-img-right" style="background-image: url(assets/img/posts/book-feet.jpg);" href="/home-centered-family-life">
+              </div>
 
-                  <!-- Image (placeholder) -->
-                  <img src="assets/img/posts/book-feet.jpg" alt="..." class="img-fluid d-md-none invisible">
+              <!-- Body -->
+              <div class="card-body">
 
-                  <!-- Shape -->
-                  <div class="shape shape-left shape-fluid-y svg-shim text-white d-none d-md-block">
-                    <svg viewBox="0 0 112 690" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <path d="M2.14577e-06 0H62.7586V172C38.6207 384 112 517 112 517V690H2.14577e-06V0Z" fill="currentColor"/>
-                    </svg>
+                <!-- Heading -->
+                <h2 class="mb-2">
+                  The Homeschooling Resources I've Found
+                </h2>
+
+                <!-- Text -->
+                <p class="font-size-sm mb-4">
+                  Here are the best resources I've found after 7 years of experimenting through homeschooling.
+                </p>
+
+                <!-- Footer -->
+                <div class="d-flex align-items-center">
+
+                  <!-- Avatar -->
+                  <div class="avatar avatar-xs">
+                    <img class="avatar-img rounded-circle" src="assets/img/avatars/avatar-katrina.jpg" alt="...">
                   </div>
 
-                </a>
-                <div class="col-12 col-md-6 order-md-1">
-
                   <!-- Body -->
-                  <a class="card-body" href="/homeschool-resources">
+                  <div class="ml-4 text-left">
 
-                    <!-- Heading -->
-                    <h3>
-                      The Best Homeschooling Resources I Found After 7 years of Testing
-                    </h3>
-
-                    <!-- Text -->
-                    <p class="mb-0 text-muted">
-                      My heart goes out to everyone searching for new ways to keep schooling going for their kids. Here are the resources I've found most useful.
-                    </p>
-
-                  </a>
-
-                  <!-- Meta -->
-                  <a class="card-meta" href="/homeschool-resources">
-
-                    <!-- Divider -->
-                    <hr class="card-meta-divider">
-
-                    <!-- Avatar -->
-                    <div class="avatar avatar-sm mr-2">
-                      <img src="/assets/img/katrina-avatar.jpg" alt="..." class="avatar-img rounded-circle">
-                    </div>
-                    
-                    <!-- Author -->
-                    <h6 class="text-uppercase text-muted mr-2 mb-0">
+                    <!-- Title -->
+                    <p class="small mb-0">
                       Katrina Seamons
-                    </h6>
-                    
-                    <!-- Date -->
-                    <p class="h6 text-uppercase text-muted mb-0 ml-auto">
-                      <time datetime="2020-04-20">April 20</time>
                     </p>
 
-                  </a>
+                    <!-- Position -->
+                    <p class="small text-muted mt-n1 mb-0">
+                      April 1, 2020
+                    </p>
+
+                  </div>
 
                 </div>
 
-              </div> <!-- / .row -->
+                <!-- Link -->
+                <a class="stretched-link" href="homeschool-resources"></a>
+
+              </div>
             </div>
 
           </div>
-        </div> <!-- / .row -->
+        </div>
+      </div>
+    </section>
 
+    <!-- Family Centered Life -->
+    <section class="pt-9 pt-md-11">
+      <div class="container-lg">
         <div class="row">
           <div class="col-12">
-            
-            <!-- Card -->
-            <div class="card card-row shadow-light-lg mb-6 lift lift-lg">
-              <div class="row no-gutters">
-                <div class="col-12">
-                  
-                  <!-- Badge -->
-                  <span class="badge badge-pill badge-light badge-float badge-float-inside">
-                    <span class="h6 text-uppercase">Featured</span>
-                  </span>
 
-                </div>
-                <a class="col-12 col-md-6 order-md-2 bg-cover card-img-right" style="background-image: url(assets/img/posts/family-cooking.jpg);" href="/home-centered-family-life">
+            <!-- Heading -->
+            <h1 class="mb-0">
+              Our Focus
+            </h1>
+
+            <!-- Text -->
+            <p class="text-gray-600">
+              Don't miss the chance to focus on family
+            </p>
+
+            <!-- DECORATION -->
+            <div class="position-relative">
+              <div class="position-absolute top-right text-warning mt-n11 mr-n7">
+                <svg width="185" height="186" viewBox="0 0 185 186" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="2" cy="2" r="2" fill="currentColor"/><circle cx="22" cy="2" r="2" fill="currentColor"/><circle cx="42" cy="2" r="2" fill="currentColor"/><circle cx="62" cy="2" r="2" fill="currentColor"/><circle cx="82" cy="2" r="2" fill="currentColor"/><circle cx="102" cy="2" r="2" fill="currentColor"/><circle cx="122" cy="2" r="2" fill="currentColor"/><circle cx="142" cy="2" r="2" fill="currentColor"/><circle cx="162" cy="2" r="2" fill="currentColor"/><circle cx="182" cy="2" r="2" fill="currentColor"/><circle cx="2" cy="22" r="2" fill="currentColor"/><circle cx="22" cy="22" r="2" fill="currentColor"/><circle cx="42" cy="22" r="2" fill="currentColor"/><circle cx="62" cy="22" r="2" fill="currentColor"/><circle cx="82" cy="22" r="2" fill="currentColor"/><circle cx="102" cy="22" r="2" fill="currentColor"/><circle cx="122" cy="22" r="2" fill="currentColor"/><circle cx="142" cy="22" r="2" fill="currentColor"/><circle cx="162" cy="22" r="2" fill="currentColor"/><circle cx="182" cy="22" r="2" fill="currentColor"/><circle cx="2" cy="42" r="2" fill="currentColor"/><circle cx="22" cy="42" r="2" fill="currentColor"/><circle cx="42" cy="42" r="2" fill="currentColor"/><circle cx="62" cy="42" r="2" fill="currentColor"/><circle cx="82" cy="42" r="2" fill="currentColor"/><circle cx="102" cy="42" r="2" fill="currentColor"/><circle cx="122" cy="42" r="2" fill="currentColor"/><circle cx="142" cy="42" r="2" fill="currentColor"/><circle cx="162" cy="42" r="2" fill="currentColor"/><circle cx="182" cy="42" r="2" fill="currentColor"/><circle cx="2" cy="62" r="2" fill="currentColor"/><circle cx="22" cy="62" r="2" fill="currentColor"/><circle cx="42" cy="62" r="2" fill="currentColor"/><circle cx="62" cy="62" r="2" fill="currentColor"/><circle cx="82" cy="62" r="2" fill="currentColor"/><circle cx="102" cy="62" r="2" fill="currentColor"/><circle cx="122" cy="62" r="2" fill="currentColor"/><circle cx="142" cy="62" r="2" fill="currentColor"/><circle cx="162" cy="62" r="2" fill="currentColor"/><circle cx="182" cy="62" r="2" fill="currentColor"/><circle cx="2" cy="82" r="2" fill="currentColor"/><circle cx="22" cy="82" r="2" fill="currentColor"/><circle cx="42" cy="82" r="2" fill="currentColor"/><circle cx="62" cy="82" r="2" fill="currentColor"/><circle cx="82" cy="82" r="2" fill="currentColor"/><circle cx="102" cy="82" r="2" fill="currentColor"/><circle cx="122" cy="82" r="2" fill="currentColor"/><circle cx="142" cy="82" r="2" fill="currentColor"/><circle cx="162" cy="82" r="2" fill="currentColor"/><circle cx="182" cy="82" r="2" fill="currentColor"/><circle cx="2" cy="102" r="2" fill="currentColor"/><circle cx="22" cy="102" r="2" fill="currentColor"/><circle cx="42" cy="102" r="2" fill="currentColor"/><circle cx="62" cy="102" r="2" fill="currentColor"/><circle cx="82" cy="102" r="2" fill="currentColor"/><circle cx="102" cy="102" r="2" fill="currentColor"/><circle cx="122" cy="102" r="2" fill="currentColor"/><circle cx="142" cy="102" r="2" fill="currentColor"/><circle cx="162" cy="102" r="2" fill="currentColor"/><circle cx="182" cy="102" r="2" fill="currentColor"/><circle cx="2" cy="122" r="2" fill="currentColor"/><circle cx="22" cy="122" r="2" fill="currentColor"/><circle cx="42" cy="122" r="2" fill="currentColor"/><circle cx="62" cy="122" r="2" fill="currentColor"/><circle cx="82" cy="122" r="2" fill="currentColor"/><circle cx="102" cy="122" r="2" fill="currentColor"/><circle cx="122" cy="122" r="2" fill="currentColor"/><circle cx="142" cy="122" r="2" fill="currentColor"/><circle cx="162" cy="122" r="2" fill="currentColor"/><circle cx="182" cy="122" r="2" fill="currentColor"/><circle cx="2" cy="142" r="2" fill="currentColor"/><circle cx="22" cy="142" r="2" fill="currentColor"/><circle cx="42" cy="142" r="2" fill="currentColor"/><circle cx="62" cy="142" r="2" fill="currentColor"/><circle cx="82" cy="142" r="2" fill="currentColor"/><circle cx="102" cy="142" r="2" fill="currentColor"/><circle cx="122" cy="142" r="2" fill="currentColor"/><circle cx="142" cy="142" r="2" fill="currentColor"/><circle cx="162" cy="142" r="2" fill="currentColor"/><circle cx="182" cy="142" r="2" fill="currentColor"/><circle cx="2" cy="162" r="2" fill="currentColor"/><circle cx="22" cy="162" r="2" fill="currentColor"/><circle cx="42" cy="162" r="2" fill="currentColor"/><circle cx="62" cy="162" r="2" fill="currentColor"/><circle cx="82" cy="162" r="2" fill="currentColor"/><circle cx="102" cy="162" r="2" fill="currentColor"/><circle cx="122" cy="162" r="2" fill="currentColor"/><circle cx="142" cy="162" r="2" fill="currentColor"/><circle cx="162" cy="162" r="2" fill="currentColor"/><circle cx="182" cy="162" r="2" fill="currentColor"/><circle cx="2" cy="182" r="2" fill="currentColor"/><circle cx="22" cy="182" r="2" fill="currentColor"/><circle cx="42" cy="182" r="2" fill="currentColor"/><circle cx="62" cy="182" r="2" fill="currentColor"/><circle cx="82" cy="182" r="2" fill="currentColor"/><circle cx="102" cy="182" r="2" fill="currentColor"/><circle cx="122" cy="182" r="2" fill="currentColor"/><circle cx="142" cy="182" r="2" fill="currentColor"/><circle cx="162" cy="182" r="2" fill="currentColor"/><circle cx="182" cy="182" r="2" fill="currentColor"/></svg>
+              </div>
+            </div>
+
+            <!-- Card -->
+            <div class="card card-lg rounded-top-left rounded-bottom-right lift lift-lg">
+              <div class="row no-gutters">
+                <div class="col-md-6 bg-cover rounded-top-left my-n2" style="background-image: url(assets/img/custom/family-cooking.jpg); background-position: center;">
 
                   <!-- Image (placeholder) -->
-                  <img src="assets/img/posts/family-cooking.jpg" alt="..." class="img-fluid d-md-none invisible">
+                  <img class="img-fluid invisible" src="assets/img/custom/family-cooking.jpg" alt="...">
 
-                  <!-- Shape -->
-                  <div class="shape shape-left shape-fluid-y svg-shim text-white d-none d-md-block">
-                    <svg viewBox="0 0 112 690" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <path d="M2.14577e-06 0H62.7586V172C38.6207 384 112 517 112 517V690H2.14577e-06V0Z" fill="currentColor"/>
-                    </svg>
-                  </div>
-
-                </a>
-                <div class="col-12 col-md-6 order-md-1">
+                </div>
+                <div class="col-md-6">
 
                   <!-- Body -->
-                  <a class="card-body" href="/home-centered-family-life">
+                  <div class="card-body">
+
+                    <!-- Preheading -->
+                    <h6 class="font-family-sans-serif text-primary mb-2">
+                      Featured Story
+                    </h6>
 
                     <!-- Heading -->
-                    <h3>
+                    <h2 class="display-4 mb-4">
                       How to Make the Most of a Home-Centered Family Life
-                    </h3>
+                    </h2>
 
                     <!-- Text -->
-                    <p class="mb-0 text-muted">
+                    <p class="mb-4">
                       This month we’ve been given the gift of time together as families. Here are specific ideas for not just passing the time, but making the most of time with family.
                     </p>
 
-                  </a>
+                    <!-- Footer -->
+                    <div class="d-flex align-items-center">
 
-                  <!-- Meta -->
-                  <a class="card-meta" href="/home-centered-family-life">
+                      <!-- Avatar -->
+                      <div class="avatar avatar-xs">
+                        <img class="avatar-img rounded-circle" src="assets/img/avatars/avatar-katrina.jpg" alt="...">
+                      </div>
 
-                    <!-- Divider -->
-                    <hr class="card-meta-divider">
+                      <!-- Body -->
+                      <div class="ml-4 text-left">
 
-                    <!-- Avatar -->
-                    <div class="avatar avatar-sm mr-2">
-                      <img src="/assets/img/katrina-avatar.jpg" alt="..." class="avatar-img rounded-circle">
+                        <!-- Title -->
+                        <p class="mb-0">
+                          Katrina Seamons
+                        </p>
+
+                        <!-- Position -->
+                        <p class="small text-muted mt-n1 mb-0">
+                          March 23, 2020
+                        </p>
+
+                      </div>
+
                     </div>
-                    
-                    <!-- Author -->
-                    <h6 class="text-uppercase text-muted mr-2 mb-0">
-                      Katrina Seamons
-                    </h6>
-                    
-                    <!-- Date -->
-                    <p class="h6 text-uppercase text-muted mb-0 ml-auto">
-                      <time datetime="2020-03-15">March 15</time>
-                    </p>
 
-                  </a>
+                    <!-- Link -->
+                    <a class="stretched-link" href="blog-post.html"></a>
+
+                  </div>
 
                 </div>
-
-              </div> <!-- / .row -->
+              </div>
             </div>
 
           </div>
-        </div> <!-- / .row -->
-      </div> <!-- / .container -->
+        </div>
+      </div>
     </section>
 
-    <!-- FOOTER
-    ================================================== -->
-    <!-- SHAPE
-    ================================================== -->
-    <!-- <div class="position-relative">
-      <div class="shape shape-bottom shape-fluid-x svg-shim text-gray-200">
-        <svg viewBox="0 0 2880 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M0 48H1437.5H2880V0H2160C1442.5 52 720 0 720 0H0V48Z" fill="currentColor"/>
-        </svg>
+    <!-- Disney -->
+    <section class="pt-9 pb-10 pt-md-11" id="disney">
+      <div class="container-lg">
+        <div class="row align-items-center mb-6">
+          <div class="col-md">
+
+            <!-- Heading -->
+            <h1 class="mb-0">
+              Disney Magic
+            </h1>
+
+            <!-- Text -->
+            <p class="text-gray-600 mb-2 md-mb-0">
+              Faith, Trust, and Pixie Dust
+            </p>
+
+          </div>
+          <div class="col-md-auto">
+
+            <!-- Button -->
+            <!-- <a class="btn btn-sm btn-primary" href="#!">
+              View All
+            </a> -->
+
+          </div>
+        </div>
+        <div class="row mt-n6">
+          <div class="col-md-4">
+
+            <!-- Card -->
+            <div class="card card-sm rounded-top-left rounded-bottom-right lift lift-lg mt-6">
+
+              <!-- Image -->
+              <img class="card-img-top rounded-top-left" src="assets/img/blog/post-header-4.jpg" alt="...">
+
+              <!-- Shape -->
+              <div class="position-relative">
+                <div class="shape shape-fluid-x shape-top text-white">
+                  <div class="shape-img pb-5">
+                    <svg viewBox="0 0 100 50" preserveAspectRatio="none"><path d="M0 25h25L75 0h25v50H0z" fill="currentColor"/></svg>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Body -->
+              <div class="card-body">
+
+                <!-- Heading -->
+                <h2 class="mb-2">
+                  Build a culture where everyone designs.
+                </h2>
+
+                <!-- Text -->
+                <p class="font-size-sm mb-4">
+                  Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque.
+                </p>
+
+                <!-- Footer -->
+                <div class="d-flex align-items-center">
+
+                  <!-- Avatar -->
+                  <div class="avatar avatar-xs">
+                    <img class="avatar-img rounded-circle" src="assets/img/avatars/avatar-9.jpg" alt="...">
+                  </div>
+
+                  <!-- Body -->
+                  <div class="ml-4 text-left">
+
+                    <!-- Title -->
+                    <p class="small mb-0">
+                      Danielle Borch
+                    </p>
+
+                    <!-- Position -->
+                    <p class="small text-muted mt-n1 mb-0">
+                      January 01, 2020
+                    </p>
+
+                  </div>
+
+                </div>
+
+                <!-- Link -->
+                <a class="stretched-link" href="blog-post.html"></a>
+
+              </div>
+            </div>
+
+          </div>
+          <div class="col-md-4">
+
+            <!-- Card -->
+            <div class="card card-sm rounded-top-left rounded-bottom-right lift lift-lg mt-6">
+
+              <!-- Image -->
+              <img class="card-img-top rounded-top-left" src="assets/img/blog/post-header-6.jpg" alt="...">
+
+              <!-- Shape -->
+              <div class="position-relative">
+                <div class="shape shape-fluid-x shape-top text-white">
+                  <div class="shape-img pb-5">
+                    <svg viewBox="0 0 100 50" preserveAspectRatio="none"><path d="M0 25h25L75 0h25v50H0z" fill="currentColor"/></svg>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Body -->
+              <div class="card-body">
+
+                <!-- Heading -->
+                <h2 class="mb-2">
+                  Designers can learn from interior design.
+                </h2>
+
+                <!-- Text -->
+                <p class="font-size-sm mb-4">
+                  Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque.
+                </p>
+
+                <!-- Footer -->
+                <div class="d-flex align-items-center">
+
+                  <!-- Avatar -->
+                  <div class="avatar avatar-xs">
+                    <img class="avatar-img rounded-circle" src="assets/img/avatars/avatar-6.jpg" alt="...">
+                  </div>
+
+                  <!-- Body -->
+                  <div class="ml-4 text-left">
+
+                    <!-- Title -->
+                    <p class="small mb-0">
+                      Danny Copter
+                    </p>
+
+                    <!-- Position -->
+                    <p class="small text-muted mt-n1 mb-0">
+                      April 05, 2020
+                    </p>
+
+                  </div>
+
+                </div>
+
+                <!-- Link -->
+                <a class="stretched-link" href="blog-post.html"></a>
+
+              </div>
+            </div>
+
+          </div>
+          <div class="col-md-4">
+
+            <!-- Card -->
+            <div class="card card-sm rounded-top-left rounded-bottom-right lift lift-lg mt-6">
+
+              <!-- Image -->
+              <img class="card-img-top rounded-top-left" src="assets/img/blog/post-header-5.jpg" alt="...">
+
+              <!-- Shape -->
+              <div class="position-relative">
+                <div class="shape shape-fluid-x shape-top text-white">
+                  <div class="shape-img pb-5">
+                    <svg viewBox="0 0 100 50" preserveAspectRatio="none"><path d="M0 25h25L75 0h25v50H0z" fill="currentColor"/></svg>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Body -->
+              <div class="card-body">
+
+                <!-- Heading -->
+                <h2 class="mb-2">
+                  Detach your worth from your work.
+                </h2>
+
+                <!-- Text -->
+                <p class="font-size-sm mb-4">
+                  Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque.
+                </p>
+
+                <!-- Footer -->
+                <div class="d-flex align-items-center">
+
+                  <!-- Avatar -->
+                  <div class="avatar avatar-xs">
+                    <img class="avatar-img rounded-circle" src="assets/img/avatars/avatar-2.jpg" alt="...">
+                  </div>
+
+                  <!-- Body -->
+                  <div class="ml-4 text-left">
+
+                    <!-- Title -->
+                    <p class="small mb-0">
+                      James Owens
+                    </p>
+
+                    <!-- Position -->
+                    <p class="small text-muted mt-n1 mb-0">
+                      May19, 2020
+                    </p>
+
+                  </div>
+
+                </div>
+
+                <!-- Link -->
+                <a class="stretched-link" href="blog-post.html"></a>
+
+              </div>
+            </div>
+
+          </div>
+        </div>
       </div>
-    </div> -->
+    </section>
 
-    <footer class="py-8 py-md-11 bg-gray-200">
-      <div class="container">
+    <!-- FOOTER -->
+    <footer class="footer py-8 py-md-11 bg-dark">
+      <div class="container-lg">
         <div class="row">
-          <div class="col-12 text-center">
-        
-            <!-- Brand -->
-            <!-- <h3 class="text-muted">Ryan Seamons</h3> -->
-            <a href="https://ryanseamons.com"><img src="./assets/img/signature-family.svg" class="" alt="Katrina and Ryan"></a>
+          <div class="col-md-4">
 
-            <!-- <a href="https://ryanseamons.com"><img alt="Ryan Seamons" src="https://miro.medium.com/fit/c/256/256/0*2qyGqNHdt9XBeK_2.jpeg" class="rounded-circle" width="34" height="34"></a> -->
-                        
-            <!-- Social -->
-            <ul class="list-unstyled list-inline list-social mb-6 mb-md-0">
-              <li class="list-inline-item list-social-item mr-3">
-                <a href="https://instagram.com/deliberatefamily" target="_blank"><i class="fab fa-2x fa-instagram"></i></a>
+            <!-- Brand -->
+            <h2 class="font-family-serif text-white mb-1">
+              Deliberate Family
+            </h2>
+
+            <!-- Text -->
+            <p class="text-white-60">
+              Intentional family living.
+            </p>
+
+          </div>
+          <div class="col-6 col-md">
+
+
+          </div>
+          <div class="col-6 col-md">
+
+            <!-- Heading -->
+            <h6 class="text-uppercase text-white mb-3 mb-md-5">
+              Topics
+            </h6>
+
+            <!-- List -->
+            <ul class="list-unstyled">
+              <li class="mb-3">
+                <a class="text-white-60" href="#!">Homeschooling</a>
               </li>
-              <li class="list-inline-item list-social-item mr-3">
-                <a href="https://www.facebook.com/Deliberate-Family-112320823725595/" target="_blank"><i class="fab fa-2x fa-facebook"></i></a>
+              <li class="mb-3">
+                <a class="text-white-60" href="#!">Marriage</a>
               </li>
-              <li class="list-inline-item list-social-item mr-3">
-                <a href="https://deliberatefamily.substack.com" target="_blank"><i class="far fa-2x fa-envelope"></i></a>
+              <li>
+                <a class="text-white-60" href="#!">Parenting</a>
               </li>
             </ul>
 
           </div>
+          <div class="col-6 col-md">
 
-        </div> <!-- / .row -->
-      </div> <!-- / .container -->
+            <!-- Heading -->
+            <h6 class="text-uppercase text-white mb-3 mb-md-5">
+              ...
+            </h6>
+
+            <!-- List -->
+            <ul class="list-unstyled">
+              <li class="mb-3">
+                <a class="text-white-60" href="#!">Disney</a>
+              </li>
+              <li class="mb-3">
+                <a class="text-white-60" href="#!">Travel</a>
+              </li>
+              <li>
+                <a class="text-white-60" href="#!">Faith</a>
+              </li>
+            </ul>
+
+          </div>
+          <div class="col-6 col-md">
+
+            <!-- Heading -->
+            <h6 class="text-uppercase text-white mb-3 mb-md-5">
+              Connect
+            </h6>
+
+            <!-- List -->
+            <ul class="list-unstyled">
+              <li class="mb-3">
+                <a class="text-white-60" href="#!">Instagram</a>
+              </li>
+              <li class="mb-3">
+                <a class="text-white-60" href="#!">Facebook</a>
+              </li>
+              <li class="mb-3">
+                <a class="text-white-60" href="#!">Email</a>
+              </li>
+            </ul>
+
+          </div>
+        </div>
+      </div>
     </footer>
 
-    <!-- JAVASCRIPT
-    ================================================== -->
+
+    <!-- JAVASCRIPT -->
+    <!-- Polyfills -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=Array.prototype.find,Array.prototype.includes,Array.from,Object.entries,Promise,Object.assign"></script>
+
     <!-- Libs JS -->
     <script src="./assets/libs/jquery/dist/jquery.min.js"></script>
+    <script src="./assets/libs/@fancyapps/fancybox/dist/jquery.fancybox.min.js"></script>
+    <script src="./assets/libs/@popperjs/core/dist/umd/popper.min.js"></script>
+    <script src="./assets/libs/aos/dist/aos.js"></script>
     <script src="./assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="./assets/libs/countup.js/dist/countUp.min.js"></script>
     <script src="./assets/libs/flickity/dist/flickity.pkgd.min.js"></script>
     <script src="./assets/libs/flickity-fade/flickity-fade.js"></script>
-    <script src="./assets/libs/aos/dist/aos.js"></script>
-    <script src="./assets/libs/smooth-scroll/dist/smooth-scroll.min.js"></script>
+    <script src="./assets/libs/highlightjs/highlight.pack.min.js"></script>
     <script src="./assets/libs/jarallax/dist/jarallax.min.js"></script>
     <script src="./assets/libs/jarallax/dist/jarallax-video.min.js"></script>
     <script src="./assets/libs/jarallax/dist/jarallax-element.min.js"></script>
+    <script src="./assets/libs/smooth-scroll/dist/smooth-scroll.min.js"></script>
     <script src="./assets/libs/typed.js/lib/typed.min.js"></script>
-    <script src="./assets/libs/countup.js/dist/countUp.min.js"></script>
-    <script src="./assets/libs/highlightjs/highlight.pack.min.js"></script>
-    <script src="./assets/libs/@fancyapps/fancybox/dist/jquery.fancybox.min.js"></script>
-    <script src="./assets/libs/isotope-layout/dist/isotope.pkgd.min.js"></script>
-    <script src="./assets/libs/imagesloaded/imagesloaded.pkgd.min.js"></script>
-    <script src="./assets/libs/airtable/build/airtable.browser.js"></script>
-
-
-    <!-- Map -->
-    <script src='https://api.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.js'></script>
 
     <!-- Theme JS -->
     <script src="./assets/js/theme.min.js"></script>
@@ -1103,6 +1009,30 @@
     	$("a[href^='http://']").attr("target","_blank");
     </script>
 
+
+    <script>
+    	$("#footer_email").submit(function(event){
+
+    		event.preventDefault(); //prevent default action 
+    		// $("#confirm_submission").html("Loading");
+    		var post_url = $(this).attr("action"); //get form action url
+    		var request_method = $(this).attr("method"); //get form GET/POST method
+    		var form_data = $(this).serialize(); //Encode form elements for submission
+		
+    		$.ajax({
+    			url: "https://formsubmit.co/ajax/ryanseamons@gmail.com",
+    			method: "POST",
+    			data: {email: $("#email").val()}
+    		}).done(function(response){ //
+    			$("#email").val("");
+    			$("#email").attr("placeholder", "Thanks for joining!");
+    		});
+    	});
+
+    	$.ajax({
+		
+    	});
+    </script>
 
   </body>
 </html>

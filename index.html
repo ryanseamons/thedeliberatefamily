@@ -5,109 +5,314 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,400i,600,700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Lora:300,400,400i,600,700&display=swap" rel="stylesheet">
-    <link rel="icon" type="image/png" sizes="32x32" href="assets/img/deliberate-family-favicon.png">
-
     <!-- Libs CSS -->
-    <link rel="stylesheet" href="./assets/fonts/Feather/feather.css">
+    <link rel="stylesheet" href="./assets/libs/@fancyapps/fancybox/dist/jquery.fancybox.min.css">
+    <link rel="stylesheet" href="./assets/libs/aos/dist/aos.css">
+    <link rel="stylesheet" href="./assets/libs/flag-icon-css/css/flag-icon.min.css">
     <link rel="stylesheet" href="./assets/libs/flickity/dist/flickity.min.css">
     <link rel="stylesheet" href="./assets/libs/flickity-fade/flickity-fade.css">
-    <link rel="stylesheet" href="./assets/libs/aos/dist/aos.css">
-    <link rel="stylesheet" href="./assets/libs/jarallax/dist/jarallax.css">
     <link rel="stylesheet" href="./assets/libs/highlightjs/styles/vs2015.css">
-    <link rel="stylesheet" href="./assets/libs/@fancyapps/fancybox/dist/jquery.fancybox.min.css">
+    <link rel="stylesheet" href="./assets/libs/jarallax/dist/jarallax.css">
+    <link rel="stylesheet" href="./assets/fonts/feather/feather.css">
 
-    <!-- Map -->
-    <link href='https://api.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.css' rel='stylesheet' />
+    <!-- 
+      Theme Sans Serif CSS
+      Remove the "disabled" attribute if you want to enable Sans Serif for headings.
+    -->
+    <link rel="stylesheet" href="./assets/css/theme-sans-serif.min.css" id="themeSansSerif" disabled>
+
+    <!--
+      Demo JS
+      Remove the code below on a production website.
+    -->
+    <script src="./assets/js/demo.min.js"></script>
 
     <!-- Theme CSS -->
     <link rel="stylesheet" href="./assets/css/theme.min.css">
 
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.9.0/css/all.css" integrity="sha384-i1LQnF23gykqWXg6jxC2ZbCbUMxyw5gLZY6UiUS98LYV5unm8GWmfkIS6jqJfb4E" crossorigin="anonymous">
+    <title>Deliberate Family | Avoid regret through intentional family living</title>
 
-    <!-- Google Analytics Script -->
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-5246170-12"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-
-      gtag('config', 'UA-5246170-12');
-    </script>
-    <!-- Fullstory Script -->
-    <script>
-    window['_fs_debug'] = false;
-    window['_fs_host'] = 'fullstory.com';
-    window['_fs_org'] = 'N9EAF';
-    window['_fs_namespace'] = 'FS';
-    (function(m,n,e,t,l,o,g,y){
-        if (e in m) {if(m.console && m.console.log) { m.console.log('FullStory namespace conflict. Please set window["_fs_namespace"].');} return;}
-        g=m[e]=function(a,b,s){g.q?g.q.push([a,b,s]):g._api(a,b,s);};g.q=[];
-        o=n.createElement(t);o.async=1;o.crossOrigin='anonymous';o.src='https://'+_fs_host+'/s/fs.js';
-        y=n.getElementsByTagName(t)[0];y.parentNode.insertBefore(o,y);
-        g.identify=function(i,v,s){g(l,{uid:i},s);if(v)g(l,v,s)};g.setUserVars=function(v,s){g(l,v,s)};g.event=function(i,v,s){g('event',{n:i,p:v},s)};
-        g.shutdown=function(){g("rec",!1)};g.restart=function(){g("rec",!0)};
-        g.log = function(a,b) { g("log", [a,b]) };
-        g.consent=function(a){g("consent",!arguments.length||a)};
-        g.identifyAccount=function(i,v){o='account';v=v||{};v.acctId=i;g(o,v)};
-        g.clearUserCookie=function(){};
-    })(window,document,window['_fs_namespace'],'script','user');
-    </script>
-
-    <title>Deliberate Family | avoid regret through intentional family living </title>
   </head>
   <body>
 
-    <!-- NAVBAR
-    ================================================== -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-white border-bottom ">
-      <div class="container-fluid">
+    <!-- MODALS -->
+    <!-- Sign in -->
+    <div class="modal fade" id="modalSignIn" tabindex="-1" role="dialog" aria-labelledby="modalSignInHeading" aria-hidden="true">
+      <div class="modal-dialog modal-sm modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-body text-center">
+
+            <!-- Close -->
+            <button class="modal-close close" data-dismiss="modal" type="button" aria-label="Close">
+              <span aria-hidden="true">
+                <i class="fe fe-x"></i>
+              </span>
+            </button>
+
+            <!-- Heading -->
+            <h1 class="mb-4" id="modalSignInHeading">
+              Sign In
+            </h1>
+
+            <!-- Text -->
+            <p>
+              Don’t have an account? <a href="sign-up.html">Sign up</a>
+            </p>
+
+            <!-- Form -->
+            <form class="mb-6">
+
+              <!-- Email -->
+              <div class="form-group">
+                <label class="sr-only" for="signInEmail">
+                  Your email
+                </label>
+                <input class="form-control" id="signInEmail" type="email" placeholder="Your email">
+              </div>
+
+              <!-- Password -->
+              <div class="form-group">
+                <div class="input-group inpit-group-merge">
+                  <input class="form-control" id="signInPassword" placeholder="Your password" type="password" aria-label="Your password" aria-describedby="signInPasswordCaption">
+                  <div class="input-group-append">
+                    <a class="input-group-text text-decoration-none text-gray-500" id="signInPasswordCaption" data-toggle="password" href="#signInPassword">
+                      <i class="fe fe-eye"></i>
+                    </a>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Button -->
+              <button class="btn btn-block btn-primary">
+                Sign in
+              </button>
+
+            </form>
+
+            <!-- Link -->
+            <a class="font-size-sm" href="password-reset.html">
+              Forgot your password?
+            </a>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Sign up -->
+    <div class="modal fade" id="modalSignUp" tabindex="-1" role="dialog" aria-labelledby="modalSignUpHeading" aria-hidden="true">
+      <div class="modal-dialog modal-sm modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-body text-center">
+
+            <!-- Close -->
+            <button class="modal-close close" data-dismiss="modal" type="button" aria-label="Close">
+              <span aria-hidden="true">
+                <i class="fe fe-x"></i>
+              </span>
+            </button>
+
+            <!-- Heading -->
+            <h1 class="mb-4" id="modalSignUpHeading">
+              Sign Up
+            </h1>
+
+            <!-- Text -->
+            <p>
+              Create beautiful marketing websites in hours instead of weeks.
+            </p>
+
+            <!-- Form -->
+            <form class="mb-6">
+
+              <!-- Email -->
+              <div class="form-group">
+                <label class="sr-only" for="signUpEmail">
+                  Your email
+                </label>
+                <input class="form-control" id="signUpEmail" type="email" placeholder="Your email">
+              </div>
+
+              <!-- Password -->
+              <div class="form-group">
+                <div class="input-group inpit-group-merge">
+                  <input class="form-control" id="signUpPassword" placeholder="Your password" type="password" aria-label="Your password" aria-describedby="signUpPasswordCaption">
+                  <div class="input-group-append">
+                    <a class="input-group-text text-decoration-none text-gray-500" id="signUpPasswordCaption" data-toggle="password" href="#signUpPassword">
+                      <i class="fe fe-eye"></i>
+                    </a>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Button -->
+              <button class="btn btn-block btn-primary">
+                Sign up
+              </button>
+
+            </form>
+
+            <!-- Link -->
+            <small class="text-muted">
+              Already have an account? <a href="sign-in.html">Login</a>
+            </small>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Password reset -->
+    <div class="modal fade" id="modalPasswordReset" tabindex="-1" role="dialog" aria-labelledby="modalPasswordResetHeading" aria-hidden="true">
+      <div class="modal-dialog modal-sm modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-body text-center">
+
+            <!-- Close -->
+            <button class="modal-close close" data-dismiss="modal" type="button" aria-label="Close">
+              <span aria-hidden="true">
+                <i class="fe fe-x"></i>
+              </span>
+            </button>
+
+            <!-- Heading -->
+            <h1 class="display-4 mb-4" id="modalPasswordResetHeading">
+              Password reset
+            </h1>
+
+            <!-- Text -->
+            <p class="text-muted">
+              Enter your email to reset your password.
+            </p>
+
+            <!-- Form -->
+            <form class="mb-6">
+
+              <!-- Email -->
+              <div class="form-group">
+                <label class="sr-only" for="passwordResetEmail">
+                  Your email
+                </label>
+                <input class="form-control" id="passwordResetEmail" type="email" placeholder="Your email">
+              </div>
+
+              <!-- Button -->
+              <button class="btn btn-block btn-primary">
+                Reset password
+              </button>
+
+            </form>
+
+            <!-- Text -->
+            <small class="text-muted">
+              Remember your password? <a href="sign-in.html">Log in</a>.
+            </small>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Sale -->
+    <div class="modal fade" id="modalSale" tabindex="-1" role="dialog" aria-labelledby="modalSaleHeading" aria-hidden="true">
+      <div class="modal-dialog modal-sm modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-body text-center">
+
+            <!-- Close -->
+            <button class="modal-close close" data-dismiss="modal" type="button" aria-label="Close">
+              <span aria-hidden="true">
+                <i class="fe fe-x"></i>
+              </span>
+            </button>
+
+            <!-- Image -->
+            <img class="img-fluid mb-4 mt-n11" src="./assets/img/illustrations/illustration-4.png" alt="...">
+
+            <!-- Heading -->
+            <h1 class="mb-4" id="modalSaleHeading">
+              30 Day Free Trial
+            </h1>
+
+            <!-- Text -->
+            <p class="text-muted">
+              We’ll help you get started by getting you guides and all the basic informaiton.
+            </p>
+
+            <!-- Form -->
+            <form class="mb-6">
+
+              <!-- Email -->
+              <div class="form-group">
+                <label class="sr-only" for="saleModalEmail">
+                  Your email
+                </label>
+                <input class="form-control" id="saleModalEmail" type="email" placeholder="Your email">
+              </div>
+
+              <!-- Button -->
+              <button class="btn btn-block btn-primary">
+                Start Trial
+              </button>
+
+            </form>
+
+            <!-- Text -->
+            <small class="text-muted">
+              <a class="text-reset" data-dismiss="modal" href="#!">No thanks, I hate free stuff.</a>
+            </small>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-expand-lg navbar-dark navbar-togglable fixed-top">
+      <div class="container-lg">
 
         <!-- Brand -->
-        <a class="navbar-brand text-uppercase" href="./">
-          <!-- Ryan Seamons -->
-          <!-- <img src="./assets/img/full-signature.svg" class="navbar-brand-img signature-color" alt="..."> -->
-          Deliberate Family
-        </a>
+        <a class="navbar-brand d-lg-none" href="./">Deliberate Family</a>
 
         <!-- Toggler -->
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
 
         <!-- Collapse -->
-        <div class="collapse navbar-collapse" id="navbarCollapse">
-
-          <!-- Toggler -->
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-            <i class="fe fe-x"></i>
-          </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
 
           <!-- Navigation -->
-          <ul class="navbar-nav ml-auto text-uppercase">
+          <ul class="navbar-nav justify-content-end w-100">
             <li class="nav-item">
-              <a class="nav-link" id="navbarLandings" href="articles">
-                blog
+              <a class="nav-link" href="articles" role="button" aria-haspopup="true" aria-expanded="false">
+                Blog
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" id="navbarLandings" href="homeschool-resources">
-                Homeschool Tips
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" id="navbarLandings" href="sprinkle-pixie-dust">
-                Sprinkle Pixie Dust
+              <a class="nav-link" href="homeschool-resources" role="button" aria-haspopup="true" aria-expanded="false">
+                Homeschooling
               </a>
             </li>
           </ul>
 
-          <!-- Button -->
-          <a class="ml-auto text-uppercase" href="https://www.instagram.com/deliberatefamily/" target="_blank">
-            Follow Us On Instagram →
-          </a>
+          <!-- Brand -->
+          <a class="navbar-brand d-none d-lg-block px-lg-6" href="./">Deliberate Family</a>
+
+          <!-- Navigation -->
+          <ul class="navbar-nav justify-content-start w-100">
+            <li class="nav-item">
+              <a class="nav-link" href="articles#disney" role="button" aria-haspopup="true" aria-expanded="false">
+                Pixie Dust
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="https://www.instagram.com/deliberatefamily/" role="button" aria-haspopup="true" aria-expanded="false">
+                <span class="fe fe-instagram" data-toggle="tooltip" data-placement="top" title="instagram"></span> Instagram
+              </a>
+            </li>
+          </ul>
 
         </div>
 
@@ -115,238 +320,265 @@
     </nav>
 
 
-    <!-- WELCOME
-    ================================================== -->
-    <section data-jarallax data-speed=".8" class="pt-10 pt-md-14 pb-12 pb-md-15 overlay overlay-primary overlay-80 jarallax" style="background-image: url(assets/img/our-family.jpg);">
+    <!-- WELCOME -->
+    <section data-jarallax data-speed=".8" class="bg-cover jarallax" style="background-image: url(assets/img/custom/our-family.jpg);">
+      <div class="py-13 py-md-15" style="background-color: rgba(27, 22, 66, .7)">
+        <div class="container-lg">
+          <div class="row justify-content-center">
+            <div class="col-md-10 col-lg-8 text-center text-white">
 
-      <!-- Content -->
-      <div class="container">
-        <div class="row justify-content-center">
-          <div class="col-12 col-md-8 text-center">
-            
+              <!-- Preheading -->
+              <h6 class="text-uppercase mb-5">
+                Inspiring you to Live Your Family’s Story Through
+              </h6>
+
+              <!-- Heading -->
+              <h1 class="display-3 mb-4">
+                Intentional Family Living
+              </h1>
+
+              <!-- Text -->
+              <p class="font-size-lg">
+                Sharing what we learn through our adventures in parenting &amp; marriage
+              </p>
+
+              <!-- Button -->
+              <a class="btn btn-primary-light" href="https://www.youtube.com/watch?v=2Xzw7ZQrjxQ" data-fancybox>
+                <i class="fe fe-play mr-2"></i> Learn a bit about our story
+              </a>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SHAPE -->
+    <div class="position-relative">
+      <div class="shape shape-fluid-x shape-top text-white">
+        <div class="shape-img pb-5">
+          <svg viewBox="0 0 100 50" preserveAspectRatio="none"><path d="M0 25h25L75 0h25v50H0z" fill="currentColor"/></svg>
+        </div>
+      </div>
+    </div>
+
+    <!-- BUTTON -->
+    <div class="text-center mt-n7 position-relative" style="z-index: 1;">
+      <a class="btn btn-primary-light btn-circle" href="#about" data-scroll data-offset="0">
+        <i class="fe fe-arrow-down"></i>
+      </a>
+    </div>
+
+    <!-- ABOUT -->
+    <section class="pt-10 pt-md-12" id="about">
+      <div class="container-lg">
+        <div class="row align-items-center justify-content-between">
+          <div class="col-md-6 col-lg-5 text-center text-md-left">
+
             <!-- Heading -->
-            <h1 class="display-1 text-white mb-6 mt-n3 family-font">
-              Intentional Family Living.
-            </h1>
-
-            <!-- Button -->
-            <a href="https://www.youtube.com/watch?v=2Xzw7ZQrjxQ" class="btn btn-pill btn-white shadow lift" data-fancybox>
-              <i class="fe fe-play mr-2"></i>
-              Learn a bit about our story
-            </a>
-
-          </div>
-        </div> <!-- / .row -->
-      </div> <!-- / .container -->
-
-      <!-- Shape -->
-      <div class="position-absolute right-0 bottom-0 left-0">
-
-        <!-- Shape -->
-        <div class="position-relative shape shape-bottom shape-fluid-x svg-shim text-white">
-          <svg viewBox="0 0 2880 250" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M720 125L2160 0H2880V250H0V125H720Z" fill="currentColor"/>
-          </svg>
-        </div>
-
-        <!-- Button -->
-        <div class="position-absolute center">
-          <a class="btn btn-light btn-rounded-circle lift" data-toggle="smooth-scroll" href="#payItDown">
-            <i class="fe fe-arrow-down"></i>
-          </a>
-        </div>
-
-      </div>
-
-    </section>
-
-    <!-- WELCOME
-    ================================================== -->
-    <section class="pt-4 pt-md-11 mb-10">
-      <div class="container">
-        <div class="row align-items-center">
-          <div class="col-12 col-md-8 col-lg-8 offset-lg-2 offset-md-2" data-aos="fade-up">
-
-            <h1 class="display-3 font-weight-bold mb-10">
+            <h2 class="display-4 mb-4">
               Avoid regret by living intentionally.
-            </h1>
-            <p>The choices you make in parenting, marriage, and life determine your happiness. The secret is that you don't have to do what everyone else does.</p>
-            <p>Too many people <a href="https://www.theguardian.com/lifeandstyle/2012/feb/01/top-five-regrets-of-the-dying" target="_blank">regret</a> not living the life they want to live.</p>
-            <p><a href="https://www.instagram.com/deliberatefamily/">Join us</a> in our conversations about finding joy through intentional choices with your family.</p>
-            <img src="./assets/img/signature-family.svg" class="" alt="...">
+            </h2>
+
+            <p class="text-muted">The choices you make in parenting, marriage, and life determine your happiness. The secret is that you don't have to do what everyone else does.</p>
+            <p class="text-muted">Too many people <a href="https://www.theguardian.com/lifeandstyle/2012/feb/01/top-five-regrets-of-the-dying" target="_blank">regret</a> not living the life they want to live.</p>
+            <p class="text-muted"><a href="https://www.instagram.com/deliberatefamily/">Join us</a> in our conversations about finding joy through intentional choices with your family.</p>
+            <img src="./assets/img/custom/signature.svg" class="" alt="...">
 
           </div>
-        </div>
-        <div class="row mt-10">
-          <div class="col-12 col-md-8 col-lg-8 offset-lg-2 offset-md-2" data-aos="fade-up">
-            <p>Follow us on <a href="https://deliberatefamily.substack.com">email</a> or <a href="https://www.instagram.com/deliberatefamily/">instagram</a>:</p>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-12 col-lg-6" data-aos="fade-up"><iframe src="https://deliberatefamily.substack.com/embed" width="480" height="320" frameborder="0" scrolling="no"></iframe></div>
-          <div class="col-12 col-md-6 col-lg-6" data-aos="fade-up"><a href="https://www.instagram.com/deliberatefamily/"><img src="https://halmarracing.com/wp-content/uploads/2018/04/instagram-button-halmar-racing.png" alt="Follow us on Instagram"></a></div>
-        </div>
-      </div>
-    </section>
+          <div class="col-md-5 col-lg-6">
 
-        <!-- Featured Article
-    ================================================== -->
-    <section class="pt-7 pt-md-10">
-      <div class="container">
-        <div class="row">
-          <div class="col-12">
-            
-            <!-- Card -->
-            <div class="card card-row shadow-light-lg mb-6 lift lift-lg">
-              <div class="row no-gutters">
-                <div class="col-12">
-                  
-                  <!-- Badge -->
-                  <span class="badge badge-pill badge-light badge-float badge-float-inside">
-                    <span class="h6 text-uppercase">Featured</span>
-                  </span>
+            <!-- Image grid -->
+            <div class="img-grid img-grid-4">
+              <div class="img-grid-item">
 
-                </div>
-                <a class="col-12 col-md-6 order-md-2 bg-cover card-img-right" style="background-image: url(assets/img/posts/family-cooking.jpg);" href="/home-centered-family-life">
+                <!-- Image -->
+                <img class="img-fluid border border-4 border-md-7 border-white shadow" src="assets/img/career/office-1.jpg" alt="..." data-jarallax-element="-85">
 
-                  <!-- Image (placeholder) -->
-                  <img src="assets/img/posts/family-cooking.jpg" alt="..." class="img-fluid d-md-none invisible">
+              </div>
+              <div class="img-grid-item">
 
-                  <!-- Shape -->
-                  <div class="shape shape-left shape-fluid-y svg-shim text-white d-none d-md-block">
-                    <svg viewBox="0 0 112 690" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <path d="M2.14577e-06 0H62.7586V172C38.6207 384 112 517 112 517V690H2.14577e-06V0Z" fill="currentColor"/>
-                    </svg>
-                  </div>
+                <!-- Image -->
+                <img class="img-fluid border border-4 border-md-7 border-white shadow" src="assets/img/career/office-2.jpg" alt="..." data-jarallax-element="-50">
 
-                </a>
-                <div class="col-12 col-md-6 order-md-1">
+              </div>
+              <div class="img-grid-item">
 
-                  <!-- Body -->
-                  <a class="card-body" href="/home-centered-family-life">
+                <!-- Image -->
+                <img class="img-fluid border border-4 border-md-7 border-white shadow" src="assets/img/career/office-3.jpg" alt="..." data-jarallax-element="-25">
 
-                    <!-- Heading -->
-                    <h3>
-                      How to Make the Most of a Home-Centered Family Life
-                    </h3>
-
-                    <!-- Text -->
-                    <p class="mb-0 text-muted">
-                      This month we’ve been given the gift of time together as families. Here are specific ideas for not just passing the time, but making the most of time with family.
-                    </p>
-
-                  </a>
-
-                  <!-- Meta -->
-                  <a class="card-meta" href="/home-centered-family-life">
-
-                    <!-- Divider -->
-                    <hr class="card-meta-divider">
-
-                    <!-- Avatar -->
-                    <div class="avatar avatar-sm mr-2">
-                      <img src="/assets/img/katrina-avatar.jpg" alt="..." class="avatar-img rounded-circle">
-                    </div>
-                    
-                    <!-- Author -->
-                    <h6 class="text-uppercase text-muted mr-2 mb-0">
-                      Katrina Seamons
-                    </h6>
-                    
-                    <!-- Date -->
-                    <p class="h6 text-uppercase text-muted mb-0 ml-auto">
-                      <time datetime="2020-03-15">March 15</time>
-                    </p>
-
-                  </a>
-
-                </div>
-
-              </div> <!-- / .row -->
+              </div>
             </div>
 
           </div>
-        </div> <!-- / .row -->
-      </div> <!-- / .container -->
+        </div>
+      </div>
     </section>
 
-
-        <!-- Instagram Feed
+            <!-- Instagram Feed
     ================================================== -->
-    <section class="pt-7 mb-10 pt-md-10">
+    <section class="pt-7 mb-10 px-md-5 pt-md-10 bg-light">
           <div class=" text-center">
-            <h1>Follow us on Instagram</h1>
+            <!-- Heading -->
+            <h2 class="display-4 mb-10">
+              Follow us on <a href="https://www.instagram.com/deliberatefamily/"><span class="text-underline-warning">Instagram</span></a>.
+            </h2>
+
               <!-- LightWidget WIDGET --><script src="https://cdn.lightwidget.com/widgets/lightwidget.js"></script><iframe src="https://cdn.lightwidget.com/widgets/eab96f324834547e8ccf5128a8226ce1.html" scrolling="no" allowtransparency="true" class="lightwidget-widget" style="width:100%;border:0;overflow:hidden;"></iframe>
           </div>
     </section>
-            
 
+    <!-- CTA -->
+    <!-- CTA -->
+    <section class="bg-dark border-multicolor">
+      <div class="container-lg">
+        <div class="row align-items-center">
+          <div class="col-12">
 
-    <!-- FOOTER
-    ================================================== -->
-    <!-- SHAPE
-    ================================================== -->
-    <!-- <div class="position-relative">
-      <div class="shape shape-bottom shape-fluid-x svg-shim text-gray-200">
-        <svg viewBox="0 0 2880 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M0 48H1437.5H2880V0H2160C1442.5 52 720 0 720 0H0V48Z" fill="currentColor"/>
-        </svg>
+            <!-- Divider -->
+            <hr class="border-gray-900 mt-0 mb-8">
+
+          </div>
+          <div class="col-md">
+
+            <!-- Heading -->
+            <h1 class="text-white mb-0">
+              Join the <span class="text-warning">community</span>
+            </h1>
+
+            <!-- Text -->
+            <p class="text-white-60 mb-4 mb-md-0">
+              Receive occasional updates, never spam.
+            </p>
+
+          </div>
+          <div class="col-md-4">
+
+            <!-- Form -->
+            <form id="footer_email">
+              <input class="form-control" type="email" id="email" placeholder="Email address">
+              <p class="text-white-60" id="confirm_submission"></p>
+            </form>
+
+          </div>
+          <div class="col-12">
+
+            <!-- Divider -->
+            <hr class="border-gray-900 mb-0 mt-8">
+
+          </div>
+        </div>
       </div>
-    </div> -->
+    </section>
 
-    <footer class="py-8 py-md-11 bg-gray-200">
-      <div class="container">
+    <!-- FOOTER -->
+    <footer class="footer py-8 py-md-11 bg-dark">
+      <div class="container-lg">
         <div class="row">
-          <div class="col-12 text-center">
-        
-            <!-- Brand -->
-            <!-- <h3 class="text-muted">Ryan Seamons</h3> -->
-            <a href="https://ryanseamons.com"><img src="./assets/img/signature-family.svg" class="" alt="Katrina and Ryan"></a>
+          <div class="col-md-4">
 
-            <!-- <a href="https://ryanseamons.com"><img alt="Ryan Seamons" src="https://miro.medium.com/fit/c/256/256/0*2qyGqNHdt9XBeK_2.jpeg" class="rounded-circle" width="34" height="34"></a> -->
-                        
-            <!-- Social -->
-            <ul class="list-unstyled list-inline list-social mb-6 mb-md-0">
-              <li class="list-inline-item list-social-item mr-3">
-                <a href="https://instagram.com/deliberatefamily" target="_blank"><i class="fab fa-2x fa-instagram"></i></a>
+            <!-- Brand -->
+            <h2 class="font-family-serif text-white mb-1">
+              Deliberate Family
+            </h2>
+
+            <!-- Text -->
+            <p class="text-white-60">
+              Intentional family living.
+            </p>
+
+          </div>
+          <div class="col-6 col-md">
+
+
+          </div>
+          <div class="col-6 col-md">
+
+            <!-- Heading -->
+            <h6 class="text-uppercase text-white mb-3 mb-md-5">
+              Topics
+            </h6>
+
+            <!-- List -->
+            <ul class="list-unstyled">
+              <li class="mb-3">
+                <a class="text-white-60" href="#!">Homeschooling</a>
               </li>
-              <li class="list-inline-item list-social-item mr-3">
-                <a href="https://www.facebook.com/Deliberate-Family-112320823725595/" target="_blank"><i class="fab fa-2x fa-facebook"></i></a>
+              <li class="mb-3">
+                <a class="text-white-60" href="#!">Marriage</a>
               </li>
-              <li class="list-inline-item list-social-item mr-3">
-                <a href="https://deliberatefamily.substack.com" target="_blank"><i class="far fa-2x fa-envelope"></i></a>
+              <li>
+                <a class="text-white-60" href="#!">Parenting</a>
               </li>
             </ul>
 
           </div>
+          <div class="col-6 col-md">
 
-        </div> <!-- / .row -->
-      </div> <!-- / .container -->
+            <!-- Heading -->
+            <h6 class="text-uppercase text-white mb-3 mb-md-5">
+              ...
+            </h6>
+
+            <!-- List -->
+            <ul class="list-unstyled">
+              <li class="mb-3">
+                <a class="text-white-60" href="#!">Disney</a>
+              </li>
+              <li class="mb-3">
+                <a class="text-white-60" href="#!">Travel</a>
+              </li>
+              <li>
+                <a class="text-white-60" href="#!">Faith</a>
+              </li>
+            </ul>
+
+          </div>
+          <div class="col-6 col-md">
+
+            <!-- Heading -->
+            <h6 class="text-uppercase text-white mb-3 mb-md-5">
+              Connect
+            </h6>
+
+            <!-- List -->
+            <ul class="list-unstyled">
+              <li class="mb-3">
+                <a class="text-white-60" href="#!">Instagram</a>
+              </li>
+              <li class="mb-3">
+                <a class="text-white-60" href="#!">Facebook</a>
+              </li>
+              <li class="mb-3">
+                <a class="text-white-60" href="#!">Email</a>
+              </li>
+            </ul>
+
+          </div>
+        </div>
+      </div>
     </footer>
 
-    <!-- JAVASCRIPT
-    ================================================== -->
+
+    <!-- JAVASCRIPT -->
+    <!-- Polyfills -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=Array.prototype.find,Array.prototype.includes,Array.from,Object.entries,Promise,Object.assign"></script>
+
     <!-- Libs JS -->
     <script src="./assets/libs/jquery/dist/jquery.min.js"></script>
+    <script src="./assets/libs/@fancyapps/fancybox/dist/jquery.fancybox.min.js"></script>
+    <script src="./assets/libs/@popperjs/core/dist/umd/popper.min.js"></script>
+    <script src="./assets/libs/aos/dist/aos.js"></script>
     <script src="./assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="./assets/libs/countup.js/dist/countUp.min.js"></script>
     <script src="./assets/libs/flickity/dist/flickity.pkgd.min.js"></script>
     <script src="./assets/libs/flickity-fade/flickity-fade.js"></script>
-    <script src="./assets/libs/aos/dist/aos.js"></script>
-    <script src="./assets/libs/smooth-scroll/dist/smooth-scroll.min.js"></script>
+    <script src="./assets/libs/highlightjs/highlight.pack.min.js"></script>
     <script src="./assets/libs/jarallax/dist/jarallax.min.js"></script>
     <script src="./assets/libs/jarallax/dist/jarallax-video.min.js"></script>
     <script src="./assets/libs/jarallax/dist/jarallax-element.min.js"></script>
+    <script src="./assets/libs/smooth-scroll/dist/smooth-scroll.min.js"></script>
     <script src="./assets/libs/typed.js/lib/typed.min.js"></script>
-    <script src="./assets/libs/countup.js/dist/countUp.min.js"></script>
-    <script src="./assets/libs/highlightjs/highlight.pack.min.js"></script>
-    <script src="./assets/libs/@fancyapps/fancybox/dist/jquery.fancybox.min.js"></script>
-    <script src="./assets/libs/isotope-layout/dist/isotope.pkgd.min.js"></script>
-    <script src="./assets/libs/imagesloaded/imagesloaded.pkgd.min.js"></script>
-    <script src="./assets/libs/airtable/build/airtable.browser.js"></script>
-
-
-    <!-- Map -->
-    <script src='https://api.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.js'></script>
 
     <!-- Theme JS -->
     <script src="./assets/js/theme.min.js"></script>
@@ -357,6 +589,30 @@
     	$("a[href^='http://']").attr("target","_blank");
     </script>
 
+
+    <script>
+    	$("#footer_email").submit(function(event){
+
+    		event.preventDefault(); //prevent default action 
+    		// $("#confirm_submission").html("Loading");
+    		var post_url = $(this).attr("action"); //get form action url
+    		var request_method = $(this).attr("method"); //get form GET/POST method
+    		var form_data = $(this).serialize(); //Encode form elements for submission
+		
+    		$.ajax({
+    			url: "https://formsubmit.co/ajax/ryanseamons@gmail.com",
+    			method: "POST",
+    			data: {email: $("#email").val()}
+    		}).done(function(response){ //
+    			$("#email").val("");
+    			$("#email").attr("placeholder", "Thanks for joining!");
+    		});
+    	});
+
+    	$.ajax({
+		
+    	});
+    </script>
 
   </body>
 </html>
