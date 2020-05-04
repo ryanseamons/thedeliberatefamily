@@ -1,0 +1,930 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Libs CSS -->
+    <link rel="stylesheet" href="./assets/libs/@fancyapps/fancybox/dist/jquery.fancybox.min.css">
+    <link rel="stylesheet" href="./assets/libs/aos/dist/aos.css">
+    <link rel="stylesheet" href="./assets/libs/flag-icon-css/css/flag-icon.min.css">
+    <link rel="stylesheet" href="./assets/libs/flickity/dist/flickity.min.css">
+    <link rel="stylesheet" href="./assets/libs/flickity-fade/flickity-fade.css">
+    <link rel="stylesheet" href="./assets/libs/highlightjs/styles/vs2015.css">
+    <link rel="stylesheet" href="./assets/libs/jarallax/dist/jarallax.css">
+    <link rel="stylesheet" href="./assets/fonts/feather/feather.css">
+
+    <!-- 
+      Theme Sans Serif CSS
+      Remove the "disabled" attribute if you want to enable Sans Serif for headings.
+    -->
+    <link rel="stylesheet" href="./assets/css/theme-sans-serif.min.css" id="themeSansSerif" disabled>
+
+    <!--
+      Demo JS
+      Remove the code below on a production website.
+    -->
+    <script src="./assets/js/demo.min.js"></script>
+
+    <!-- Theme CSS -->
+    <link rel="stylesheet" href="./assets/css/theme.min.css">
+
+    <title>The Best Homeschooling Resources I Found After 7 years of Testing</title>
+
+
+    <meta property="og:title" content="The Best Homeschooling Resources I Found After 7 years of Testing"/>
+    <meta property="og:description" content="The past month or so has been so hard on families. My heart goes out to everyone searching for new ways to keep schooling going for their kids. Every home situation is different and every family is…"/>
+    <meta property="og:image" content="https://thedeliberatefamily.com/assets/img/custom/book-feet.jpg"/>
+    <meta property="og:url" content="https://thedeliberatefamily.com/homeschool-resources"/>
+    <meta property="og:type" content="website" />
+
+    <meta name="twitter:card" content="summary_large_image"/>
+    <meta name="twitter:creator" content="@ryanseamons"/>
+    <meta name=”twitter:title” content=”The Best Homeschooling Resources I Found After 7 years of Testing” />
+    <meta name=”twitter:description” content=”The past month or so has been so hard on families. My heart goes out to everyone searching for new ways to keep schooling going for their kids. Every home situation is different and every family is…” />
+    <meta name=”twitter:url” content=”https://thedeliberatefamily.com/homeschool-resources” />
+    <meta name=”twitter:image” content=”https://thedeliberatefamily.com/assets/img/custom/book-feet.jpg” />
+
+  </head>
+  <body>
+
+    <!-- MODALS -->
+    <!-- Sign in -->
+    <div class="modal fade" id="modalSignIn" tabindex="-1" role="dialog" aria-labelledby="modalSignInHeading" aria-hidden="true">
+      <div class="modal-dialog modal-sm modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-body text-center">
+
+            <!-- Close -->
+            <button class="modal-close close" data-dismiss="modal" type="button" aria-label="Close">
+              <span aria-hidden="true">
+                <i class="fe fe-x"></i>
+              </span>
+            </button>
+
+            <!-- Heading -->
+            <h1 class="mb-4" id="modalSignInHeading">
+              Sign In
+            </h1>
+
+            <!-- Text -->
+            <p>
+              Don’t have an account? <a href="sign-up.html">Sign up</a>
+            </p>
+
+            <!-- Form -->
+            <form class="mb-6">
+
+              <!-- Email -->
+              <div class="form-group">
+                <label class="sr-only" for="signInEmail">
+                  Your email
+                </label>
+                <input class="form-control" id="signInEmail" type="email" placeholder="Your email">
+              </div>
+
+              <!-- Password -->
+              <div class="form-group">
+                <div class="input-group inpit-group-merge">
+                  <input class="form-control" id="signInPassword" placeholder="Your password" type="password" aria-label="Your password" aria-describedby="signInPasswordCaption">
+                  <div class="input-group-append">
+                    <a class="input-group-text text-decoration-none text-gray-500" id="signInPasswordCaption" data-toggle="password" href="#signInPassword">
+                      <i class="fe fe-eye"></i>
+                    </a>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Button -->
+              <button class="btn btn-block btn-primary">
+                Sign in
+              </button>
+
+            </form>
+
+            <!-- Link -->
+            <a class="font-size-sm" href="password-reset.html">
+              Forgot your password?
+            </a>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Sign up -->
+    <div class="modal fade" id="modalSignUp" tabindex="-1" role="dialog" aria-labelledby="modalSignUpHeading" aria-hidden="true">
+      <div class="modal-dialog modal-sm modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-body text-center">
+
+            <!-- Close -->
+            <button class="modal-close close" data-dismiss="modal" type="button" aria-label="Close">
+              <span aria-hidden="true">
+                <i class="fe fe-x"></i>
+              </span>
+            </button>
+
+            <!-- Heading -->
+            <h1 class="mb-4" id="modalSignUpHeading">
+              Sign Up
+            </h1>
+
+            <!-- Text -->
+            <p>
+              Create beautiful marketing websites in hours instead of weeks.
+            </p>
+
+            <!-- Form -->
+            <form class="mb-6">
+
+              <!-- Email -->
+              <div class="form-group">
+                <label class="sr-only" for="signUpEmail">
+                  Your email
+                </label>
+                <input class="form-control" id="signUpEmail" type="email" placeholder="Your email">
+              </div>
+
+              <!-- Password -->
+              <div class="form-group">
+                <div class="input-group inpit-group-merge">
+                  <input class="form-control" id="signUpPassword" placeholder="Your password" type="password" aria-label="Your password" aria-describedby="signUpPasswordCaption">
+                  <div class="input-group-append">
+                    <a class="input-group-text text-decoration-none text-gray-500" id="signUpPasswordCaption" data-toggle="password" href="#signUpPassword">
+                      <i class="fe fe-eye"></i>
+                    </a>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Button -->
+              <button class="btn btn-block btn-primary">
+                Sign up
+              </button>
+
+            </form>
+
+            <!-- Link -->
+            <small class="text-muted">
+              Already have an account? <a href="sign-in.html">Login</a>
+            </small>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Password reset -->
+    <div class="modal fade" id="modalPasswordReset" tabindex="-1" role="dialog" aria-labelledby="modalPasswordResetHeading" aria-hidden="true">
+      <div class="modal-dialog modal-sm modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-body text-center">
+
+            <!-- Close -->
+            <button class="modal-close close" data-dismiss="modal" type="button" aria-label="Close">
+              <span aria-hidden="true">
+                <i class="fe fe-x"></i>
+              </span>
+            </button>
+
+            <!-- Heading -->
+            <h1 class="display-4 mb-4" id="modalPasswordResetHeading">
+              Password reset
+            </h1>
+
+            <!-- Text -->
+            <p class="text-muted">
+              Enter your email to reset your password.
+            </p>
+
+            <!-- Form -->
+            <form class="mb-6">
+
+              <!-- Email -->
+              <div class="form-group">
+                <label class="sr-only" for="passwordResetEmail">
+                  Your email
+                </label>
+                <input class="form-control" id="passwordResetEmail" type="email" placeholder="Your email">
+              </div>
+
+              <!-- Button -->
+              <button class="btn btn-block btn-primary">
+                Reset password
+              </button>
+
+            </form>
+
+            <!-- Text -->
+            <small class="text-muted">
+              Remember your password? <a href="sign-in.html">Log in</a>.
+            </small>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Sale -->
+    <div class="modal fade" id="modalSale" tabindex="-1" role="dialog" aria-labelledby="modalSaleHeading" aria-hidden="true">
+      <div class="modal-dialog modal-sm modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-body text-center">
+
+            <!-- Close -->
+            <button class="modal-close close" data-dismiss="modal" type="button" aria-label="Close">
+              <span aria-hidden="true">
+                <i class="fe fe-x"></i>
+              </span>
+            </button>
+
+            <!-- Image -->
+            <img class="img-fluid mb-4 mt-n11" src="./assets/img/illustrations/illustration-4.png" alt="...">
+
+            <!-- Heading -->
+            <h1 class="mb-4" id="modalSaleHeading">
+              30 Day Free Trial
+            </h1>
+
+            <!-- Text -->
+            <p class="text-muted">
+              We’ll help you get started by getting you guides and all the basic informaiton.
+            </p>
+
+            <!-- Form -->
+            <form class="mb-6">
+
+              <!-- Email -->
+              <div class="form-group">
+                <label class="sr-only" for="saleModalEmail">
+                  Your email
+                </label>
+                <input class="form-control" id="saleModalEmail" type="email" placeholder="Your email">
+              </div>
+
+              <!-- Button -->
+              <button class="btn btn-block btn-primary">
+                Start Trial
+              </button>
+
+            </form>
+
+            <!-- Text -->
+            <small class="text-muted">
+              <a class="text-reset" data-dismiss="modal" href="#!">No thanks, I hate free stuff.</a>
+            </small>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <div class="container-lg">
+
+        <!-- Brand -->
+        <a class="navbar-brand d-lg-none" href="./">Deliberate Family</a>
+
+        <!-- Toggler -->
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!-- Collapse -->
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+          <!-- Navigation -->
+          <ul class="navbar-nav justify-content-end w-100">
+            <li class="nav-item">
+              <a class="nav-link" href="articles" role="button" aria-haspopup="true" aria-expanded="false">
+                Blog
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="homeschool-resources" role="button" aria-haspopup="true" aria-expanded="false">
+                Homeschooling
+              </a>
+            </li>
+          </ul>
+
+          <!-- Brand -->
+          <a class="navbar-brand d-none d-lg-block px-lg-6" href="./">Deliberate Family</a>
+
+          <!-- Navigation -->
+          <ul class="navbar-nav justify-content-start w-100">
+            <li class="nav-item">
+              <a class="nav-link" href="articles#disney" role="button" aria-haspopup="true" aria-expanded="false">
+                Pixie Dust
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="https://www.instagram.com/deliberatefamily/" role="button" aria-haspopup="true" aria-expanded="false">
+                <span class="fe fe-instagram" data-toggle="tooltip" data-placement="top" title="instagram"></span> Instagram
+              </a>
+            </li>
+          </ul>
+
+        </div>
+
+      </div>
+    </nav>
+
+
+    <!-- WELCOME -->
+    <section class="bg-dark">
+      <div class="container-lg">
+        <div class="row align-items-center justify-content-between">
+          <div class="col-md-6 col-lg-5 order-md-1 position-relative" style="z-index: 1;">
+
+            <!-- Image -->
+            <img class="img-fluid mw-md-125 mb-4 mb-md-0" src="https://thedeliberatefamily.com/assets/img/custom/book-feet.jpg" alt="...">
+
+          </div>
+          <div class="col-md-6 order-md-0 pt-6 pt-md-10 pb-12 pb-md-13 text-center text-md-left">
+
+            <!-- Preheading -->
+            <h6 class="font-family-sans-serif text-warning mb-5">
+              Homeschooling
+            </h6>
+
+            <!-- Heading -->
+            <h1 class="display-3 text-white mb-4">
+              The Best Homeschooling Resources I Found After 7 years of Testing
+            </h1>
+
+            <!-- Text -->
+            <p class="font-size-lg text-white mb-0">
+              
+            </p>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SHAPE -->
+    <div class="position-relative">
+      <div class="shape shape-fluid-x shape-top text-white">
+        <div class="shape-img pb-8 pb-md-10">
+          <svg viewBox="0 0 100 50" preserveAspectRatio="none"><path d="M0 25h25L75 0h25v50H0z" fill="currentColor"/></svg>
+        </div>
+      </div>
+    </div>
+
+    <!-- CONTENT -->
+    <section class="py-9 py-md-11">
+      <div class="container-lg">
+        <div class="row justify-content-center">
+          <div class="col-md-10 col-lg-8 blog-article">
+
+<!-- start blog-post -->
+<h1 id="the-best-homeschooling-resources-i-found-after-7-years-of-testing">The Best Homeschooling Resources I Found After 7 years of Testing</h1>
+<p>The past month or so has been so hard on families. My heart goes out to everyone searching for new ways to keep schooling going for their kids. Every home situation is different and every family is different.</p>
+<p>Many parents will find themselves in the upcoming months facing new decisions about schooling their children. I have already had a few friends reach out to me to ask about the curricula and resources we use. To help those searching, here is a list of the resources we are currently using after 7 years of testing and adjusting with various homeschooling resources.</p>
+<p>We are still learning and every year I explore new ideas because my children are growing and our family’s goals change. I hope this article will help spark ideas for your families. I also hope what I say does NOT paint a picture of what YOUR homeschool should look like.</p>
+<p>The number one thing to remember with homeschooling is: <strong>No two homeschools look the same.</strong></p>
+<p>What works for some may not work for others. And that is okay. The beauty of homeschooling is the freedom to build it to serve your family instead of building your family to fit the system.</p>
+<p>Ok. On to resources.</p>
+<p><em>Note: these are currently used with kids ages 11, 10, 8, 6, and 3.</em></p>
+<ol>
+<li>We use <a href="http://goodandbeautiful.com">The Good and The Beautiful</a> for Language Arts and for Science this year. I really enjoy this curriculum right now for our family because:</li>
+</ol>
+<ul>
+<li><p>It is so simple! No extra prep necessary beforehand.</p>
+</li>
+<li><p>My kids enjoy it. I rarely have a child complaining about doing it.</p>
+</li>
+<li><p>It has grammar, spelling, writing, literature, art, and geography all wrapped into one book. It often leads us to topics I would rarely think of doing and then we end up really enjoying learning about that topic more at other times.</p>
+</li>
+<li><p>Relative to other curricula, it isn’t too expensive</p>
+</li>
+</ul>
+<hr>
+<ol start="2">
+<li>We started using <a href="https://www.khanacademy.org/">Khan Academy</a> for math this year and have enjoyed it a lot. It is a great way for kids to learn at their own pace. We use this in sync with the real world math experiences we already do which includes:</li>
+</ol>
+<ul>
+<li><p>Board games (adding, subtracting, keeping score)</p>
+</li>
+<li><p>Cooking (adding, subtracting, measuring, fractions, division, weight, etc.)</p>
+</li>
+<li><p>Money (saving, counting, adding/subtracting, keeping a budget and a ledger, transactions online or when we go somewhere, etc.)</p>
+</li>
+<li><p>Quizzing each other on basic multiplication facts.</p>
+</li>
+</ul>
+<hr>
+<ol start="3">
+<li>Social Studies/History: We joined a co-op this year where we get together with other families once a week. The moms prepared lessons and activities based on the monthly rotation from <a href="https://www.welleducatedheart.com/rotation.html">The Well Educated Heart</a>. I love all the book ideas and the resources on this website. We will often check out library books on these topics and google for other ideas to go with it.</li>
+</ol>
+<hr>
+<ol start="4">
+<li>Music: We use <a href="https://www.hoffmanacademy.com/">Hoffman Academy</a> online for piano. It seems a little expensive up front but it has proved to be a good experience for my kids so far.</li>
+</ol>
+<p>We also are learning Ukulele right now as a family from my mother-in-law who teaches at Prattland Music School. We have just started this during quarantine and hope it will continue.</p>
+<p>YouTube has a ton of wonderful Ukulele resources and you can get started with a fairly cheap uke (we recommend <a href="https://www.amazon.com/Official-Kala-Ukulele-Soprano-Mahogany/dp/B01F543PAW/">this one</a>)</p>
+<hr>
+<ol start="5">
+<li>Other: PE — Go outside! Walks, Bike Rides, Hikes, Beaches, Running, Jump Rope challenges, youtube workout and Zumba videos. The sky is the limit! Just get up and do something.</li>
+</ol>
+<hr>
+<ol start="6">
+<li>FamilySchool Power Hour: Since the quarantine started, <a href="http://thefamilyschoolonline.org">TheFamilySchoolOnline</a> began a new thing called Power Hour. This hour consists of 15-mins PE, 30-min lesson, and 15-min read aloud. We have really enjoyed it and it breaks up our day nicely. They currently plan to continue until June 2020.</li>
+</ol>
+<p><em>*Speaking of Family School — this is another great curriculum resource for families wanting to use religious curricula in their homes. We tried it a few years back when they were first starting their distance learning and liked it. It just wasn’t a great fit for us and the ages of my kids back then.</em></p>
+<hr>
+<ol start="7">
+<li>Real life experiences. Too many to name, but some example include teaching our kids to:</li>
+</ol>
+<ul>
+<li><p>shop and initiate transactions on their own</p>
+</li>
+<li><p>order their own food</p>
+</li>
+<li><p>handle household chores (laundry, dishes, organizing, weeding, gardening, designing, deep cleaning, etc.)</p>
+</li>
+<li><p>travel (reservations, flights, airports, planning, etc.)</p>
+</li>
+<li><p>communicate with friends and family (email, Marco Polo, by hand letters, video chats)</p>
+</li>
+<li><p>make meals and bake treats</p>
+</li>
+</ul>
+<hr>
+<p>We enjoy homeschooling. It comes with its own challenges but it also comes with so much joy. <strong>Ultimately we center our homeschooling on two core principles. We want our kids to:</strong></p>
+<ol>
+<li><p><strong>Love to learn</strong></p>
+</li>
+<li><p><strong>Know how to learn</strong></p>
+</li>
+</ol>
+<p>When you focus on these, a lot of other things fall into place. We hope our experiences can help inspire you to create the learning you want to see in your own families.</p>
+
+
+<!-- end blog-post -->
+
+
+            <!-- Divider -->
+            <hr class="my-9">
+
+            <!-- Footer -->
+            <footer class="d-flex align-items-center">
+
+              <!-- Avatar -->
+              <div class="avatar avatar-sm">
+                <img class="avatar-img rounded-circle" src="../assets/img/avatars/katrina-avatar.jpg" alt="...">
+              </div>
+
+              <!-- Body -->
+              <div class="ml-4">
+
+                <!-- Title -->
+                <h4 class="font-family-sans-serif mb-0">
+                  Katrina Seamons
+                </h4>
+
+                <!-- Position -->
+                <p class="small text-muted mt-n1 mb-0">
+                  Published 4/1/2020
+                </p>
+
+              </div>
+
+            </footer>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SHAPE -->
+    <div class="position-relative">
+      <div class="shape shape-fluid-x shape-top text-dark">
+        <div class="shape-img pb-8 pb-md-12">
+          <svg viewBox="0 0 100 50" preserveAspectRatio="none"><path d="M0 25h25L75 0h25v50H0z" fill="currentColor"/></svg>
+        </div>
+      </div>
+    </div>
+
+    <!-- DECORATION -->
+    <div class="position-relative d-none d-md-block">
+      <div class="position-absolute top-left text-warning mt-n11 ml-n8">
+        <svg width="185" height="186" viewBox="0 0 185 186" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="2" cy="2" r="2" fill="currentColor"/><circle cx="22" cy="2" r="2" fill="currentColor"/><circle cx="42" cy="2" r="2" fill="currentColor"/><circle cx="62" cy="2" r="2" fill="currentColor"/><circle cx="82" cy="2" r="2" fill="currentColor"/><circle cx="102" cy="2" r="2" fill="currentColor"/><circle cx="122" cy="2" r="2" fill="currentColor"/><circle cx="142" cy="2" r="2" fill="currentColor"/><circle cx="162" cy="2" r="2" fill="currentColor"/><circle cx="182" cy="2" r="2" fill="currentColor"/><circle cx="2" cy="22" r="2" fill="currentColor"/><circle cx="22" cy="22" r="2" fill="currentColor"/><circle cx="42" cy="22" r="2" fill="currentColor"/><circle cx="62" cy="22" r="2" fill="currentColor"/><circle cx="82" cy="22" r="2" fill="currentColor"/><circle cx="102" cy="22" r="2" fill="currentColor"/><circle cx="122" cy="22" r="2" fill="currentColor"/><circle cx="142" cy="22" r="2" fill="currentColor"/><circle cx="162" cy="22" r="2" fill="currentColor"/><circle cx="182" cy="22" r="2" fill="currentColor"/><circle cx="2" cy="42" r="2" fill="currentColor"/><circle cx="22" cy="42" r="2" fill="currentColor"/><circle cx="42" cy="42" r="2" fill="currentColor"/><circle cx="62" cy="42" r="2" fill="currentColor"/><circle cx="82" cy="42" r="2" fill="currentColor"/><circle cx="102" cy="42" r="2" fill="currentColor"/><circle cx="122" cy="42" r="2" fill="currentColor"/><circle cx="142" cy="42" r="2" fill="currentColor"/><circle cx="162" cy="42" r="2" fill="currentColor"/><circle cx="182" cy="42" r="2" fill="currentColor"/><circle cx="2" cy="62" r="2" fill="currentColor"/><circle cx="22" cy="62" r="2" fill="currentColor"/><circle cx="42" cy="62" r="2" fill="currentColor"/><circle cx="62" cy="62" r="2" fill="currentColor"/><circle cx="82" cy="62" r="2" fill="currentColor"/><circle cx="102" cy="62" r="2" fill="currentColor"/><circle cx="122" cy="62" r="2" fill="currentColor"/><circle cx="142" cy="62" r="2" fill="currentColor"/><circle cx="162" cy="62" r="2" fill="currentColor"/><circle cx="182" cy="62" r="2" fill="currentColor"/><circle cx="2" cy="82" r="2" fill="currentColor"/><circle cx="22" cy="82" r="2" fill="currentColor"/><circle cx="42" cy="82" r="2" fill="currentColor"/><circle cx="62" cy="82" r="2" fill="currentColor"/><circle cx="82" cy="82" r="2" fill="currentColor"/><circle cx="102" cy="82" r="2" fill="currentColor"/><circle cx="122" cy="82" r="2" fill="currentColor"/><circle cx="142" cy="82" r="2" fill="currentColor"/><circle cx="162" cy="82" r="2" fill="currentColor"/><circle cx="182" cy="82" r="2" fill="currentColor"/><circle cx="2" cy="102" r="2" fill="currentColor"/><circle cx="22" cy="102" r="2" fill="currentColor"/><circle cx="42" cy="102" r="2" fill="currentColor"/><circle cx="62" cy="102" r="2" fill="currentColor"/><circle cx="82" cy="102" r="2" fill="currentColor"/><circle cx="102" cy="102" r="2" fill="currentColor"/><circle cx="122" cy="102" r="2" fill="currentColor"/><circle cx="142" cy="102" r="2" fill="currentColor"/><circle cx="162" cy="102" r="2" fill="currentColor"/><circle cx="182" cy="102" r="2" fill="currentColor"/><circle cx="2" cy="122" r="2" fill="currentColor"/><circle cx="22" cy="122" r="2" fill="currentColor"/><circle cx="42" cy="122" r="2" fill="currentColor"/><circle cx="62" cy="122" r="2" fill="currentColor"/><circle cx="82" cy="122" r="2" fill="currentColor"/><circle cx="102" cy="122" r="2" fill="currentColor"/><circle cx="122" cy="122" r="2" fill="currentColor"/><circle cx="142" cy="122" r="2" fill="currentColor"/><circle cx="162" cy="122" r="2" fill="currentColor"/><circle cx="182" cy="122" r="2" fill="currentColor"/><circle cx="2" cy="142" r="2" fill="currentColor"/><circle cx="22" cy="142" r="2" fill="currentColor"/><circle cx="42" cy="142" r="2" fill="currentColor"/><circle cx="62" cy="142" r="2" fill="currentColor"/><circle cx="82" cy="142" r="2" fill="currentColor"/><circle cx="102" cy="142" r="2" fill="currentColor"/><circle cx="122" cy="142" r="2" fill="currentColor"/><circle cx="142" cy="142" r="2" fill="currentColor"/><circle cx="162" cy="142" r="2" fill="currentColor"/><circle cx="182" cy="142" r="2" fill="currentColor"/><circle cx="2" cy="162" r="2" fill="currentColor"/><circle cx="22" cy="162" r="2" fill="currentColor"/><circle cx="42" cy="162" r="2" fill="currentColor"/><circle cx="62" cy="162" r="2" fill="currentColor"/><circle cx="82" cy="162" r="2" fill="currentColor"/><circle cx="102" cy="162" r="2" fill="currentColor"/><circle cx="122" cy="162" r="2" fill="currentColor"/><circle cx="142" cy="162" r="2" fill="currentColor"/><circle cx="162" cy="162" r="2" fill="currentColor"/><circle cx="182" cy="162" r="2" fill="currentColor"/><circle cx="2" cy="182" r="2" fill="currentColor"/><circle cx="22" cy="182" r="2" fill="currentColor"/><circle cx="42" cy="182" r="2" fill="currentColor"/><circle cx="62" cy="182" r="2" fill="currentColor"/><circle cx="82" cy="182" r="2" fill="currentColor"/><circle cx="102" cy="182" r="2" fill="currentColor"/><circle cx="122" cy="182" r="2" fill="currentColor"/><circle cx="142" cy="182" r="2" fill="currentColor"/><circle cx="162" cy="182" r="2" fill="currentColor"/><circle cx="182" cy="182" r="2" fill="currentColor"/></svg>
+      </div>
+    </div>
+
+    <!-- DECORATION -->
+    <div class="position-relative d-none d-md-block">
+      <div class="position-absolute top-right text-primary-dark mt-n15">
+        <svg width="129" height="208" viewBox="0 0 129 208" fill="none" xmlns="http://www.w3.org/2000/svg"><g clip-path="url(#decoration5clip0)"><path fill-rule="evenodd" clip-rule="evenodd" d="M142.812 201.281a6.47 6.47 0 1112.94.002 6.47 6.47 0 01-12.94-.002zm1.618 0a4.851 4.851 0 119.702 0 4.851 4.851 0 01-9.702 0zm4.851-27.018l4.811-4.811 1.144 1.143-4.811 4.811 4.811 4.811-1.144 1.144-4.811-4.811-4.811 4.811-1.143-1.144 4.811-4.811-4.811-4.811 1.143-1.143 4.811 4.811zm-32.343 1.143a6.468 6.468 0 1112.936 0 6.468 6.468 0 01-12.936 0zm1.617 0a4.851 4.851 0 119.702 0 4.851 4.851 0 01-9.702 0zm4.851 24.732l4.811-4.811 1.144 1.143-4.811 4.811 4.811 4.811-1.144 1.144-4.811-4.811-4.811 4.811-1.143-1.144 4.811-4.811-4.811-4.811 1.143-1.143 4.811 4.811z" fill="currentColor"/></g><g clip-path="url(#decoration5clip1)"><path fill-rule="evenodd" clip-rule="evenodd" d="M142.812 149.281a6.47 6.47 0 1112.94.002 6.47 6.47 0 01-12.94-.002zm1.618 0a4.851 4.851 0 119.702 0 4.851 4.851 0 01-9.702 0zm4.851-27.018l4.811-4.811 1.144 1.143-4.811 4.811 4.811 4.811-1.144 1.144-4.811-4.811-4.811 4.811-1.143-1.144 4.811-4.811-4.811-4.811 1.143-1.143 4.811 4.811zm-32.343 1.143a6.468 6.468 0 1112.936 0 6.468 6.468 0 01-12.936 0zm1.617 0a4.851 4.851 0 119.702 0 4.851 4.851 0 01-9.702 0zm4.851 24.732l4.811-4.811 1.144 1.143-4.811 4.811 4.811 4.811-1.144 1.144-4.811-4.811-4.811 4.811-1.143-1.144 4.811-4.811-4.811-4.811 1.143-1.143 4.811 4.811z" fill="currentColor"/></g><g clip-path="url(#decoration5clip2)"><path fill-rule="evenodd" clip-rule="evenodd" d="M142.812 97.281a6.47 6.47 0 1112.939.002 6.47 6.47 0 01-12.939-.002zm1.618 0a4.851 4.851 0 119.703 0 4.851 4.851 0 01-9.703 0zm4.851-27.018l4.811-4.811 1.144 1.143-4.811 4.811 4.811 4.811-1.144 1.144-4.811-4.811-4.811 4.81-1.143-1.143 4.811-4.81-4.811-4.812 1.143-1.143 4.811 4.81zm-32.343 1.143a6.469 6.469 0 1112.937 0 6.469 6.469 0 01-12.937 0zm1.617 0a4.851 4.851 0 119.703 0 4.851 4.851 0 01-9.703 0zm4.851 24.732l4.811-4.811 1.144 1.143-4.811 4.811 4.811 4.811-1.144 1.144-4.811-4.811-4.811 4.811-1.143-1.144 4.811-4.81-4.811-4.812 1.143-1.143 4.811 4.81z" fill="currentColor"/></g><g clip-path="url(#decoration5clip3)"><path fill-rule="evenodd" clip-rule="evenodd" d="M38.813 149.281a6.47 6.47 0 1112.938 0 6.47 6.47 0 01-12.938 0zm1.617 0a4.851 4.851 0 119.702 0 4.851 4.851 0 01-9.702 0zm4.851-27.018l4.811-4.811 1.144 1.143-4.811 4.811 4.81 4.811-1.143 1.144-4.81-4.811-4.812 4.811-1.143-1.144 4.81-4.811-4.81-4.811 1.143-1.143 4.811 4.811zm-32.343 1.143a6.469 6.469 0 1112.937.001 6.469 6.469 0 01-12.938-.001zm1.617 0a4.851 4.851 0 119.702 0 4.851 4.851 0 01-9.702 0zm4.851 24.732l4.811-4.811 1.144 1.143-4.811 4.811 4.81 4.811-1.143 1.144-4.81-4.811-4.812 4.811-1.143-1.144 4.81-4.811-4.81-4.811 1.143-1.143 4.811 4.811z" fill="currentColor"/></g><g clip-path="url(#decoration5clip4)"><path fill-rule="evenodd" clip-rule="evenodd" d="M38.813 97.281a6.469 6.469 0 1112.937 0 6.469 6.469 0 01-12.938 0zm1.617 0a4.852 4.852 0 119.703 0 4.852 4.852 0 01-9.703 0zm4.851-27.018l4.811-4.811 1.144 1.143-4.811 4.811 4.81 4.811-1.143 1.144-4.81-4.811-4.812 4.81-1.143-1.143 4.81-4.81-4.81-4.812 1.143-1.143 4.811 4.81zm-32.343 1.143a6.469 6.469 0 1112.937 0 6.469 6.469 0 01-12.938 0zm1.617 0a4.852 4.852 0 119.703 0 4.852 4.852 0 01-9.703 0zm4.851 24.732l4.811-4.811 1.144 1.143-4.811 4.811 4.81 4.811-1.143 1.144-4.81-4.811-4.812 4.811-1.143-1.144 4.81-4.81-4.81-4.812 1.143-1.143 4.811 4.81z" fill="currentColor"/></g><g clip-path="url(#decoration5clip5)"><path fill-rule="evenodd" clip-rule="evenodd" d="M38.813 45.281a6.469 6.469 0 1112.937 0 6.469 6.469 0 01-12.938 0zm1.617 0a4.852 4.852 0 119.703 0 4.852 4.852 0 01-9.703 0zm4.851-27.018l4.811-4.811 1.144 1.143-4.811 4.811 4.81 4.811-1.143 1.144-4.81-4.811-4.812 4.81-1.143-1.143 4.81-4.81-4.81-4.812 1.143-1.143 4.811 4.81zm-32.343 1.143a6.469 6.469 0 1112.937 0 6.469 6.469 0 01-12.938 0zm1.617 0a4.852 4.852 0 119.703 0 4.852 4.852 0 01-9.703 0zm4.851 24.732l4.811-4.811 1.144 1.143-4.811 4.811 4.81 4.811-1.143 1.144-4.81-4.811-4.812 4.81-1.143-1.143 4.81-4.81-4.81-4.812 1.143-1.143 4.811 4.81z" fill="currentColor"/></g><g clip-path="url(#decoration5clip6)"><path fill-rule="evenodd" clip-rule="evenodd" d="M90.813 175.281a6.47 6.47 0 1112.938 0 6.47 6.47 0 01-12.939 0zm1.617 0a4.851 4.851 0 119.702 0 4.851 4.851 0 01-9.702 0zm4.851-27.018l4.811-4.811 1.144 1.143-4.811 4.811 4.811 4.811-1.144 1.144-4.81-4.811-4.812 4.811-1.143-1.144 4.81-4.811-4.81-4.811 1.143-1.143 4.811 4.811zm-32.344 1.143a6.469 6.469 0 1112.938.001 6.469 6.469 0 01-12.938-.001zm1.618 0a4.851 4.851 0 119.702 0 4.851 4.851 0 01-9.702 0zm4.851 24.732l4.811-4.811 1.144 1.143-4.811 4.811 4.81 4.811-1.143 1.144-4.81-4.811-4.812 4.811-1.143-1.144 4.81-4.811-4.81-4.811 1.143-1.143 4.811 4.811z" fill="currentColor"/></g><g clip-path="url(#decoration5clip7)"><path fill-rule="evenodd" clip-rule="evenodd" d="M90.813 123.281a6.47 6.47 0 1112.938 0 6.47 6.47 0 01-12.939 0zm1.617 0a4.851 4.851 0 119.702 0 4.851 4.851 0 01-9.702 0zm4.851-27.018l4.811-4.811 1.144 1.143-4.811 4.811 4.811 4.811-1.144 1.144-4.81-4.811-4.812 4.811-1.143-1.144 4.81-4.81-4.81-4.812 1.143-1.143 4.811 4.81zm-32.344 1.143a6.469 6.469 0 1112.938 0 6.469 6.469 0 01-12.938 0zm1.618 0a4.852 4.852 0 119.703 0 4.852 4.852 0 01-9.703 0zm4.851 24.732l4.811-4.811 1.144 1.143-4.811 4.811 4.81 4.811-1.143 1.144-4.81-4.811-4.812 4.811-1.143-1.144 4.81-4.811-4.81-4.811 1.143-1.143 4.811 4.811z" fill="currentColor"/></g><g clip-path="url(#decoration5clip8)"><path fill-rule="evenodd" clip-rule="evenodd" d="M90.813 71.281a6.469 6.469 0 1112.937 0 6.469 6.469 0 01-12.938 0zm1.617 0a4.852 4.852 0 119.703 0 4.852 4.852 0 01-9.703 0zm4.851-27.018l4.811-4.811 1.144 1.143-4.811 4.811 4.811 4.811-1.144 1.144-4.81-4.811-4.812 4.81-1.143-1.143 4.81-4.81-4.81-4.812 1.143-1.143 4.811 4.81zm-32.344 1.143a6.469 6.469 0 1112.938 0 6.469 6.469 0 01-12.938 0zm1.618 0a4.852 4.852 0 119.703 0 4.852 4.852 0 01-9.703 0zm4.851 24.732l4.811-4.811 1.144 1.143-4.811 4.811 4.81 4.811-1.143 1.144-4.81-4.811-4.812 4.81-1.143-1.143 4.81-4.81-4.81-4.812 1.143-1.143 4.811 4.81z" fill="currentColor"/></g><defs><clipPath id="decoration4clip0"><path transform="matrix(0 -1 -1 0 155.75 207.75)" fill="#fff" d="M0 0h51.75v51.75H0z"/></clipPath><clipPath id="decoration4clip1"><path transform="rotate(-90 155.75 0)" fill="#fff" d="M0 0h51.75v51.75H0z"/></clipPath><clipPath id="decoration4clip2"><path transform="matrix(0 -1 -1 0 155.75 103.75)" fill="#fff" d="M0 0h51.75v51.75H0z"/></clipPath><clipPath id="decoration4clip3"><path transform="matrix(0 -1 -1 0 51.75 155.75)" fill="#fff" d="M0 0h51.75v51.75H0z"/></clipPath><clipPath id="decoration4clip4"><path transform="matrix(0 -1 -1 0 51.75 103.75)" fill="#fff" d="M0 0h51.75v51.75H0z"/></clipPath><clipPath id="decoration4clip5"><path transform="matrix(0 -1 -1 0 51.75 51.75)" fill="#fff" d="M0 0h51.75v51.75H0z"/></clipPath><clipPath id="decoration4clip6"><path transform="matrix(0 -1 -1 0 103.75 181.75)" fill="#fff" d="M0 0h51.75v51.75H0z"/></clipPath><clipPath id="decoration4clip7"><path transform="matrix(0 -1 -1 0 103.75 129.75)" fill="#fff" d="M0 0h51.75v51.75H0z"/></clipPath><clipPath id="decoration4clip8"><path transform="matrix(0 -1 -1 0 103.75 77.75)" fill="#fff" d="M0 0h51.75v51.75H0z"/></clipPath></defs></svg>
+      </div>
+    </div>
+
+    <!-- RELATED -->
+    <section class="pt-8 pt-md-9 pb-10 pb-md-12 bg-dark">
+      <div class="container-lg">
+        <div class="row justify-content-center">
+          <div class="col-md-10 col-lg-8 text-center text-white">
+
+            <!-- Heading -->
+            <h2 class="display-3 mb-4">
+              Related Readings
+            </h2>
+
+            <!-- Text -->
+            <p class="mb-9">
+              Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.
+            </p>
+
+          </div>
+        </div>
+        <div class="row mt-n6">
+
+          <div class="col-md-4">
+
+            <!-- Card -->
+            <div class="card card-sm rounded-top-left rounded-bottom-right lift lift-lg mt-6">
+
+              <!-- Image -->
+              <div class="rounded-top-left crop">
+                <img class="card-img-top" src="https://cdn-images-1.medium.com/max/5252/1*XT_y4vEcpdQS4n4pH_rqxQ.jpeg" alt="...">
+              </div>
+
+              <!-- Shape -->
+              <div class="position-relative">
+                <div class="shape shape-fluid-x shape-top text-white">
+                  <div class="shape-img pb-5">
+                    <svg viewBox="0 0 100 50" preserveAspectRatio="none"><path d="M0 25h25L75 0h25v50H0z" fill="currentColor"/></svg>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Body -->
+              <div class="card-body">
+
+                <!-- Heading -->
+                <h2 class="mb-2">
+                  Are You a Bed Maker?<br/><br/>
+                </h2>
+
+                <!-- Text -->
+                <p class="font-size-sm mb-4">
+                  I asked him, "What are you doing?! Are you a Bed maker?" I realized we had something to figure out.
+                </p>
+
+                <!-- Footer -->
+                <div class="d-flex align-items-center">
+
+                  <!-- Avatar -->
+                  <div class="avatar avatar-xs">
+                    <img class="avatar-img rounded-circle" src="assets/img/avatars/avatar-katrina.jpg" alt="...">
+                  </div>
+
+                  <!-- Body -->
+                  <div class="ml-4 text-left">
+
+                    <!-- Title -->
+                    <p class="small mb-0">
+                      Katrina Seamons
+                    </p>
+
+                    <!-- Position -->
+                    <p class="small text-muted mt-n1 mb-0">
+                      April 14, 2020
+                    </p>
+
+                  </div>
+
+                </div>
+
+                <!-- Link -->
+                <a class="stretched-link" href="/bed"></a>
+
+              </div>
+            </div>
+
+          </div>
+          <div class="col-md-4">
+
+            <!-- Card -->
+            <div class="card card-sm rounded-top-left rounded-bottom-right lift lift-lg mt-6">
+
+              <!-- Image -->
+              <div class="rounded-top-left crop">
+                <img class="card-img-top" src="https://miro.medium.com/max/1400/1*gewZkLqAEsSqXovT7d83Wg.jpeg" alt="...">
+              </div>
+
+              <!-- Shape -->
+              <div class="position-relative">
+                <div class="shape shape-fluid-x shape-top text-white">
+                  <div class="shape-img pb-5">
+                    <svg viewBox="0 0 100 50" preserveAspectRatio="none"><path d="M0 25h25L75 0h25v50H0z" fill="currentColor"/></svg>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Body -->
+              <div class="card-body">
+
+                <!-- Heading -->
+                <h2 class="mb-2">
+                  Busy at Home: Babies (6-18 mos)
+                </h2>
+
+                <!-- Text -->
+                <p class="font-size-sm mb-4">
+                  I have been thinking about those mamas who are stuck at home trying to entertain young ones without ...
+                </p>
+
+                <!-- Footer -->
+                <div class="d-flex align-items-center">
+
+                  <!-- Avatar -->
+                  <div class="avatar avatar-xs">
+                    <img class="avatar-img rounded-circle" src="assets/img/avatars/avatar-katrina.jpg" alt="...">
+                  </div>
+
+                  <!-- Body -->
+                  <div class="ml-4 text-left">
+
+                    <!-- Title -->
+                    <p class="small mb-0">
+                      Katrina Seamons
+                    </p>
+
+                    <!-- Position -->
+                    <p class="small text-muted mt-n1 mb-0">
+                      April 7, 2020
+                    </p>
+
+                  </div>
+
+                </div>
+
+                <!-- Link -->
+                <a class="stretched-link" href="busy-at-home-babies"></a>
+
+              </div>
+            </div>
+
+          </div>
+          <div class="col-md-4">
+
+            <!-- Card -->
+            <div class="card card-sm rounded-top-left rounded-bottom-right lift lift-lg mt-6">
+
+              <!-- Image -->
+              <div class="rounded-top-left crop">
+                <img class="card-img-top" src="assets/img/custom/book-feet.jpg" alt="...">
+              </div>
+
+              <!-- Shape -->
+              <div class="position-relative">
+                <div class="shape shape-fluid-x shape-top text-white">
+                  <div class="shape-img pb-5">
+                    <svg viewBox="0 0 100 50" preserveAspectRatio="none"><path d="M0 25h25L75 0h25v50H0z" fill="currentColor"/></svg>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Body -->
+              <div class="card-body">
+
+                <!-- Heading -->
+                <h2 class="mb-2">
+                  The Homeschooling Resources I've Found
+                </h2>
+
+                <!-- Text -->
+                <p class="font-size-sm mb-4">
+                  Here are the best resources I've found after 7 years of experimenting through homeschooling.
+                </p>
+
+                <!-- Footer -->
+                <div class="d-flex align-items-center">
+
+                  <!-- Avatar -->
+                  <div class="avatar avatar-xs">
+                    <img class="avatar-img rounded-circle" src="assets/img/avatars/avatar-katrina.jpg" alt="...">
+                  </div>
+
+                  <!-- Body -->
+                  <div class="ml-4 text-left">
+
+                    <!-- Title -->
+                    <p class="small mb-0">
+                      Katrina Seamons
+                    </p>
+
+                    <!-- Position -->
+                    <p class="small text-muted mt-n1 mb-0">
+                      April 1, 2020
+                    </p>
+
+                  </div>
+
+                </div>
+
+                <!-- Link -->
+                <a class="stretched-link" href="homeschool-resources"></a>
+
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <!-- CTA -->
+    <section class="bg-dark">
+      <div class="container-lg">
+        <div class="row align-items-center">
+          <div class="col-12">
+
+            <!-- Divider -->
+            <hr class="border-gray-900 mt-0 mb-8">
+
+          </div>
+          <div class="col-md">
+
+            <!-- Heading -->
+            <h1 class="text-white mb-0">
+              Join the <span class="text-warning">community</span>
+            </h1>
+
+            <!-- Text -->
+            <p class="text-white-60 mb-4 mb-md-0">
+              Receive occasional updates, never spam.
+            </p>
+
+          </div>
+          <div class="col-md-4">
+
+            <!-- Form -->
+            <form id="footer_email">
+              <input class="form-control" type="email" id="email" placeholder="Email address">
+              <p class="text-white-60" id="confirm_submission"></p>
+            </form>
+
+          </div>
+          <div class="col-12">
+
+            <!-- Divider -->
+            <hr class="border-gray-900 mb-0 mt-8">
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer py-8 py-md-11 bg-dark">
+      <div class="container-lg">
+        <div class="row">
+          <div class="col-md-4">
+
+            <!-- Brand -->
+            <h2 class="font-family-serif text-white mb-1">
+              Deliberate Family
+            </h2>
+
+            <!-- Text -->
+            <p class="text-white-60">
+              Intentional family living.
+            </p>
+
+          </div>
+          <div class="col-6 col-md">
+
+
+          </div>
+          <div class="col-6 col-md">
+
+            <!-- Heading -->
+            <h6 class="text-uppercase text-white mb-3 mb-md-5">
+              Topics
+            </h6>
+
+            <!-- List -->
+            <ul class="list-unstyled">
+              <li class="mb-3">
+                <a class="text-white-60" href="#!">Homeschooling</a>
+              </li>
+              <li class="mb-3">
+                <a class="text-white-60" href="#!">Marriage</a>
+              </li>
+              <li>
+                <a class="text-white-60" href="#!">Parenting</a>
+              </li>
+            </ul>
+
+          </div>
+          <div class="col-6 col-md">
+
+            <!-- Heading -->
+            <h6 class="text-uppercase text-white mb-3 mb-md-5">
+              ...
+            </h6>
+
+            <!-- List -->
+            <ul class="list-unstyled">
+              <li class="mb-3">
+                <a class="text-white-60" href="#!">Disney</a>
+              </li>
+              <li class="mb-3">
+                <a class="text-white-60" href="#!">Travel</a>
+              </li>
+              <li>
+                <a class="text-white-60" href="#!">Faith</a>
+              </li>
+            </ul>
+
+          </div>
+          <div class="col-6 col-md">
+
+            <!-- Heading -->
+            <h6 class="text-uppercase text-white mb-3 mb-md-5">
+              Connect
+            </h6>
+
+            <!-- List -->
+            <ul class="list-unstyled">
+              <li class="mb-3">
+                <a class="text-white-60" href="#!">Instagram</a>
+              </li>
+              <li class="mb-3">
+                <a class="text-white-60" href="#!">Facebook</a>
+              </li>
+              <li class="mb-3">
+                <a class="text-white-60" href="#!">Email</a>
+              </li>
+            </ul>
+
+          </div>
+        </div>
+      </div>
+    </footer>
+
+
+    <!-- JAVASCRIPT -->
+    <!-- Polyfills -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=Array.prototype.find,Array.prototype.includes,Array.from,Object.entries,Promise,Object.assign"></script>
+
+    <!-- Libs JS -->
+    <script src="./assets/libs/jquery/dist/jquery.min.js"></script>
+    <script src="./assets/libs/@fancyapps/fancybox/dist/jquery.fancybox.min.js"></script>
+    <script src="./assets/libs/@popperjs/core/dist/umd/popper.min.js"></script>
+    <script src="./assets/libs/aos/dist/aos.js"></script>
+    <script src="./assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="./assets/libs/countup.js/dist/countUp.min.js"></script>
+    <script src="./assets/libs/flickity/dist/flickity.pkgd.min.js"></script>
+    <script src="./assets/libs/flickity-fade/flickity-fade.js"></script>
+    <script src="./assets/libs/highlightjs/highlight.pack.min.js"></script>
+    <script src="./assets/libs/jarallax/dist/jarallax.min.js"></script>
+    <script src="./assets/libs/jarallax/dist/jarallax-video.min.js"></script>
+    <script src="./assets/libs/jarallax/dist/jarallax-element.min.js"></script>
+    <script src="./assets/libs/smooth-scroll/dist/smooth-scroll.min.js"></script>
+    <script src="./assets/libs/typed.js/lib/typed.min.js"></script>
+
+    <!-- Theme JS -->
+    <script src="./assets/js/theme.min.js"></script>
+
+    <!-- Change all external links to open in new tab -->
+    <script>	
+    	$("a[href^='https://']").attr("target","_blank");
+    	$("a[href^='http://']").attr("target","_blank");
+    </script>
+
+
+    <script>
+    	$("#footer_email").submit(function(event){
+
+    		event.preventDefault(); //prevent default action 
+    		// $("#confirm_submission").html("Loading");
+    		var post_url = $(this).attr("action"); //get form action url
+    		var request_method = $(this).attr("method"); //get form GET/POST method
+    		var form_data = $(this).serialize(); //Encode form elements for submission
+		
+    		$.ajax({
+    			url: "https://formsubmit.co/ajax/ryanseamons@gmail.com",
+    			method: "POST",
+    			data: {email: $("#email").val()}
+    		}).done(function(response){ //
+    			$("#email").val("");
+    			$("#email").attr("placeholder", "Thanks for joining!");
+    		});
+    	});
+
+    	$.ajax({
+		
+    	});
+    </script>
+
+  </body>
+</html>
