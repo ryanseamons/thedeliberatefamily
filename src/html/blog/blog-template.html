@@ -1,0 +1,203 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    @@include("../partials/head.html", {
+    "pageTitle": "<!-- @@var= title -->"
+    })
+
+    <meta property="og:title" content="<!-- @@var = title -->"/>
+    <meta property="og:description" content="<!-- @@var = description -->"/>
+    <meta property="og:image" content="<!-- @@var = imageurl -->"/>
+    <meta property="og:url" content="<!-- @@var = url -->"/>
+    <meta property="og:type" content="website" />
+
+    <meta name="twitter:card" content="summary_large_image"/>
+    <meta name="twitter:creator" content="@ryanseamons"/>
+    <meta name=”twitter:title” content=”<!-- @@var = title -->” />
+    <meta name=”twitter:description” content=”<!-- @@var = description -->” />
+    <meta name=”twitter:url” content=”<!-- @@var = url -->” />
+    <meta name=”twitter:image” content=”<!-- @@var = imageurl -->” />
+
+  </head>
+  <body>
+
+    <!-- MODALS -->
+    @@include("../partials/modals.html")
+
+    <!-- NAVBAR -->
+    @@include("../partials/navbar.html", {
+    "classList": "navbar-dark bg-dark"
+    })
+
+    <!-- WELCOME -->
+    <section class="bg-dark">
+      <div class="container-lg">
+        <div class="row align-items-center justify-content-between">
+          <div class="col-md-6 col-lg-5 order-md-1 position-relative" style="z-index: 1;">
+
+            <!-- Image -->
+            <img class="img-fluid mw-md-125 mb-4 mb-md-0" src="<!-- @@var = imageurl -->" alt="...">
+
+          </div>
+          <div class="col-md-6 order-md-0 pt-6 pt-md-10 pb-12 pb-md-13 text-center text-md-left">
+
+            <!-- Preheading -->
+            <h6 class="font-family-sans-serif text-warning mb-5">
+              <!-- @@var = topic -->
+            </h6>
+
+            <!-- Heading -->
+            <h1 class="display-3 text-white mb-4">
+              <!-- @@var = title -->
+            </h1>
+
+            <!-- Text -->
+            <p class="font-size-lg text-white mb-0">
+              <!-- @@var = subheading -->
+            </p>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SHAPE -->
+    <div class="position-relative">
+      <div class="shape shape-fluid-x shape-top text-white">
+        <div class="shape-img pb-8 pb-md-10">
+          @@include("../partials/shapes/angles/angle-top-right.svg")
+        </div>
+      </div>
+    </div>
+
+    <!-- CONTENT -->
+    <section class="py-9 py-md-11">
+      <div class="container-lg">
+        <div class="row justify-content-center">
+          <div class="col-md-10 col-lg-8 blog-article">
+
+          <!-- @@placeholder= blog-post -->
+
+
+            <!-- Divider -->
+            <hr class="my-9">
+
+            <!-- Footer -->
+            <footer class="d-flex align-items-center">
+
+              <!-- Avatar -->
+              <div class="avatar avatar-sm">
+                <img class="avatar-img rounded-circle" src="../assets/img/avatars/katrina-avatar.jpg" alt="...">
+              </div>
+
+              <!-- Body -->
+              <div class="ml-4">
+
+                <!-- Title -->
+                <h4 class="font-family-sans-serif mb-0">
+                  <!-- @@var = author -->
+                </h4>
+
+                <!-- Position -->
+                <p class="small text-muted mt-n1 mb-0">
+                  Published <!-- @@var = date -->
+                </p>
+
+              </div>
+
+            </footer>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SHAPE -->
+    <div class="position-relative">
+      <div class="shape shape-fluid-x shape-top text-dark">
+        <div class="shape-img pb-8 pb-md-12">
+          @@include("../partials/shapes/angles/angle-top-right.svg")
+        </div>
+      </div>
+    </div>
+
+    <!-- DECORATION -->
+    <div class="position-relative d-none d-md-block">
+      <div class="position-absolute top-left text-warning mt-n11 ml-n8">
+        @@include("../partials/decorations/decoration-2.svg")
+      </div>
+    </div>
+
+    <!-- DECORATION -->
+    <div class="position-relative d-none d-md-block">
+      <div class="position-absolute top-right text-primary-dark mt-n15">
+        @@include("../partials/decorations/decoration-5.svg")
+      </div>
+    </div>
+
+    <!-- RELATED -->
+    <section class="pt-8 pt-md-9 pb-10 pb-md-12 bg-dark">
+      <div class="container-lg">
+        <div class="row justify-content-center">
+          <div class="col-md-10 col-lg-8 text-center text-white">
+
+            <!-- Heading -->
+            <h2 class="display-3 mb-4">
+              Related Readings
+            </h2>
+
+            <!-- Text -->
+            <p class="mb-9">
+              Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.
+            </p>
+
+          </div>
+        </div>
+        <div class="row mt-n6">
+
+          @@include("../partials/article-4.html", {
+            "image": "https://cdn-images-1.medium.com/max/5252/1*XT_y4vEcpdQS4n4pH_rqxQ.jpeg",
+            "url": "/bed",
+            "title": "Are You a Bed Maker?<br/><br/>",
+            "description": "I asked him, \"What are you doing?! Are you a Bed maker?\" I realized we had something to figure out.",
+            "author": "Katrina Seamons",
+            "authorImage": "assets/img/avatars/avatar-katrina.jpg",
+            "date": "April 14, 2020"
+          })
+          @@include("../partials/article-4.html", {
+            "image": "https://miro.medium.com/max/1400/1*gewZkLqAEsSqXovT7d83Wg.jpeg",
+            "url": "busy-at-home-babies",
+            "title": "Busy at Home: Babies (6-18 mos)",
+            "description": "I have been thinking about those mamas who are stuck at home trying to entertain young ones without ...",
+            "author": "Katrina Seamons",
+            "authorImage": "assets/img/avatars/avatar-katrina.jpg",
+            "date": "April 7, 2020"
+          })
+          @@include("../partials/article-4.html", {
+            "image": "assets/img/custom/book-feet.jpg",
+            "url": "homeschool-resources",
+            "title": "The Homeschooling Resources I've Found",
+            "description": "Here are the best resources I've found after 7 years of experimenting through homeschooling.",
+            "author": "Katrina Seamons",
+            "authorImage": "assets/img/avatars/avatar-katrina.jpg",
+            "date": "April 1, 2020"
+          })
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    @@include("../partials/cta.html", {
+    "classList": "bg-dark"
+    })
+
+    <!-- FOOTER -->
+    @@include("../partials/footer.html", {
+    "classList": "bg-dark"
+    })
+
+    <!-- JAVASCRIPT -->
+    @@include("../partials/scripts.html")
+
+  </body>
+</html>

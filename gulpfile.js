@@ -1,13 +1,9 @@
-//
-// Variables ===================================
-//
-
-// Load dependencies
 const autoprefixer = require('gulp-autoprefixer');
+const babel = require('gulp-babel');
 const browsersync = require('browser-sync').create();
 const cached = require('gulp-cached');
+const clean = require('gulp-clean');
 const cleancss = require('gulp-clean-css');
-const del = require('del');
 const fileinclude = require('gulp-file-include');
 const gulp = require('gulp');
 const gulpif = require('gulp-if');
@@ -16,233 +12,192 @@ const replace = require('gulp-replace');
 const sass = require('gulp-sass');
 const uglify = require('gulp-uglify');
 const useref = require('gulp-useref');
-const markdown = require('gulp-markdown');
-const extender = require('gulp-html-extend')
 
-//Including dependencies for https://github.com/shinnn/gulp-gh-pages
-const {src, task}= require('gulp');
-const ghPages = require('gulp-gh-pages');
+// Extra included dependencies
+    const markdown = require('gulp-markdown');
+    const extender = require('gulp-html-extend')
 
+    //From https://github.com/shinnn/gulp-gh-pages
+    const {src, task}= require('gulp');
+    const ghPages = require('gulp-gh-pages');
 
+const gtag = '<script async src="https://www.googletagmanager.com/gtag/js?id=UA-156446909-3"></script><script>window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag("js", new Date());gtag("config", "UA-156446909-3");</script>';
 
-// Create reference instance
-const marked = markdown.marked
-console.log(marked);
-
-// Get reference
-const renderer = new marked.Renderer();
-
-// Override function
-renderer.heading = function (text, level) {
-  const escapedText = text.toLowerCase().replace(/[^\w]+/g, '-');
-
-  return `
-          <h${level}>
-            <a name="${escapedText}" class="anchor" href="#${escapedText}">
-              <span class="header-link"></span>
-            </a>
-            ${text}
-          </h${level}>`;
-};
-
-
-
-// Define paths
 const paths = {
-  base: {
-    base: {
-      dir: './'
+  src: {
+    html: {
+      files: './src/html/**/*.html',
+      cname: './src/html/CNAME'
     },
-    node: {
-      dir: './node_modules'
+    js: {
+      files: './src/js/**/*.js'
+    },
+    partials: {
+      files: './src/html/partials/**/*.html'
+    },
+    scss: {
+      files: './src/scss/**/*.scss'
+    },
+    blog: {
+      dir: './src/html/blog',
+      files: './src/html/blog/*.md',
+      blogtemplate: './src/html/blog/**/*.html'
     }
   },
   dist: {
     base: {
       dir: './dist'
     },
-    libs: {
-      dir: './dist/assets/libs'
-    },
-    blog: {
-      dir: './dist/blog'
-    }
-  },
-  src: {
-    base: {
-      dir: './src',
-      files: './src/**/*'
-    },
     css: {
-      dir: './src/assets/css',
-      files: './src/assets/css/**/*'
+      dir: './dist/assets/css',
+      files: './dist/assets/css/**/*.css',
+      minFiles: './dist/assets/css/**/*.min.css',
     },
     html: {
-      dir: './src',
-      files: './src/**/*.html',
-    },
-    img: {
-      dir: './src/assets/img',
-      files: './src/assets/img/**/*',
+      files: './dist/**/*.html'
     },
     js: {
-      dir: './src/assets/js',
-      files: './src/assets/js/**/*'
+      dir: './dist/assets/js',
+      files: './dist/assets/js/**/*.js',
+      minFiles: './dist/assets/js/**/*.min.js'
     },
-    partials: {
-      dir: './src/partials',
-      files: './src/partials/**/*'
-    },
-    scss: {
-      dir: './src/assets/scss',
-      files: './src/assets/scss/**/*',
-      main: './src/assets/scss/*.scss'
-    },
-    tmp: {
-      dir: './src/.tmp',
-      dirblog: './src/.tmp/blog',
-      files: './src/.tmp/**/*'
-    },
-    blog: {
-      dir: './src/blog',
-      files: './src/blog/*.md'
+    libs: {
+      dir: './dist/assets/libs'
     }
+  },
+  node: {
+    dir: './node_modules'
+  },
+  package: {
+    files: './package.json'
   }
 };
 
-//
-// Tasks ===================================
-//
-
-gulp.task('browsersync', function(callback) {
+gulp.task('browsersync', callback => {
   browsersync.init({
     server: {
-      baseDir: [paths.src.tmp.dir, paths.src.base.dir, paths.base.base.dir],
+      baseDir: paths.dist.base.dir,
+      // Added so that we can have the server use base urls vs requiring .html
       serveStaticOptions: {
         extensions: ["html"]
       }
-    },
+    }
   });
   callback();
 });
 
-gulp.task('browsersyncReload', function(callback) {
+gulp.task('browsersyncReload', callback => {
   browsersync.reload();
   callback();
 });
 
-gulp.task('watch', function() {
-  gulp.watch(paths.src.scss.files, gulp.series('scss'));
-  gulp.watch([paths.src.js.files, paths.src.img.files], gulp.series('browsersyncReload'));
-  gulp.watch([paths.src.html.files, paths.src.partials.files, paths.src.blog.files], gulp.series('fileinclude', 'browsersyncReload'));
+gulp.task('clean', () => {
+  return gulp.src([paths.dist.css.dir, paths.dist.html.files, paths.dist.js.dir, paths.dist.libs.dir], {
+      allowEmpty: true,
+      read: false
+    })
+    .pipe(clean());
 });
 
-gulp.task('scss', function() {
+gulp.task('clean:css', () => {
+  return gulp.src([paths.dist.css.files, `!${paths.dist.css.minFiles}`], {
+      read: false
+    })
+    .pipe(clean())
+});
+
+gulp.task('clean:js', () => {
+  return gulp.src([paths.dist.js.files, `!${paths.dist.js.minFiles}`], {
+      read: false
+    })
+    .pipe(clean())
+});
+
+gulp.task('html', () => {
   return gulp
-    .src(paths.src.scss.main)
+    .src([paths.src.html.files, paths.src.html.cname, `!${paths.src.partials.files}`, `!${paths.src.blog.blogtemplate}`])
+    .pipe(fileinclude({
+      prefix: '@@',
+      basepath: '@file',
+      indent: true
+    }))
+    .pipe(cached())
+    .pipe(gulp.dest(paths.dist.base.dir));
+});
+
+gulp.task('blog', () => {
+  return gulp
+    .src(paths.src.blog.files)
+    .pipe(gulpif('*.md', markdown()))
+    .pipe(extender({annotations:true,verbose:false}))
+    .pipe(fileinclude({
+      prefix: '@@',
+      basepath: '@file',
+      indent: true
+    }))
+    .pipe(cached())
+    .pipe(gulp.dest(paths.dist.base.dir));
+});
+
+gulp.task('js', () => {
+  return gulp
+    .src(paths.src.js.files)
+    .pipe(babel({
+      presets: ['@babel/preset-env']
+    }))
+    .pipe(gulp.dest(paths.dist.js.dir))
+});
+
+gulp.task('npmdist', () => {
+  return gulp.src(npmdist(), {
+    base: paths.node.dir
+  }).pipe(gulp.dest(paths.dist.libs.dir))
+});
+
+gulp.task('useref', () => {
+  return gulp
+    .src(paths.dist.html.files)
+    .pipe(useref())
+    .pipe(cached())
+    .pipe(gulpif('*.js', uglify()))
+    .pipe(gulpif('*.css', cleancss()))
+    .pipe(gulp.dest(paths.dist.base.dir));
+});
+
+gulp.task('useref:preview', () => {
+  return gulp
+    .src(paths.dist.html.files)
+    .pipe(replace('</head>', '  <!-- Global site tag (gtag.js) - Google Analytics -->\n    ' + gtag + '\n\n  </head>'))
+    .pipe(useref())
+    .pipe(cached())
+    .pipe(gulpif('*.js', uglify()))
+    .pipe(gulpif('*.css', cleancss()))
+    .pipe(gulp.dest(paths.dist.base.dir));
+});
+
+gulp.task('scss', () => {
+  return gulp
+    .src(paths.src.scss.files)
     .pipe(sass().on('error', sass.logError))
     .pipe(autoprefixer())
-    .pipe(gulp.dest(paths.src.css.dir))
+    .pipe(gulp.dest(paths.dist.css.dir))
     .pipe(browsersync.stream());
 });
 
-gulp.task('fileinclude', function(callback) {
-  return gulp
-    .src([
-      paths.src.html.files,
-      paths.src.blog.files,
-      '!' + paths.src.tmp.files,
-      '!' + paths.src.partials.files
-    ])
-    .pipe(gulpif('*.md', markdown()))
-    .pipe(extender({annotations:true,verbose:false}))
-    .pipe(fileinclude({
-      prefix: '@@',
-      basepath: '@file',
-      indent: true
-    }))
-    .pipe(cached())
-    .pipe(gulp.dest(paths.src.tmp.dir));
+gulp.task('watch', () => {
+  gulp.watch([paths.src.html.files, paths.src.blog.files], gulp.series('html', 'blog', 'browsersyncReload'));
+  gulp.watch(paths.src.js.files, gulp.series('js', 'browsersyncReload'));
+  gulp.watch(paths.src.scss.files, gulp.series('scss'));
+  gulp.watch(paths.package.files, gulp.series('npmdist', 'browsersyncReload'));
 });
 
-gulp.task('clean:tmp', function(callback) {
-  del.sync(paths.src.tmp.dir);
-  callback();
-});
+gulp.task('build', gulp.series('clean', gulp.parallel('html', 'blog', 'js', 'npmdist', 'scss'), 'useref', gulp.parallel('clean:css', 'clean:js')));
 
-gulp.task('clean:dist', function(callback) {
-  del.sync(paths.dist.base.dir);
-  callback();
-});
+gulp.task('build:preview', gulp.series('clean', gulp.parallel('html', 'js', 'npmdist', 'scss'), 'useref:preview', gulp.parallel('clean:css', 'clean:js')));
 
-gulp.task('copy:all', function() {
-  return gulp
-    .src([
-      paths.src.base.files,
-      '!' + paths.src.partials.dir, '!' + paths.src.partials.files,
-      '!' + paths.src.scss.dir, '!' + paths.src.scss.files,
-      '!' + paths.src.tmp.dir, '!' + paths.src.tmp.files,
-      '!' + paths.src.js.dir, '!' + paths.src.js.files,
-      '!' + paths.src.css.dir, '!' + paths.src.css.files,
-      '!' + paths.src.html.files, '!' + paths.src.blog.files
-    ])
-    .pipe(gulp.dest(paths.dist.base.dir));
-});
+gulp.task('default', gulp.series('clean', gulp.parallel('html', 'blog', 'js', 'npmdist', 'scss'), gulp.parallel('browsersync', 'watch')));
 
-gulp.task('copy:libs', function() {
-  return gulp
-    .src(npmdist(), {
-      base: paths.base.node.dir
-    })
-    .pipe(gulp.dest(paths.dist.libs.dir));
-});
-
-gulp.task('html', function() {
-  return gulp
-    .src([
-      paths.src.html.files,
-      '!' + paths.src.tmp.files,
-      '!' + paths.src.partials.files
-    ])
-    .pipe(fileinclude({
-      prefix: '@@',
-      basepath: '@file',
-      indent: true
-    }))
-    .pipe(replace(/href="(.{0,10})node_modules/g, 'href="$1assets/libs'))
-    .pipe(replace(/src="(.{0,10})node_modules/g, 'src="$1assets/libs'))
-    .pipe(useref())
-    .pipe(cached())
-    .pipe(gulpif('*.js', uglify()))
-    .pipe(gulpif('*.css', cleancss()))
-    .pipe(gulp.dest(paths.dist.base.dir));
-});
-
-gulp.task('blog', function() {
-  return gulp
-    .src([
-      paths.src.blog.files
-    ])
-    .pipe(gulpif('*.md', markdown()))
-    .pipe(extender({annotations:true,verbose:false}))
-    .pipe(fileinclude({
-      prefix: '@@',
-      basepath: '@file',
-      indent: true
-    }))
-    .pipe(replace(/href="(.{0,10})node_modules/g, 'href="$1assets/libs'))
-    .pipe(replace(/src="(.{0,10})node_modules/g, 'src="$1assets/libs'))
-    .pipe(useref())
-    .pipe(cached())
-    .pipe(gulpif('*.js', uglify()))
-    .pipe(gulpif('*.css', cleancss()))
-    .pipe(gulp.dest(paths.dist.base.dir))
-})
-
-gulp.task('build', gulp.series(gulp.parallel('clean:tmp', 'clean:dist', 'copy:all', 'copy:libs'), 'scss', 'html', 'blog'));
-
-gulp.task('default', gulp.series(gulp.parallel('fileinclude','scss'), gulp.parallel('browsersync', 'watch')));
-
+//Custom Deploy
 gulp.task('gh-pages', () => src('./dist/**/*').pipe(ghPages()));
 
 gulp.task('deploy', gulp.series('build', 'gh-pages'));

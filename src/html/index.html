@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    @@include("partials/head.html", {
+    "pageTitle": "Deliberate Family | Avoid regret through intentional family living"
+    })
+  </head>
+  <body>
+
+    <!-- MODALS -->
+    @@include("partials/modals.html")
+
+    <!-- NAVBAR -->
+    @@include("partials/navbar.html", {
+    "classList": "navbar-dark navbar-togglable fixed-top"
+    })
+
+    <!-- WELCOME -->
+    <section data-jarallax data-speed=".8" class="bg-cover jarallax" style="background-image: url(assets/img/custom/our-family.jpg);">
+      <div class="py-13 py-md-15" style="background-color: rgba(27, 22, 66, .7)">
+        <div class="container-lg">
+          <div class="row justify-content-center">
+            <div class="col-md-10 col-lg-8 text-center text-white">
+
+              <!-- Preheading -->
+              <h6 class="text-uppercase mb-5">
+                Inspiring you to Live Your Family’s Story Through
+              </h6>
+
+              <!-- Heading -->
+              <h1 class="display-3 mb-4">
+                Intentional Family Living
+              </h1>
+
+              <!-- Text -->
+              <p class="font-size-lg">
+                Sharing what we learn through our adventures in parenting &amp; marriage
+              </p>
+
+              <!-- Button -->
+              <a class="btn btn-primary-light" href="https://www.youtube.com/watch?v=2Xzw7ZQrjxQ" data-fancybox>
+                <i class="fe fe-play mr-2"></i> Learn a bit about our story
+              </a>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SHAPE -->
+    <div class="position-relative">
+      <div class="shape shape-fluid-x shape-top text-white">
+        <div class="shape-img pb-5">
+          @@include("partials/shapes/angles/angle-top-right.svg")
+        </div>
+      </div>
+    </div>
+
+    <!-- BUTTON -->
+    <div class="text-center mt-n7 position-relative" style="z-index: 1;">
+      <a class="btn btn-primary-light btn-circle" href="#about" data-scroll data-offset="0">
+        <i class="fe fe-arrow-down"></i>
+      </a>
+    </div>
+
+    <!-- ABOUT -->
+    <section class="pt-10 pt-md-12" id="about">
+      <div class="container-lg">
+        <div class="row align-items-center justify-content-between">
+          <div class="col-md-6 col-lg-5 text-center text-md-left">
+
+            <!-- Heading -->
+            <h2 class="display-4 mb-4">
+              Avoid regret by living intentionally.
+            </h2>
+
+            <p class="text-muted">The choices you make in parenting, marriage, and life determine your happiness. The secret is that you don't have to do what everyone else does.</p>
+            <p class="text-muted">Too many people <a href="https://www.theguardian.com/lifeandstyle/2012/feb/01/top-five-regrets-of-the-dying" target="_blank">regret</a> not living the life they want to live.</p>
+            <p class="text-muted"><a href="https://www.instagram.com/deliberatefamily/">Join us</a> in our conversations about finding joy through intentional choices with your family.</p>
+            <img src="./assets/img/custom/signature.svg" class="" alt="...">
+
+          </div>
+          <div class="col-md-5 col-lg-6">
+
+            <!-- Image grid -->
+            <div class="img-grid img-grid-4">
+              <div class="img-grid-item">
+
+                <!-- Image -->
+                <img class="img-fluid border border-4 border-md-7 border-white shadow" src="assets/img/career/office-1.jpg" alt="..." data-jarallax-element="-85">
+
+              </div>
+              <div class="img-grid-item">
+
+                <!-- Image -->
+                <img class="img-fluid border border-4 border-md-7 border-white shadow" src="assets/img/career/office-2.jpg" alt="..." data-jarallax-element="-50">
+
+              </div>
+              <div class="img-grid-item">
+
+                <!-- Image -->
+                <img class="img-fluid border border-4 border-md-7 border-white shadow" src="assets/img/career/office-3.jpg" alt="..." data-jarallax-element="-25">
+
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+            <!-- Instagram Feed
+    ================================================== -->
+    <section class="pt-7 mb-10 px-md-5 pt-md-10 bg-light">
+          <div class=" text-center">
+            <!-- Heading -->
+            <h2 class="display-4 mb-10">
+              Follow us on <a href="https://www.instagram.com/deliberatefamily/"><span class="text-underline-warning">Instagram</span></a>.
+            </h2>
+
+              <!-- LightWidget WIDGET --><script src="https://cdn.lightwidget.com/widgets/lightwidget.js"></script><iframe src="https://cdn.lightwidget.com/widgets/eab96f324834547e8ccf5128a8226ce1.html" scrolling="no" allowtransparency="true" class="lightwidget-widget" style="width:100%;border:0;overflow:hidden;"></iframe>
+          </div>
+    </section>
+
+    <!-- CTA -->
+    @@include("partials/cta.html", {
+    "classList": "bg-dark border-multicolor"
+    })
+
+    <!-- FOOTER -->
+    @@include("partials/footer.html", {
+    "classList": "bg-dark"
+    })
+
+    <!-- JAVASCRIPT -->
+    @@include("partials/scripts.html")
+
+  </body>
+</html>

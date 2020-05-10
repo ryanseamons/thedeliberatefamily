@@ -1,6 +1,7 @@
 node_modules/
-dist/
-.publish/
+dist/**/*.html
+dist/assets/css
+dist/assets/js
+dist/assets/libs
 .DS_Store
-.tmp
-src/.tmp/
+.jsbeautifyrc

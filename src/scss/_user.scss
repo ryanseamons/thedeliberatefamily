@@ -1,0 +1,42 @@
+// 
+// user.scss
+// Use this to write your custom SCSS
+//
+
+
+.blog-article {
+
+	img {
+		@extend .img-fluid;
+		@extend .rounded-sm;
+	}
+
+	blockquote{
+		@extend .mb-9;
+		p {
+			@extend .h1;
+			@extend .text-primary;
+			@extend .text-center;
+		}
+	}
+
+	hr {
+		@extend .hr-sm;
+		@extend .border-top-3;
+		@extend .mb-9;
+		margin-top: 4em !important;
+	}
+}
+
+.crop {
+	position: relative;
+    overflow: hidden;
+    height: 200px;
+}
+
+.crop img {
+	position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+}
