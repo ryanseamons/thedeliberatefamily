@@ -1,10 +1,8 @@
 <!-- @@master = blog-template.html
-{"title":"How to Make the Most of a Home-Centered Family Life", "description":"This month we’ve been given the gift of time together as families. Here are specific ideas for not just passing the time, but making the most of time with family", "imageurl":"https://thedeliberatefamily.com/assets/img/posts/family-cooking.jpg", "url":"https://thedeliberatefamily.com/home-centered-family-life", "topic":"Parenting", "author":"Katrina Seamons", "date":"4/14/2020"}
+{"title":"How to Make the Most of a Home-Centered Family Life", "description":"This month we’ve been given the gift of time together as families. Here are specific ideas for not just passing the time, but making the most of time with family", "imageurl":"https://thedeliberatefamily.com/assets/img/custom/family-cooking.jpg", "url":"https://thedeliberatefamily.com/home-centered-family-life", "topic":"Parenting", "author":"Katrina Seamons", "date":"4/14/2020"}
 -->
 
 <!-- @@block = blog-post-->
-
-![Family](assets/img/posts/family-cooking.jpg)
 
 # How to Make the Most of a Home-Centered Family Life
 
